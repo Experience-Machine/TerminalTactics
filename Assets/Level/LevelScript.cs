@@ -33,6 +33,7 @@ public class LevelScript : MonoBehaviour
     public GameObject charUIInstance = null;
     public float maxHealth; // Used for Combat Menu
     public float curHealth; // 
+    UIBehavior.ButtonClicked lastClicked;  
 
     bool setColor;
 
@@ -76,7 +77,7 @@ public class LevelScript : MonoBehaviour
 
         //Todo: Functionalize
         //This block adds 5 characters and 5 enemies and makes sure that they don't overlap with other units/collideable terrain
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 3; i++)
         {
             CharacterBehaviour cb = (Instantiate(characterObject) as GameObject).GetComponent<CharacterBehaviour>();
             bool foundTile = false;
@@ -144,7 +145,7 @@ public class LevelScript : MonoBehaviour
         currentEnemy = 0;
 
         maxHealth = 50f;
-        curHealth = 22f;
+        curHealth = 50f;
         
         resetCollision();
         characters[0].setState(CharacterBehaviour.CharacterState.Selected);
@@ -157,6 +158,37 @@ public class LevelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Check if the user has clicked a button on the Combat Menu
+        if(lastClicked != UIBehavior.lastClicked)
+        {
+            lastClicked = UIBehavior.lastClicked;
+            if(state == LevelState.PlayerTurn)
+            {
+                if (lastClicked == UIBehavior.ButtonClicked.None)
+                {
+                    characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Selected);
+                }
+                else if (lastClicked == UIBehavior.ButtonClicked.Move)
+                {
+                    characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Move);
+                }
+                else if (lastClicked == UIBehavior.ButtonClicked.Attack)
+                {
+                    characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Attack);
+                }
+                else if(lastClicked == UIBehavior.ButtonClicked.Wait)
+                {
+                    characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Idle);
+                }
+            }
+            else
+            {
+                UIBehavior.lastClicked = UIBehavior.ButtonClicked.None;
+                lastClicked = UIBehavior.ButtonClicked.None;
+            }
+        }
+
+        // Handle the Game State
         switch (state)
         {
             case LevelState.PlayerTurn: servicePlayerTurn(); break;

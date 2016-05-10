@@ -12,6 +12,16 @@ public class UIBehavior : MonoBehaviour {
     public Button specialButton;
     public Button waitButton;
 
+    public enum ButtonClicked
+    {
+        None,
+        Move,
+        Attack,
+        Special,
+        Wait
+    }
+    public static ButtonClicked lastClicked;
+
     void Start ()
     {
         moveButton = GameObject.Find("CharacterUI(Clone)/Actions/MoveButton").GetComponent<Button>();
@@ -19,11 +29,14 @@ public class UIBehavior : MonoBehaviour {
         specialButton = GameObject.Find("CharacterUI(Clone)/Actions/SpecialButton").GetComponent<Button>();
         waitButton = GameObject.Find("CharacterUI(Clone)/Actions/WaitButton").GetComponent<Button>();
 
+        lastClicked = ButtonClicked.None;
+
         moveButton.onClick.AddListener(
             () =>
             {
                 Debug.Log("Moving now");
                 //Method call to change to move state
+                lastClicked = ButtonClicked.Move;
             });
 
         attackButton.onClick.AddListener(
@@ -31,6 +44,7 @@ public class UIBehavior : MonoBehaviour {
             {
                 Debug.Log("Attacking now");
                 //Method call to change to attack state
+                lastClicked = ButtonClicked.Attack;
             });
 
         specialButton.onClick.AddListener(
@@ -38,6 +52,7 @@ public class UIBehavior : MonoBehaviour {
             {
                 Debug.Log("Specialing Now");
                 //Method call to change to special state
+                lastClicked = ButtonClicked.Special;
             });
 
         waitButton.onClick.AddListener(
@@ -45,6 +60,7 @@ public class UIBehavior : MonoBehaviour {
             {
                 Debug.Log("Waiting Now");
                 //Method call to change to wait state
+                lastClicked = ButtonClicked.Wait;
             });
     }
 	

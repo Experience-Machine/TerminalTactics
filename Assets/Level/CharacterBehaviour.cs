@@ -7,26 +7,38 @@ public class CharacterBehaviour : MonoBehaviour
 
     public enum CharacterState
     {
+        Move,
         Moving,
+        Attack,
+        Attacking,
         Idle, 
         Selected,
         Dead
     };
     private CharacterState state;
 
-    private Map map;
+    private Map map; // Used for interfacing with tiles
+
+    // Movement stuff
     private Tile[] movementRange;
     Color movementHighlight = new Color(0, 0, 1f, .3f);
     private const int MOVEMENT_RANGE = 4;
-
+    
+    // Pathing stuff
     private List<Path> possiblePaths;
     private Path currentPath; //Current path for move state
-
     private Vector3 startPosition;
     private Vector3 endPosition;
     private float currentLerpTime = 0;
 
+    // Current tile position
     public int posX, posY;
+
+    // Attack stuff
+    private Tile[] attackRange;
+    Color attackHighlight = new Color(1f, 0, 0, .3f);
+    private const int ATTACK_RANGE = 1;
+
     void Awake()
     {
         map = GameObject.Find("Map").GetComponent<Map>();
@@ -34,6 +46,7 @@ public class CharacterBehaviour : MonoBehaviour
         posY = 3;
 
         movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
+        attackRange = new Tile[0];
         //movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
         //map.highlightTiles(movementRange, movementHighlight);
 
@@ -45,11 +58,12 @@ public class CharacterBehaviour : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-        Debug.Log(posX + " " + posY);
+        //Debug.Log(posX + " " + posY);
         //Tile tileOn = map.getTile(posX, posY);
         //tileOn.setCollideable(true);
         //tileOn.charOnTile = this;
         movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
+        attackRange = new Tile[0];
     }
 	
     public CharacterState getState()
@@ -59,15 +73,27 @@ public class CharacterBehaviour : MonoBehaviour
 
     public void setState(CharacterState cs)
     {
+        // Clear highlights
+        if (state == CharacterState.Move && movementRange.Length > 0)
+        {
+            map.clearHighlights(movementRange);
+        }
+        else if (state == CharacterState.Attack && attackRange.Length > 0)
+        {
+            map.clearHighlights(attackRange);
+        }
+
         state = cs;
-        if (state == CharacterState.Selected)
+
+        if (state == CharacterState.Move)
         {
             movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
             map.highlightTiles(movementRange, movementHighlight);
-
-            //Tile tileOn = map.getTile(posX, posY);
-            //tileOn.setCollideable(true);
-
+        }
+        else if (state == CharacterState.Attack)
+        {
+            attackRange = map.getRangeTiles(posX, posY, ATTACK_RANGE);
+            map.highlightTiles(attackRange, attackHighlight);
         }
     }
 
@@ -88,12 +114,13 @@ public class CharacterBehaviour : MonoBehaviour
         {
             case CharacterState.Idle: break;
             case CharacterState.Dead: break;
-            case CharacterState.Selected: serviceSelectedState(); break;
-            case CharacterState.Moving: serviceMoveState(); break;
+            case CharacterState.Selected: break;
+            case CharacterState.Move: serviceMoveState(); break;
+            case CharacterState.Moving: serviceMovingState(); break;
         }
 	}
 
-    private void serviceSelectedState()
+    private void serviceMoveState()
     {
         if (map.selectedTile != null)
         {
@@ -120,8 +147,8 @@ public class CharacterBehaviour : MonoBehaviour
         }
     }
 
-    //Current path should be defined if you're in move state
-    private void serviceMoveState()
+    //Current path should be defined if you're in moving state
+    private void serviceMovingState()
     {
         if (currentPath != null)
         {
