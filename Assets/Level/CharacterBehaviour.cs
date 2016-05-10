@@ -18,6 +18,7 @@ public class CharacterBehaviour : MonoBehaviour
     private CharacterState state;
 
     private Map map; // Used for interfacing with tiles
+    private characterInfo charInfo;
 
     // Character Stats stuff
     public int MAX_HEALTH = 3;
@@ -26,7 +27,7 @@ public class CharacterBehaviour : MonoBehaviour
     // Movement stuff
     private Tile[] movementRange;
     Color movementHighlight = new Color(0, 0, 1f, .3f);
-    private const int MOVEMENT_RANGE = 4;
+    private int MOVEMENT_RANGE = 4;
     
     // Pathing stuff
     private List<Path> possiblePaths;
@@ -42,8 +43,8 @@ public class CharacterBehaviour : MonoBehaviour
     private Tile[] attackRange;
     private Tile tileToAttack;
     Color attackHighlight = new Color(1f, 0, 0, .3f);
-    private const int ATTACK_RANGE = 1;
-    private const int ATTACK_DAMAGE = 1;
+    private int ATTACK_RANGE = 1;
+    private int ATTACK_DAMAGE = 1;
 
     void Awake()
     {
@@ -64,6 +65,17 @@ public class CharacterBehaviour : MonoBehaviour
         currentPath = null;
     }
 	
+    public void setCharInfo(characterInfo cInf)
+    {
+        charInfo = cInf;
+        MAX_HEALTH = cInf.getCharacter().maxHP;
+        currentHealth = MAX_HEALTH;
+        MOVEMENT_RANGE = cInf.getCharacter().MOV;
+        ATTACK_DAMAGE = cInf.getAttack().getDamage();
+        ATTACK_RANGE = cInf.getAttack().getRange();
+        name = cInf.getCharacter().getName();
+    }
+
     public CharacterState getState()
     {
         return state;

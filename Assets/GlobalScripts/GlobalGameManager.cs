@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-// testing.....
-// again......
 using UnityEngine.SceneManagement;
 // for SceneManager
 using System.Collections;
@@ -9,7 +7,7 @@ public class GlobalGameManager : MonoBehaviour
 {
 
 	private string mCurrentLevel = "MenuLevel";
-    private characterInfo[] characterInfos;
+    public static characterInfo[] characterInfos;
 
 	// Use this for initialization
 	void Start () 

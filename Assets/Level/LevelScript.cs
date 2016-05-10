@@ -16,19 +16,26 @@ public class LevelScript : MonoBehaviour
     }
     LevelState state;
 
+    // Map stuff
     public Map map;
-    private GameObject mapObject; // This is for storage
+    private GameObject mapObject; // Actual map object
 
+    // Unit behaviours
     private List<CharacterBehaviour> characters;
     private List<EnemyBehaviour> enemies;
 
+    // Turn counter for player and enemy
     private int currentPlayer;
     private int currentEnemy;
 
+    // Actual GameObjects for char and enemy (temp)
     private GameObject characterObject;
     private GameObject enemyObject;
+
+    // Reusable tile-range
     private Tile[] tileRange;
 
+    // Combat menu stuff
     public GameObject charUI = null;
     public GameObject charUIInstance = null;
     public float maxHealth; // Used for Combat Menu
@@ -76,10 +83,14 @@ public class LevelScript : MonoBehaviour
         }
 
         //Todo: Functionalize
-        //This block adds 5 characters and 5 enemies and makes sure that they don't overlap with other units/collideable terrain
+        //This block adds 3 characters and 5 enemies and makes sure that they don't overlap with other units/collideable terrain
         for (int i = 0; i < 3; i++)
         {
             CharacterBehaviour cb = (Instantiate(characterObject) as GameObject).GetComponent<CharacterBehaviour>();
+            
+            if(GlobalGameManager.characterInfos != null) // Ensure we're running from main menu
+                cb.setCharInfo(GlobalGameManager.characterInfos[i]);
+
             bool foundTile = false;
             while (!foundTile)
             {
@@ -152,7 +163,7 @@ public class LevelScript : MonoBehaviour
         state = LevelState.PlayerTurn;
         charUIInstance = Instantiate(charUI) as GameObject;
         UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
-        script.setContent(characters[0].GetComponent<SpriteRenderer>().sprite, characters[0].MAX_HEALTH, characters[0].currentHealth, "Sample Character " + currentPlayer);
+        script.setContent(characters[0].GetComponent<SpriteRenderer>().sprite, characters[0].MAX_HEALTH, characters[0].currentHealth, characters[0].name);
     }
 
     // Update is called once per frame
@@ -331,7 +342,7 @@ public class LevelScript : MonoBehaviour
                 // Create Combat UI
                 charUIInstance = Instantiate(charUI) as GameObject;
                 UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
-                script.setContent(characters[currentPlayer].GetComponent<SpriteRenderer>().sprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, "Sample Character " + currentPlayer);
+                script.setContent(characters[currentPlayer].GetComponent<SpriteRenderer>().sprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, characters[currentPlayer].name);
 
                 // Set player turn
                 state = LevelState.PlayerTurn;
