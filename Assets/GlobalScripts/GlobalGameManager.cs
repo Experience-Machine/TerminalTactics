@@ -15,13 +15,13 @@ public class GlobalGameManager : MonoBehaviour
     }
 
 
-    public static CardManager cardManager;
-    public static CardType cardTypeSelected = CardType.None;
-    public static characterInfo selectedCharacterInfo = null;
-    public static Card selectedCard = null;
+    public CardManager cardManager;
+    public CardType cardTypeSelected = CardType.None;
+    public characterInfo selectedCharacterInfo = null;
+    public Card selectedCard = null;
 
 	private string mCurrentLevel = "MenuLevel";
-    public static characterInfo[] characterInfos;
+    public characterInfo[] characterInfos;
 
 	// Use this for initialization
 	void Start () 

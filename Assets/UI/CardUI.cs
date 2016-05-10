@@ -12,9 +12,12 @@ public class CardUI : MonoBehaviour {
     Button button;
 
     GameObject cardPrefab;
+    GlobalGameManager manager;
 
     // Use this for initialization
     void Awake() {
+
+        manager = GameObject.Find("GlobalGameManager").GetComponent<GlobalGameManager>();
         type = GlobalGameManager.CardType.None;
         Text[] textComponents = GetComponentsInChildren<Text>();
         cardName = textComponents[1];
@@ -27,8 +30,8 @@ public class CardUI : MonoBehaviour {
             button.onClick.AddListener(
                 () =>
                 {
-                    GlobalGameManager.selectedCharacterInfo = charInfo;
-                    GlobalGameManager.cardTypeSelected = type;
+                    manager.selectedCharacterInfo = charInfo;
+                    manager.cardTypeSelected = type;
                     SceneManager.LoadScene("CardSelect");
                 });
         } else if (scene.name.Equals("CardSelect")) //If we're in the card selection scene, we want to go back to char customization
@@ -36,8 +39,8 @@ public class CardUI : MonoBehaviour {
             button.onClick.AddListener(
                 () =>
                 {
-                    /*GlobalGameManager.selectedCard = card; //Let global know what the card we chose was
-                    characterInfo infoToChange = GlobalGameManager.selectedCharacterInfo;
+                    manager.selectedCard = card; //Let global know what the card we chose was
+                    characterInfo infoToChange = manager.selectedCharacterInfo;
                     
                     if (card is characterCard)
                     {
@@ -51,7 +54,7 @@ public class CardUI : MonoBehaviour {
                     } else if (card is passiveCard)
                     {
                         infoToChange.psvCard = card as passiveCard;
-                    }*/
+                    }
                     SceneManager.LoadScene("CharCustomization");
                 });
         }

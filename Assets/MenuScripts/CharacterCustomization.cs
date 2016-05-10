@@ -15,8 +15,12 @@ public class CharacterCustomization : MonoBehaviour {
     ArrayList charInfoCards;
     Button returnButton;
 
+    GlobalGameManager manager;
+
 	// Use this for initialization
 	void Start () {
+        manager = GameObject.Find("GlobalGameManager").GetComponent<GlobalGameManager>();
+
         myCanvas = GameObject.Find("Canvas");
         charInfoCards = new ArrayList();
         GameObject characterCard = Instantiate(Resources.Load("Prefabs/Card")) as GameObject;
@@ -38,9 +42,9 @@ public class CharacterCustomization : MonoBehaviour {
 
     private void setCards()
     {
-        for (int i = 0; i < GlobalGameManager.characterInfos.Length; i++)
+        for (int i = 0; i < manager.characterInfos.Length; i++)
         {
-            characterInfo characterInfo = GlobalGameManager.characterInfos[i];
+            characterInfo characterInfo = manager.characterInfos[i];
             Camera camera = GetComponent<Camera>();
 
             GameObject characterCard = Instantiate(Resources.Load("Prefabs/Card")) as GameObject;

@@ -43,10 +43,12 @@ public class LevelScript : MonoBehaviour
     UIBehavior.ButtonClicked lastClicked;  
 
     bool setColor;
+    GlobalGameManager manager;
 
     // Use this for initialization
     void Start()
     {
+        manager = GameObject.Find("GlobalGameManager").GetComponent<GlobalGameManager>();
         mapObject = new GameObject("Map");
         map = mapObject.AddComponent<Map>();
         setColor = true;
@@ -88,8 +90,8 @@ public class LevelScript : MonoBehaviour
         {
             CharacterBehaviour cb = (Instantiate(characterObject) as GameObject).GetComponent<CharacterBehaviour>();
             
-            if(GlobalGameManager.characterInfos != null) // Ensure we're running from main menu
-                cb.setCharInfo(GlobalGameManager.characterInfos[i]);
+            if(manager.characterInfos != null) // Ensure we're running from main menu
+                cb.setCharInfo(manager.characterInfos[i]);
 
             bool foundTile = false;
             while (!foundTile)

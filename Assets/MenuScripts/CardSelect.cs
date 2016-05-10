@@ -12,13 +12,12 @@ public class CardSelect : MonoBehaviour {
 
     GameObject myCanvas;
 
-    //GlobalGameManager manager;
-    
-
+    GlobalGameManager manager;
+   
     // Use this for initialization
     void Start()
     {
-        //manager = GameObject.Find("GlobalGameManager").GetComponent<GlobalGameManager>() ;
+        manager = GameObject.Find("GlobalGameManager").GetComponent<GlobalGameManager>() ;
         myCanvas = GameObject.Find("Canvas");
 
         GameObject characterCard = Instantiate(Resources.Load("Prefabs/Card")) as GameObject;
@@ -33,9 +32,9 @@ public class CardSelect : MonoBehaviour {
     private void setCards()
     {
         
-        if (GlobalGameManager.cardTypeSelected == GlobalGameManager.CardType.Character)
+        if (manager.cardTypeSelected == GlobalGameManager.CardType.Character)
         {
-            List<characterCard> characterCards = GlobalGameManager.cardManager.getOwnedCharacterCards();
+            List<characterCard> characterCards = manager.cardManager.getOwnedCharacterCards();
             int cardOffset = ((characterCards.Count-1 * cardWidth) + (characterCards.Count-1 * 5) / 2);
             for (int i = 0; i < characterCards.Count; i++)
             {
@@ -49,9 +48,9 @@ public class CardSelect : MonoBehaviour {
                 RectTransform transform = (RectTransform)characterCard.transform;
                 transform.anchoredPosition = target;
             }
-        } else if (GlobalGameManager.cardTypeSelected == GlobalGameManager.CardType.Attack)
+        } else if (manager.cardTypeSelected == GlobalGameManager.CardType.Attack)
         {
-            List<attackCard> attackCards = GlobalGameManager.cardManager.getOwnedAttackCards();
+            List<attackCard> attackCards = manager.cardManager.getOwnedAttackCards();
             int cardOffset = ((attackCards.Count - 1 * cardWidth) + (attackCards.Count - 1 * 5) / 2);
             for (int i = 0; i < attackCards.Count; i++)
             {
@@ -65,9 +64,9 @@ public class CardSelect : MonoBehaviour {
                 RectTransform transform = (RectTransform)attackCard.transform;
                 transform.anchoredPosition = target;
             }
-        } else if (GlobalGameManager.cardTypeSelected == GlobalGameManager.CardType.Special)
+        } else if (manager.cardTypeSelected == GlobalGameManager.CardType.Special)
         {
-            List<specialCard> specialCards = GlobalGameManager.cardManager.getOwnedSpecialCards();
+            List<specialCard> specialCards = manager.cardManager.getOwnedSpecialCards();
             int cardOffset = ((specialCards.Count - 1 * cardWidth) + (specialCards.Count - 1 * 5) / 2);
             for (int i = 0; i < specialCards.Count; i++)
             {
@@ -81,9 +80,9 @@ public class CardSelect : MonoBehaviour {
                 RectTransform transform = (RectTransform)specialCard.transform;
                 transform.anchoredPosition = target;
             }
-        } else if (GlobalGameManager.cardTypeSelected == GlobalGameManager.CardType.Passive)
+        } else if (manager.cardTypeSelected == GlobalGameManager.CardType.Passive)
         {
-            List<passiveCard> passiveCards = GlobalGameManager.cardManager.getOwnedPassiveCards();
+            List<passiveCard> passiveCards = manager.cardManager.getOwnedPassiveCards();
             int cardOffset = ((passiveCards.Count - 1 * cardWidth) + (passiveCards.Count - 1 * 5) / 2);
             for (int i = 0; i < passiveCards.Count; i++)
             {
