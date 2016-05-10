@@ -1,18 +1,101 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterCustomization : MonoBehaviour {
-    GameObject cardPrefab;
+
+    private const int startPositionX = -194;
+    private const int startPositionY = 164;
+
+    private int cardHeight;
+    private int cardWidth;
+
     GameObject myCanvas;
+    ArrayList charInfoCards;
+    Button returnButton;
+
 	// Use this for initialization
 	void Start () {
         myCanvas = GameObject.Find("Canvas");
-	    cardPrefab = Instantiate(Resources.Load("Prefabs/Card")) as GameObject;
-        cardPrefab.transform.SetParent(myCanvas.transform, false);
-        CardUI uiComponent = cardPrefab.GetComponent<CardUI>();
+        charInfoCards = new ArrayList();
+        GameObject characterCard = Instantiate(Resources.Load("Prefabs/Card")) as GameObject;
+        RectTransform transform = (RectTransform)characterCard.transform;
+        cardWidth = (int)transform.rect.width;
+        cardHeight = (int)transform.rect.height;
 
-        uiComponent.setName("Test name");
-	}
+        setCards();
+        returnButton = GameObject.Find("ReturnButton").GetComponent<Button>();
+
+        returnButton.onClick.AddListener(
+            () =>
+            {
+                
+                SceneManager.LoadScene("GameMainMenu");
+            });
+        
+    }
+
+    private void setCards()
+    {
+        for (int i = 0; i < GlobalGameManager.characterInfos.Length; i++)
+        {
+            characterInfo characterInfo = GlobalGameManager.characterInfos[i];
+            Camera camera = GetComponent<Camera>();
+
+            GameObject characterCard = Instantiate(Resources.Load("Prefabs/Card")) as GameObject;
+            characterCard.transform.SetParent(myCanvas.transform, false);
+            CardUI uiComponent = characterCard.GetComponent<CardUI>();
+
+            characterCard charCard = characterInfo.getCharacter();
+            uiComponent.setCard(charCard);
+            uiComponent.setName(charCard.getName());
+            uiComponent.setDescription(charCard.getDescription());
+            Vector3 target = new Vector3(startPositionX + (i * cardWidth) + (i * 5), startPositionY, 0);
+            RectTransform transform = (RectTransform)characterCard.transform;
+            transform.anchoredPosition = target;
+            
+
+            GameObject attack = Instantiate(Resources.Load("Prefabs/Card")) as GameObject;
+            attack.transform.SetParent(myCanvas.transform, false);
+            uiComponent = attack.GetComponent<CardUI>();
+
+            attackCard attackCard = characterInfo.getAttack();
+            uiComponent.setCard(attackCard);
+            uiComponent.setName(attackCard.getName());
+            uiComponent.setDescription(attackCard.getDescription());
+            target = new Vector3(startPositionX + (i * cardWidth) + (i * 5), startPositionY - cardHeight - 5, 0);
+            transform = (RectTransform)attack.transform;
+            transform.anchoredPosition = target;
+
+            GameObject special = Instantiate(Resources.Load("Prefabs/Card")) as GameObject;
+            special.transform.SetParent(myCanvas.transform, false);
+            uiComponent = special.GetComponent<CardUI>();
+
+            specialCard specialCard = characterInfo.getSpecial();
+            uiComponent.setCard(specialCard);
+            uiComponent.setName(specialCard.getName());
+            uiComponent.setDescription(specialCard.getDescription());
+            target = new Vector3(startPositionX + (i * cardWidth) + (i * 5), startPositionY - (cardHeight * 2) - 10, 0);
+            transform = (RectTransform)special.transform;
+            transform.anchoredPosition = target;
+
+            GameObject passive = Instantiate(Resources.Load("Prefabs/Card")) as GameObject;
+            passive.transform.SetParent(myCanvas.transform, false);
+            uiComponent = passive.GetComponent<CardUI>();
+
+            passiveCard passiveCard = characterInfo.getPassive();
+            uiComponent.setCard(passiveCard);
+            uiComponent.setName(passiveCard.getName());
+            uiComponent.setDescription(passiveCard.getDescription());
+            target = new Vector3(startPositionX + (i * cardWidth) + (i * 5), startPositionY - (cardHeight * 3) - 15, 0);
+            transform = (RectTransform)passive.transform;
+            transform.anchoredPosition = target;
+
+
+
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {

@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CardSelect : MonoBehaviour {
+public class CardManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Debug.Log(GlobalGameManager.cardTypeSelected);
+	
 	}
 	
 	// Update is called once per frame

@@ -5,6 +5,16 @@ using System.Collections;
 
 public class GlobalGameManager : MonoBehaviour 
 {
+    public enum CardType
+    {
+        Character,
+        Attack,
+        Special,
+        Passive,
+        None
+    }
+
+    public static CardType cardTypeSelected = CardType.None;
 
 	private string mCurrentLevel = "MenuLevel";
     public static characterInfo[] characterInfos;
