@@ -12,23 +12,32 @@ public class EnemyBehaviour : MonoBehaviour
         Selected,
         SelectMove,
         ViewAttackRange,
-        Attacking
+        Attacking,
+        Dead
     };
     private EnemyState state;
 
     private Map map;
+
+    // Enemy Stats stuff
+    public int MAX_HEALTH = 1;
+    public int currentHealth;
+
+    // Movement Stuff
     private Tile[] movementRange;
-    private Tile[] meleeRange;
     private Tile selectedTile;
+    private const int MOVEMENT_RANGE = 4;
+    Color movementHighlight = new Color(0, 0, 1f, .3f);
+    
+    // Attacking stuff
+    private Tile[] meleeRange;
     private Tile selectedUnitTile;
     private bool attacking;
-    Color movementHighlight = new Color(0, 0, 1f, .3f);
     Color attackHighlight = new Color(1f, 0, 0, .3f);
-    private const int MOVEMENT_RANGE = 4;
 
+    // Path finding stuff
     private List<Path> possiblePaths;
     private Path currentPath; //Current path for move state
-
     private Vector3 startPosition;
     private Vector3 endPosition;
     private float currentLerpTime = 0;
@@ -42,9 +51,8 @@ public class EnemyBehaviour : MonoBehaviour
         map = GameObject.Find("Map").GetComponent<Map>();
         posX = 3;
         posY = 3;
-        //move(posX, posY);
+
         movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
-        //map.highlightTiles(movementRange, movementHighlight);
 
         possiblePaths = new List<Path>();
 
@@ -52,14 +60,9 @@ public class EnemyBehaviour : MonoBehaviour
         currentPath = null;
         attacking = false;
 
+        currentHealth = MAX_HEALTH;
+
         timer = 0;
-    }
-	// Use this for initialization
-	void Start () 
-    {
-        //Tile tileOn = map.getTile(posX, posY);
-        //tileOn.setCollideable(true);
-        //tileOn.enemyOnTile = this;
     }
 
     public EnemyState getState()
@@ -96,13 +99,10 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (timer > 1f)
         {
-
             //Tile tileOn = map.getTile(posX, posY);
             //tileOn.setCollideable(false);
             //tileOn.enemyOnTile = null;
 
-            //map.clearHighlights(movementRange);
-            
             // Highlight movement range (for player reference, really)
             movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
             map.highlightTiles(movementRange, movementHighlight);
@@ -240,8 +240,8 @@ public class EnemyBehaviour : MonoBehaviour
             // Clear highlights
             map.clearHighlights(meleeRange);
 
-            // Kill unit
-            selectedUnitTile.killTile();
+            // Attack Unit on tile
+            selectedUnitTile.attackTile(1);
 
             // We're done attacking
             selectedUnitTile = null;
@@ -251,6 +251,24 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
+    public void damage(int damageDealt)
+    {
+        currentHealth -= damageDealt;
+        if(currentHealth <= 0)
+        {
+            kill();
+        }
+    }
+
+    // Kill this enemy off
+    public void kill()
+    {
+        // This will cause the turn-based system to remove
+        //  the character on it's next turn. Chance for a 
+        //  revive! Maybe.
+        setState(EnemyState.Dead);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
+    }
 
     #region Pathfinding
     //Set the beginning and ending points for one segment of a path

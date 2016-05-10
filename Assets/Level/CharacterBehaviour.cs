@@ -19,6 +19,10 @@ public class CharacterBehaviour : MonoBehaviour
 
     private Map map; // Used for interfacing with tiles
 
+    // Character Stats stuff
+    public int MAX_HEALTH = 3;
+    public int currentHealth;
+
     // Movement stuff
     private Tile[] movementRange;
     Color movementHighlight = new Color(0, 0, 1f, .3f);
@@ -36,14 +40,18 @@ public class CharacterBehaviour : MonoBehaviour
 
     // Attack stuff
     private Tile[] attackRange;
+    private Tile tileToAttack;
     Color attackHighlight = new Color(1f, 0, 0, .3f);
     private const int ATTACK_RANGE = 1;
+    private const int ATTACK_DAMAGE = 1;
 
     void Awake()
     {
         map = GameObject.Find("Map").GetComponent<Map>();
         posX = 3;
         posY = 3;
+
+        currentHealth = MAX_HEALTH;
 
         movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
         attackRange = new Tile[0];
@@ -54,16 +62,6 @@ public class CharacterBehaviour : MonoBehaviour
 
         state = CharacterState.Idle;
         currentPath = null;
-    }
-	// Use this for initialization
-	void Start () 
-    {
-        //Debug.Log(posX + " " + posY);
-        //Tile tileOn = map.getTile(posX, posY);
-        //tileOn.setCollideable(true);
-        //tileOn.charOnTile = this;
-        movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
-        attackRange = new Tile[0];
     }
 	
     public CharacterState getState()
@@ -97,16 +95,6 @@ public class CharacterBehaviour : MonoBehaviour
         }
     }
 
-    // Kill this character off
-    public void kill()
-    {
-        // This will cause the turn-based system to remove
-        //  the character on it's next turn. Chance for a 
-        //  revive! Maybe.
-        setState(CharacterState.Dead);
-        gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
-    }
-
 	// Update is called once per frame
 	void Update () 
     {
@@ -115,6 +103,8 @@ public class CharacterBehaviour : MonoBehaviour
             case CharacterState.Idle: break;
             case CharacterState.Dead: break;
             case CharacterState.Selected: break;
+            case CharacterState.Attack: serviceAttackState(); break;
+            case CharacterState.Attacking: serviceAttackingState();  break;
             case CharacterState.Move: serviceMoveState(); break;
             case CharacterState.Moving: serviceMovingState(); break;
         }
@@ -133,17 +123,14 @@ public class CharacterBehaviour : MonoBehaviour
 
                     map.clearHighlights(movementRange);
                     //move(map.selectedTile.x, map.selectedTile.y);
-                    movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
-                    map.highlightTiles(movementRange, movementHighlight);
+                    //movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
+                    //map.highlightTiles(movementRange, movementHighlight);
                     currentPath = buildPathToTile(map.selectedTile.x, map.selectedTile.y, movementRange); 
                     setStartAndEnd();
 
                     state = CharacterState.Moving;
                 }
             }
-
-            
-            
         }
     }
 
@@ -172,12 +159,9 @@ public class CharacterBehaviour : MonoBehaviour
                 //Debug.Log("Subsequent: " + startPosition + " " + endPosition);
             } 
             else
-            {
-                
-                
+            {                
                 Debug.Log(posX + " " + posY);
-                //state = CharacterState.Selected;
-                state = CharacterState.Idle;
+                state = CharacterState.Selected;
                 map.selectedTile = null;
                 map.clearHighlights(movementRange);
                 //movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
@@ -186,6 +170,54 @@ public class CharacterBehaviour : MonoBehaviour
         }
     }
 
+    private void serviceAttackState()
+    {
+        if (map.selectedTile != null)
+        {
+            for (int i = 0; i < attackRange.Length; i++)
+            {
+                // If the selected tile is in our attack range:
+                if (attackRange[i] == map.selectedTile)
+                {
+                    // This does not prevent us from attacking an empty tile
+                    tileToAttack = map.selectedTile;
+                    map.clearHighlights(attackRange);
+                    state = CharacterState.Attacking;
+                }
+            }
+        }
+    }
+
+    private void serviceAttackingState()
+    {
+        // Do any attack animations here
+        map.clearHighlights(attackRange);
+
+        tileToAttack.attackTile(ATTACK_DAMAGE);
+        tileToAttack = null;
+        state = CharacterState.Idle;
+    }
+
+    public void damage(int damageDealt)
+    {
+        currentHealth -= damageDealt;
+        if(currentHealth <= 0)
+        {
+            kill();
+        }
+    }
+
+    // Kill this character off
+    public void kill()
+    {
+        // This will cause the turn-based system to remove
+        //  the character on it's next turn. Chance for a 
+        //  revive! Maybe.
+        setState(CharacterState.Dead);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
+    }
+
+    #region Pathfinding and movement
     //Set the beginning and ending points for one segment of a path
     private void setStartAndEnd()
     {
@@ -366,4 +398,6 @@ public class CharacterBehaviour : MonoBehaviour
         }
         return null;
     }
+#endregion
+
 }

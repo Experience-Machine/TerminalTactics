@@ -144,7 +144,7 @@ public class LevelScript : MonoBehaviour
         currentPlayer = 0;
         currentEnemy = 0;
 
-        maxHealth = 50f;
+        maxHealth = 100f;
         curHealth = 50f;
         
         resetCollision();
@@ -152,7 +152,7 @@ public class LevelScript : MonoBehaviour
         state = LevelState.PlayerTurn;
         charUIInstance = Instantiate(charUI) as GameObject;
         UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
-        script.setContent(characters[0].GetComponent<SpriteRenderer>().sprite, maxHealth, curHealth, "Sample Character " + currentPlayer);
+        script.setContent(characters[0].GetComponent<SpriteRenderer>().sprite, characters[0].MAX_HEALTH, characters[0].currentHealth, "Sample Character " + currentPlayer);
     }
 
     // Update is called once per frame
@@ -228,9 +228,12 @@ public class LevelScript : MonoBehaviour
 
         for (int i = 0; i < enemies.Count; i++)
         {
-            Tile tileOn = map.getTile(enemies[i].posX, enemies[i].posY);
-            tileOn.setCollideable(true);
-            tileOn.enemyOnTile = enemies[i];
+            if (enemies[i].getState() != EnemyBehaviour.EnemyState.Dead)
+            {
+                Tile tileOn = map.getTile(enemies[i].posX, enemies[i].posY);
+                tileOn.setCollideable(true);
+                tileOn.enemyOnTile = enemies[i];
+            }
         }
 
     }
@@ -239,11 +242,14 @@ public class LevelScript : MonoBehaviour
         // Wait until the selected player's turn is over
         if (characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Idle)
         {
+            // Clean the map
             map.clearAllHighlights();
             resetCollision();
-            currentPlayer++;
-            if (currentPlayer == characters.Count) currentPlayer = 0;
 
+            // Itterate who gets to go on the next player turn
+            currentPlayer++;
+
+            // Remove dead characters
             for (int i = 0; i < characters.Count; i++)
             {
                 if (characters[i].getState() == CharacterBehaviour.CharacterState.Dead)
@@ -252,14 +258,30 @@ public class LevelScript : MonoBehaviour
                 }
             }
 
-            if (characters.Count == 0)
+            // Remove dead enemies
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                if (enemies[i].getState() == EnemyBehaviour.EnemyState.Dead)
+                {
+                    enemies.Remove(enemies[i]);
+                }
+            }
+
+            // Catch carry-over currentPlayer / currentEnemy
+            if (currentPlayer >= characters.Count) currentPlayer = 0;
+            if (currentEnemy >= enemies.Count) currentEnemy = 0;
+
+            if (characters.Count == 0 || enemies.Count == 0)
             {
                  state = LevelState.Idle;
             }
-            if (characters.Count > 0)
+            else
             {
+                // Destroy Combat UI
                 Destroy(charUIInstance);
                 charUIInstance = null;
+                
+                //Set enemy turn 
                 state = LevelState.EnemyTurn;
                 enemies[currentEnemy].setState(EnemyBehaviour.EnemyState.Selected);
             }
@@ -268,14 +290,17 @@ public class LevelScript : MonoBehaviour
 
     void serviceEnemyTurn()
     {
+        // Wait until current enemy's turn is over
         if (enemies[currentEnemy].getState() == EnemyBehaviour.EnemyState.Idle)
         {
+            // Clean the map
             map.clearAllHighlights();
             resetCollision();
-            currentEnemy++;
-            if (currentEnemy == enemies.Count) currentEnemy = 0;
-            state = LevelState.PlayerTurn;
 
+            // Itterate who gets to go on the next enemy turn
+            currentEnemy++;
+
+            // Remove dead characters
             for (int i = 0; i < characters.Count; i++)
             {
                 if (characters[i].getState() == CharacterBehaviour.CharacterState.Dead)
@@ -284,17 +309,36 @@ public class LevelScript : MonoBehaviour
                 }
             }
 
+            // Remove dead enemies
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                if (enemies[i].getState() == EnemyBehaviour.EnemyState.Dead)
+                {
+                    enemies.Remove(enemies[i]);
+                }
+            }
+
+            // Catch carry-over currentPlayer / currentEnemy
             if (currentPlayer >= characters.Count) currentPlayer = 0;
+            if (currentEnemy >= enemies.Count) currentEnemy = 0;
 
-            if (characters.Count == 0) state = LevelState.Idle;
+            if (characters.Count == 0 || enemies.Count == 0)
+            {
+                state = LevelState.Idle;
+            }
             else
+            {
+                // Create Combat UI
+                charUIInstance = Instantiate(charUI) as GameObject;
+                UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
+                script.setContent(characters[currentPlayer].GetComponent<SpriteRenderer>().sprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, "Sample Character " + currentPlayer);
+
+                // Set player turn
+                state = LevelState.PlayerTurn;
                 characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Selected);
+            }
 
-            // Create Combat UI
-            charUIInstance = Instantiate(charUI) as GameObject;
-            UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
-            script.setContent(characters[currentPlayer].GetComponent<SpriteRenderer>().sprite, maxHealth, curHealth, "Sample Character " + currentPlayer);
-
+            
         }
     }
 

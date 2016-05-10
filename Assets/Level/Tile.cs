@@ -99,6 +99,23 @@ public class Tile : MonoBehaviour
         map.lastTileClicked = this;
     }
 
+    public void attackTile(int damageDealt)
+    {
+        if (charOnTile != null)
+        {
+            hasUnit = false;
+            charOnTile.damage(damageDealt);
+            if(charOnTile.getState() == CharacterBehaviour.CharacterState.Dead)
+            {
+                charOnTile = null;
+            }
+        }
+        else if(enemyOnTile != null)
+        {
+            enemyOnTile.damage(damageDealt);
+        }
+    }
+
     // This method can be used one of two ways:
     //  1) There is a unit present on this tile. In this case, the tile will 
     //      call the kill enemy on the unit present on the tile.
