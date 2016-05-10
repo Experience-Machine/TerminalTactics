@@ -17,15 +17,15 @@ public class Map : MonoBehaviour
     private GameObject selectRef;
     public Map()
     {
-        mapMaxX = 20;
-        mapMaxY = 10;
+        mapMaxX = 27;
+        mapMaxY = 18;
         map = new Tile[mapMaxX, mapMaxY];
         Bounds mWorldBound = new Bounds(Vector3.zero, Vector3.one);
         Camera camera = Camera.main;
         mWorldBound.center = camera.transform.position;
         mWorldBound.size = new Vector2(camera.orthographicSize * 2, camera.orthographicSize * 2);
-        minXPos = mWorldBound.min.x - 2;
-        minYPos = mWorldBound.min.y;
+        minXPos = 0;// mWorldBound.min.x - 2;
+        minYPos = 0;// mWorldBound.min.y;
 
         lastTileClicked = null;
         selectedTile = null;
