@@ -29,6 +29,11 @@ public class LevelScript : MonoBehaviour
     private GameObject enemyObject;
     private Tile[] tileRange;
 
+    public GameObject charUI = null;
+    public GameObject charUIInstance = null;
+    public float maxHealth; // Used for Combat Menu
+    public float curHealth; // 
+
     bool setColor;
 
     // Use this for initialization
@@ -49,6 +54,11 @@ public class LevelScript : MonoBehaviour
         if (enemyObject == null)
         {
             enemyObject = Resources.Load("Prefabs/Enemy") as GameObject;
+        }
+
+        if (charUI == null)
+        {
+            charUI = Resources.Load("Prefabs/CharacterUI") as GameObject;
         }
 
         //Randomly generate some collideable tiles
@@ -133,10 +143,15 @@ public class LevelScript : MonoBehaviour
         currentPlayer = 0;
         currentEnemy = 0;
 
+        maxHealth = 50f;
+        curHealth = 22f;
         
         resetCollision();
         characters[0].setState(CharacterBehaviour.CharacterState.Selected);
         state = LevelState.PlayerTurn;
+        charUIInstance = Instantiate(charUI) as GameObject;
+        UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
+        script.setContent(characters[0].GetComponent<SpriteRenderer>().sprite, maxHealth, curHealth, "Sample Character " + currentPlayer);
     }
 
     // Update is called once per frame
@@ -153,6 +168,7 @@ public class LevelScript : MonoBehaviour
     void resetCollision()
     {
         //map.clearAllHighlights();
+
         for (int i = 0; i < map.getMapSizeX(); i++)
         {
             for(int j = 0; j < map.getMapSizeY(); j++)
@@ -184,9 +200,11 @@ public class LevelScript : MonoBehaviour
             tileOn.setCollideable(true);
             tileOn.enemyOnTile = enemies[i];
         }
+
     }
     void servicePlayerTurn()
     {
+        // Wait until the selected player's turn is over
         if (characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Idle)
         {
             map.clearAllHighlights();
@@ -201,25 +219,18 @@ public class LevelScript : MonoBehaviour
                     characters.Remove(characters[i]);
                 }
             }
+
             if (characters.Count == 0)
             {
                  state = LevelState.Idle;
             }
-            /*while ( characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Dead)
-            {
-                characters.Remove(characters[currentPlayer]);
-                if (currentPlayer == characters.Count) currentPlayer = 0;
-                if(characters.Count == 0)
-                {
-                    state = LevelState.Idle;
-                }
-            }*/
             if (characters.Count > 0)
             {
+                Destroy(charUIInstance);
+                charUIInstance = null;
                 state = LevelState.EnemyTurn;
                 enemies[currentEnemy].setState(EnemyBehaviour.EnemyState.Selected);
             }
-            
         }
     }
 
@@ -246,7 +257,11 @@ public class LevelScript : MonoBehaviour
             if (characters.Count == 0) state = LevelState.Idle;
             else
                 characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Selected);
-         
+
+            // Create Combat UI
+            charUIInstance = Instantiate(charUI) as GameObject;
+            UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
+            script.setContent(characters[currentPlayer].GetComponent<SpriteRenderer>().sprite, maxHealth, curHealth, "Sample Character " + currentPlayer);
 
         }
     }
