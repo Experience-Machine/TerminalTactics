@@ -51,6 +51,7 @@ public class CharacterCustomization : MonoBehaviour {
             uiComponent.setCard(charCard);
             uiComponent.setName(charCard.getName());
             uiComponent.setDescription(charCard.getDescription());
+            uiComponent.setCharacter(characterInfo);
             Vector3 target = new Vector3(startPositionX + (i * cardWidth) + (i * 5), startPositionY, 0);
             RectTransform transform = (RectTransform)characterCard.transform;
             transform.anchoredPosition = target;
@@ -64,6 +65,7 @@ public class CharacterCustomization : MonoBehaviour {
             uiComponent.setCard(attackCard);
             uiComponent.setName(attackCard.getName());
             uiComponent.setDescription(attackCard.getDescription());
+            uiComponent.setCharacter(characterInfo);
             target = new Vector3(startPositionX + (i * cardWidth) + (i * 5), startPositionY - cardHeight - 5, 0);
             transform = (RectTransform)attack.transform;
             transform.anchoredPosition = target;
@@ -76,6 +78,7 @@ public class CharacterCustomization : MonoBehaviour {
             uiComponent.setCard(specialCard);
             uiComponent.setName(specialCard.getName());
             uiComponent.setDescription(specialCard.getDescription());
+            uiComponent.setCharacter(characterInfo);
             target = new Vector3(startPositionX + (i * cardWidth) + (i * 5), startPositionY - (cardHeight * 2) - 10, 0);
             transform = (RectTransform)special.transform;
             transform.anchoredPosition = target;
@@ -88,11 +91,10 @@ public class CharacterCustomization : MonoBehaviour {
             uiComponent.setCard(passiveCard);
             uiComponent.setName(passiveCard.getName());
             uiComponent.setDescription(passiveCard.getDescription());
+            uiComponent.setCharacter(characterInfo);
             target = new Vector3(startPositionX + (i * cardWidth) + (i * 5), startPositionY - (cardHeight * 3) - 15, 0);
             transform = (RectTransform)passive.transform;
             transform.anchoredPosition = target;
-
-
 
         }
     }

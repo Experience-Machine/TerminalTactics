@@ -14,7 +14,11 @@ public class GlobalGameManager : MonoBehaviour
         None
     }
 
+
+    public static CardManager cardManager;
     public static CardType cardTypeSelected = CardType.None;
+    public static characterInfo selectedCharacterInfo = null;
+    public static Card selectedCard = null;
 
 	private string mCurrentLevel = "MenuLevel";
     public static characterInfo[] characterInfos;
@@ -24,6 +28,7 @@ public class GlobalGameManager : MonoBehaviour
     {
 		DontDestroyOnLoad(this);
         characterInfos = new characterInfo[3];
+        cardManager = new CardManager();
 
         // Dummy CharInfo stuff:
         characterCard defaultChar = new characterCard("Char", "New char", 1, 1, 1, 3, 3);
