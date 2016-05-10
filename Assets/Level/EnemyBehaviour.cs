@@ -94,7 +94,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void serviceSelectedState()
     {
-        if (timer > 2f)
+        if (timer > 1f)
         {
 
             //Tile tileOn = map.getTile(posX, posY);
@@ -113,7 +113,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void serviceSelectMove()
     {
-        if (timer > 2f)
+        if (timer > 1f)
         {
             meleeRange = map.getMeleeRange(posX, posY, MOVEMENT_RANGE); // Get enemies within melee range
             map.highlightTiles(meleeRange, attackHighlight); // Highlight them for demo purposes (aka remove this later)

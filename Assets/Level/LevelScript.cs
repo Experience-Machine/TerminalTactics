@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 
 
-public class Prototype2State : MonoBehaviour
+public class LevelScript : MonoBehaviour
 {
     protected enum LevelState
     {
