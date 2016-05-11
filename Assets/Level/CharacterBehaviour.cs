@@ -13,6 +13,7 @@ public class CharacterBehaviour : MonoBehaviour
         Attacking,
         Idle, 
         Selected,
+        Special,
         Dead
     };
     private CharacterState state;
@@ -120,6 +121,7 @@ public class CharacterBehaviour : MonoBehaviour
             case CharacterState.Attack: serviceAttackState(); break;
             case CharacterState.Attacking: serviceAttackingState();  break;
             case CharacterState.Move: serviceMoveState(); break;
+            case CharacterState.Special: serviceSpecialState(); break;
             case CharacterState.Moving: serviceMovingState(); break;
         }
 	}
@@ -188,6 +190,7 @@ public class CharacterBehaviour : MonoBehaviour
     {
         if (map.selectedTile != null)
         {
+            //Make sure we can't attack another player
             if (map.selectedTile.charOnTile != null)
             {
                 map.selectedTile = null;
@@ -236,6 +239,13 @@ public class CharacterBehaviour : MonoBehaviour
         //  revive! Maybe.
         setState(CharacterState.Dead);
         gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
+    }
+
+    public void serviceSpecialState()
+    {
+        //Debug.Log(charInfo.spcCard.nm);
+        charInfo.spcCard.specialAttack(map, charInfo, this);
+        
     }
 
     #region Pathfinding and movement

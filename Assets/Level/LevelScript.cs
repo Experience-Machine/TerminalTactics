@@ -194,7 +194,14 @@ public class LevelScript : MonoBehaviour
                 else if(lastClicked == UIBehavior.ButtonClicked.Wait)
                 {
                     characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Idle);
+                } else if (lastClicked == UIBehavior.ButtonClicked.Special)
+                {
+                    map.selectedTile = null;
+                    characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Special);
+                    
                 }
+
+                Debug.Log(characters[currentPlayer].getState());
             }
             else
             {

@@ -16,7 +16,7 @@ public class specialCard : Card
         this.cost = cost;
     }
     // Implement this if you make a special attack
-    public virtual void specialAttack(Map gameMap, characterInfo theCharacter)
+    public virtual void specialAttack(Map gameMap, characterInfo theCharacter, CharacterBehaviour character)
     {
 
     }

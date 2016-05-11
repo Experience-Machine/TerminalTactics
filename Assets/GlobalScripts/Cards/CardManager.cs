@@ -20,6 +20,8 @@ public class CardManager{
     private static specialCard nullPointer = new specialCard("Null pointer", "Stop an enemy from attacking for two turns", 3);
     private static specialCard blueScreen = new specialCard("Blue screen", "Everyone takes 5 damage", 8);
 
+    private static TargetedAOEAttack testAOE = new TargetedAOEAttack("Test aoe", "Damage in an area around the target", 1, 2, 3, 5);
+
     private static passiveCard cooling = new passiveCard("Cooling", "Good cooling improves performance", "health", 1);
 
     List<Card> enemyCards;
@@ -55,6 +57,8 @@ public class CardManager{
         allCards.Add(blueScreen);
         allCards.Add(cooling);
 
+        allCards.Add(testAOE);
+
         enemyCards.Add(worm);
         enemyCards.Add(horse);
         enemyCards.Add(infect);
@@ -76,6 +80,8 @@ public class CardManager{
         ownedCards.Add(nullPointer);
         ownedCards.Add(blueScreen);
         ownedCards.Add(cooling);
+
+        ownedCards.Add(testAOE);
     }
 
     public List<characterCard> getOwnedCharacterCards()
