@@ -8,6 +8,8 @@ public class TargetedAOEAttack : specialCard
     int aoeRange = 1;
     int aoeDamage = 1;
 
+    Tile[] aoeRangeTiles;
+
     private Color attackHighlight = new Color(1f, 0, 0, .3f);
 
     public TargetedAOEAttack(string name, string description, int cost, int aoeSize, int aoeRange, int aoeDamage) : base(name, description, cost)
@@ -15,10 +17,12 @@ public class TargetedAOEAttack : specialCard
         this.aoeSize = aoeSize;
         this.aoeRange = aoeRange;
         this.aoeDamage = aoeDamage;
+        aoeRangeTiles = new Tile[0];
     }
     // Implement this if you make a special attack
     public override void specialAttack(Map gameMap, characterInfo theCharacter, CharacterBehaviour character)
     {
+        gameMap.clearHighlights(aoeRangeTiles);
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
 
@@ -37,25 +41,26 @@ public class TargetedAOEAttack : specialCard
 
             if (distance < minDistance)
             {
+                minDistance = distance;
                 closestMouseTile = tile;
             }
         }
 
-        Tile[] aoeRange = gameMap.getRangeTiles(closestMouseTile.x, closestMouseTile.y, aoeSize);
-        gameMap.highlightTiles(aoeRange, attackHighlight);
+        aoeRangeTiles = gameMap.getRangeTiles(closestMouseTile.x, closestMouseTile.y, aoeSize);
+        gameMap.highlightTiles(aoeRangeTiles, attackHighlight);
 
         //Player selected a tile
         if (gameMap.selectedTile != null)
         {
-            for (int i = 0; i < aoeRange.Length; i++)
+            for (int i = 0; i < aoeRangeTiles.Length; i++)
             {
-                Tile t = aoeRange[i];
+                Tile t = aoeRangeTiles[i];
                 if (t.enemyOnTile != null) {
                     t.attackTile(aoeDamage);
                 }
                 
             }
-            gameMap.clearHighlights(aoeRange);
+            gameMap.clearHighlights(aoeRangeTiles);
             character.setState(CharacterBehaviour.CharacterState.Idle);
         }
 
