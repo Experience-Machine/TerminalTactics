@@ -23,6 +23,7 @@ public class CharacterBehaviour : MonoBehaviour
 
     // Character Stats stuff
     public int MAX_HEALTH = 3;
+    public int MAX_SPECIAL;
     public int currentHealth;
     public int currentSpecial;
     public int defense = 1;
@@ -78,7 +79,8 @@ public class CharacterBehaviour : MonoBehaviour
         ATTACK_RANGE = cInf.getAttack().getRange();
         name = cInf.getCharacter().getName();
         defense = cInf.getCharacter().DEF;
-        currentSpecial = cInf.getCharacter().SPC;
+        MAX_SPECIAL = cInf.getCharacter().SPC;
+        currentSpecial = MAX_SPECIAL;
     }
 
     public bool hasEnoughSpecial()

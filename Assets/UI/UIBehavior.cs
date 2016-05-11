@@ -7,6 +7,9 @@ public class UIBehavior : MonoBehaviour {
     private float maxHealth;
     private float curHealth;
 
+    private float maxSPC;
+    private float curSPC;
+
     public Button moveButton;
     public Button attackButton;
     public Button specialButton;
@@ -70,10 +73,12 @@ public class UIBehavior : MonoBehaviour {
 	
 	}
 
-    public void setContent(Sprite s, float maxHealth, float minHealth, string characterName)
+    public void setContent(Sprite s, float maxHealth, float curHealth, float maxSPC, float curSPC, string characterName)
     {
         this.maxHealth = maxHealth;
-        this.curHealth = minHealth;
+        this.curHealth = curHealth;
+        this.curSPC = curSPC;
+        this.maxSPC = maxSPC;
 
         GameObject charPortrait = GameObject.Find("CharacterUI(Clone)/Character Info/Image");
 
@@ -84,12 +89,21 @@ public class UIBehavior : MonoBehaviour {
         Text charName = textComp.GetComponent<Text>();
         charName.text = characterName;
 
+
+        //Governs Healthbar behavior
         GameObject healthBar = GameObject.Find("CharacterUI(Clone)/Character Info/Panel (2)/HealthBar/Panel");
-        RectTransform transform = healthBar.GetComponent<RectTransform>();
-        float size = (curHealth / maxHealth) * 240f;
+        RectTransform transformHealth = healthBar.GetComponent<RectTransform>();
         
-        transform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, size);
-        Image image = healthBar.GetComponent<Image>();
-        image.color = UnityEngine.Color.red;
+        transformHealth.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, (curHealth / maxHealth) * 240f);
+        Image imageHealth = healthBar.GetComponent<Image>();
+        imageHealth.color = UnityEngine.Color.red;
+
+        //Governs SPCbar behavior
+        GameObject spcBar = GameObject.Find("CharacterUI(Clone)/Character Info/Panel (3)/SpecialBar/Panel");
+        RectTransform transformSPC = spcBar.GetComponent<RectTransform>();
+
+        transformSPC.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, (curSPC / maxSPC) * 240f);
+        Image imageSPC = spcBar.GetComponent<Image>();
+        imageSPC.color = UnityEngine.Color.blue;
     }
 }

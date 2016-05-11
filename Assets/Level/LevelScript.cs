@@ -42,6 +42,7 @@ public class LevelScript : MonoBehaviour
     public GameObject enemyUIInstance = null;
     public float maxHealth; // Used for Combat Menu
     public float curHealth; // 
+
     UIBehavior.ButtonClicked lastClicked;  
 
     bool setColor;
@@ -166,6 +167,7 @@ public class LevelScript : MonoBehaviour
         currentPlayer = 0;
         currentEnemy = 0;
 
+        //Is this being used for anything?
         maxHealth = 100f;
         curHealth = 50f;
         
@@ -174,7 +176,7 @@ public class LevelScript : MonoBehaviour
         state = LevelState.PlayerTurn;
         charUIInstance = Instantiate(charUI) as GameObject;
         UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
-        script.setContent(characters[0].GetComponent<SpriteRenderer>().sprite, characters[0].MAX_HEALTH, characters[0].currentHealth, characters[0].name);
+        script.setContent(characters[0].GetComponent<SpriteRenderer>().sprite, characters[0].MAX_HEALTH, characters[0].currentHealth, characters[0].MAX_SPECIAL, characters[0].currentSpecial, characters[0].name);
     }
 
     // Update is called once per frame
@@ -367,7 +369,7 @@ public class LevelScript : MonoBehaviour
                 // Create Combat UI
                 charUIInstance = Instantiate(charUI) as GameObject;
                 UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
-                script.setContent(characters[currentPlayer].GetComponent<SpriteRenderer>().sprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, characters[currentPlayer].name);
+                script.setContent(characters[currentPlayer].GetComponent<SpriteRenderer>().sprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, characters[currentPlayer].MAX_SPECIAL, characters[currentPlayer].currentSpecial, characters[currentPlayer].name);
 
                 // Set player turn
                 state = LevelState.PlayerTurn;
