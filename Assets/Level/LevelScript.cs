@@ -38,6 +38,8 @@ public class LevelScript : MonoBehaviour
     // Combat menu stuff
     public GameObject charUI = null;
     public GameObject charUIInstance = null;
+    public GameObject enemyUI = null;
+    public GameObject enemyUIInstance = null;
     public float maxHealth; // Used for Combat Menu
     public float curHealth; // 
     UIBehavior.ButtonClicked lastClicked;  
@@ -69,6 +71,11 @@ public class LevelScript : MonoBehaviour
         if (charUI == null)
         {
             charUI = Resources.Load("Prefabs/CharacterUI") as GameObject;
+        }
+
+        if (enemyUI == null)
+        {
+            enemyUI = Resources.Load("Prefabs/EnemyUI") as GameObject;
         }
 
         //Randomly generate some collideable tiles
@@ -297,10 +304,15 @@ public class LevelScript : MonoBehaviour
             }
             else
             {
-                // Destroy Combat UI
+                //Destroy Combat UI
                 Destroy(charUIInstance);
                 charUIInstance = null;
-                
+
+                // Create Enemy UI
+                enemyUIInstance = Instantiate(enemyUI) as GameObject;
+                EnemyUIBehavior script = enemyUIInstance.GetComponent<EnemyUIBehavior>();
+                script.setContent(enemies[currentEnemy].GetComponent<SpriteRenderer>().sprite, enemies[currentEnemy].MAX_HEALTH, enemies[currentEnemy].currentHealth, enemies[currentEnemy].name);
+
                 //Set enemy turn 
                 state = LevelState.EnemyTurn;
                 enemies[currentEnemy].setState(EnemyBehaviour.EnemyState.Selected);
@@ -348,6 +360,10 @@ public class LevelScript : MonoBehaviour
             }
             else
             {
+                // Destroy Enemy UI
+                Destroy(enemyUIInstance);
+                enemyUIInstance = null;
+
                 // Create Combat UI
                 charUIInstance = Instantiate(charUI) as GameObject;
                 UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
