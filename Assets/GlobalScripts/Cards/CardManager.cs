@@ -8,6 +8,7 @@ public class CardManager{
     
     List<Card> ownedCards;
 
+    //Player cards
     private static attackCard thread = new attackCard("Thread", "Even more dangerous than a needle", 3, 2);
     private static attackCard ctrlaltdel = new attackCard("Ctrl+Alt+Del", "The classic command always has its uses", 4, 1);
 
@@ -19,10 +20,23 @@ public class CardManager{
     private static specialCard nullPointer = new specialCard("Null pointer", "Stop an enemy from attacking for two turns", 3);
     private static specialCard blueScreen = new specialCard("Blue screen", "Everyone takes 5 damage", 8);
 
+    private static passiveCard cooling = new passiveCard("Cooling", "Good cooling improves performance", "health", 1);
+
+    List<Card> enemyCards;
+
+    private static characterCard worm = new characterCard("Worm", "Average", 2, 1, 4, 4, 3);
+    private static characterCard horse = new characterCard("Trojan Horse", "Tank", 2, 4, 3, 3, 6);
+
+    private static attackCard infect = new attackCard("Infect", "...", 1, 1);
+    private static attackCard backdoor = new attackCard("Backdoor", "...", 2, 2);
+
+    private static passiveCard forprofit = new passiveCard("For-Profit", "...", "attack", 1);
+
     public CardManager()
     {
         allCards = new List<Card>();
         ownedCards = new List<Card>();
+        enemyCards = new List<Card>();
 
         loadAllCards();
         loadOwnedCards();
@@ -39,6 +53,14 @@ public class CardManager{
         allCards.Add(selfModifying);
         allCards.Add(nullPointer);
         allCards.Add(blueScreen);
+        allCards.Add(cooling);
+
+        enemyCards.Add(worm);
+        enemyCards.Add(horse);
+        enemyCards.Add(infect);
+        enemyCards.Add(backdoor);
+        enemyCards.Add(forprofit);
+        enemyCards.Add(blueScreen);
 
     }
 
@@ -53,6 +75,7 @@ public class CardManager{
         ownedCards.Add(selfModifying);
         ownedCards.Add(nullPointer);
         ownedCards.Add(blueScreen);
+        ownedCards.Add(cooling);
     }
 
     public List<characterCard> getOwnedCharacterCards()
@@ -107,4 +130,55 @@ public class CardManager{
         return cards;
     }
 
+    public List<characterCard> getEnemyCharacterCards()
+    {
+        List<characterCard> cards = new List<characterCard>();
+
+        for (int i = 0; i < enemyCards.Count; i++)
+        {
+            if (enemyCards[i] is characterCard)
+                cards.Add(enemyCards[i] as characterCard);
+        }
+
+        return cards;
+    }
+
+    public List<attackCard> getEnemyAttackCards()
+    {
+        List<attackCard> cards = new List<attackCard>();
+
+        for (int i = 0; i < enemyCards.Count; i++)
+        {
+            if (enemyCards[i] is attackCard)
+                cards.Add(enemyCards[i] as attackCard);
+        }
+
+        return cards;
+    }
+
+    public List<specialCard> getEnemySpecialCards()
+    {
+        List<specialCard> cards = new List<specialCard>();
+
+        for (int i = 0; i < enemyCards.Count; i++)
+        {
+            if (enemyCards[i] is specialCard)
+                cards.Add(enemyCards[i] as specialCard);
+        }
+
+        return cards;
+    }
+
+    public List<passiveCard> getEnemyPassiveCards()
+    {
+        List<passiveCard> cards = new List<passiveCard>();
+
+        for (int i = 0; i < enemyCards.Count; i++)
+        {
+            if (enemyCards[i] is passiveCard)
+                cards.Add(enemyCards[i] as passiveCard);
+        }
+
+        return cards;
+    }
 }

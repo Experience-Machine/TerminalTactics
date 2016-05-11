@@ -112,6 +112,7 @@ public class Tile : MonoBehaviour
         }
         else if(enemyOnTile != null)
         {
+            
             enemyOnTile.damage(damageDealt);
         }
     }

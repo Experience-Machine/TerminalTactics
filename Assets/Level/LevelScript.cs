@@ -120,6 +120,8 @@ public class LevelScript : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             EnemyBehaviour eb = (Instantiate(enemyObject) as GameObject).GetComponent<EnemyBehaviour>();
+            eb.setRandomCharInfo();
+
             bool foundTile = false;
             //Make sure that we don't spawn enemies on the same location as characters or collideable tiles
             while (!foundTile)

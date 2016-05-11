@@ -17,6 +17,7 @@ public class EnemyBehaviour : MonoBehaviour
     };
     private EnemyState state;
 
+    private characterInfo charInfo;
     private Map map;
 
     // Enemy Stats stuff
@@ -26,7 +27,10 @@ public class EnemyBehaviour : MonoBehaviour
     // Movement Stuff
     private Tile[] movementRange;
     private Tile selectedTile;
-    private const int MOVEMENT_RANGE = 4;
+    private int MOVEMENT_RANGE = 4;
+    private int ATTACK_DAMAGE = 1;
+    private int ATTACK_RANGE = 1;
+
     Color movementHighlight = new Color(0, 0, 1f, .3f);
     
     // Attacking stuff
@@ -46,8 +50,12 @@ public class EnemyBehaviour : MonoBehaviour
 
     public int posX, posY;
 
+    GlobalGameManager manager;
+
     void Awake()
     {
+        manager = GameObject.Find("GlobalGameManager").GetComponent<GlobalGameManager>();
+
         map = GameObject.Find("Map").GetComponent<Map>();
         posX = 3;
         posY = 3;
@@ -63,6 +71,32 @@ public class EnemyBehaviour : MonoBehaviour
         currentHealth = MAX_HEALTH;
 
         timer = 0;
+    }
+
+    public void setCharInfo(characterInfo cInf)
+    {
+        charInfo = cInf;
+        MAX_HEALTH = cInf.getCharacter().maxHP;
+        currentHealth = MAX_HEALTH;
+        MOVEMENT_RANGE = cInf.getCharacter().MOV;
+        ATTACK_DAMAGE = cInf.getAttack().getDamage();
+        ATTACK_RANGE = cInf.getAttack().getRange();
+        name = cInf.getCharacter().getName();
+    }
+
+    public void setRandomCharInfo()
+    {
+        List<characterCard> enemyCharacters = manager.cardManager.getEnemyCharacterCards();
+        List<attackCard> enemyAttacks = manager.cardManager.getEnemyAttackCards();
+        List<specialCard> enemySpecial = manager.cardManager.getEnemySpecialCards();
+        List<passiveCard> enemyPassives = manager.cardManager.getEnemyPassiveCards();
+
+        characterInfo info = new characterInfo(enemyCharacters[Random.Range(0, enemyCharacters.Count-1)],
+                                               enemyAttacks[Random.Range(0, enemyAttacks.Count - 1)],
+                                               enemySpecial[Random.Range(0, enemySpecial.Count - 1)],
+                                               enemyPassives[Random.Range(0, enemyPassives.Count - 1)]);
+
+        setCharInfo(info);
     }
 
     public EnemyState getState()
@@ -241,7 +275,7 @@ public class EnemyBehaviour : MonoBehaviour
             map.clearHighlights(meleeRange);
 
             // Attack Unit on tile
-            selectedUnitTile.attackTile(1);
+            selectedUnitTile.attackTile(ATTACK_DAMAGE + charInfo.getCharacter().ATK);
 
             // We're done attacking
             selectedUnitTile = null;
