@@ -23,6 +23,7 @@ public class EnemyBehaviour : MonoBehaviour
     // Enemy Stats stuff
     public int MAX_HEALTH = 1;
     public int currentHealth;
+    public int defense;
 
     // Movement Stuff
     private Tile[] movementRange;
@@ -82,6 +83,7 @@ public class EnemyBehaviour : MonoBehaviour
         ATTACK_DAMAGE = cInf.getAttack().getDamage();
         ATTACK_RANGE = cInf.getAttack().getRange();
         name = cInf.getCharacter().getName();
+        defense = cInf.getCharacter().DEF;
     }
 
     public void setRandomCharInfo()

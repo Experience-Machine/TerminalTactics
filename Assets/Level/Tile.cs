@@ -101,20 +101,35 @@ public class Tile : MonoBehaviour
 
     public void attackTile(int damageDealt)
     {
+        GameObject damageNumber = Instantiate(Resources.Load("Prefabs/DamageText")) as GameObject;
+        DamageNumber damageUi = damageNumber.GetComponent<DamageNumber>();
+        
+        int actualDamage = -1;
         if (charOnTile != null)
         {
             hasUnit = false;
-            charOnTile.damage(damageDealt);
-            if(charOnTile.getState() == CharacterBehaviour.CharacterState.Dead)
+
+            actualDamage = damageDealt / charOnTile.GetComponent<CharacterBehaviour>().defense;
+            charOnTile.damage(actualDamage);
+           
+            damageUi.setPosition(Camera.main.WorldToScreenPoint(transform.position));
+
+            if (charOnTile.getState() == CharacterBehaviour.CharacterState.Dead)
             {
-                charOnTile = null;
+            charOnTile = null;
             }
         }
         else if(enemyOnTile != null)
         {
+            actualDamage = damageDealt / enemyOnTile.GetComponent<EnemyBehaviour>().defense;
+            enemyOnTile.damage(actualDamage);
             
-            enemyOnTile.damage(damageDealt);
+            damageUi.setPosition(Camera.main.WorldToScreenPoint(transform.position));
         }
+
+        damageUi.setNumber("-" + actualDamage.ToString());
+
+
     }
 
     // This method can be used one of two ways:
