@@ -239,6 +239,15 @@ public class CharacterBehaviour : MonoBehaviour
         }
     }
 
+    public void heal(int healingDealt)
+    {
+        currentHealth += healingDealt;
+        if (currentHealth >= MAX_HEALTH)
+        {
+            currentHealth = MAX_HEALTH;
+        }
+    }
+
     // Kill this character off
     public void kill()
     {

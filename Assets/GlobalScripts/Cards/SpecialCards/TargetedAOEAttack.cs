@@ -11,13 +11,15 @@ public class TargetedAOEAttack : specialCard
     Tile[] aoeRangeTiles;
 
     private Color attackHighlight = new Color(1f, 0, 0, .3f);
+    bool hurtOrHeal;
 
-    public TargetedAOEAttack(string name, string description, int cost, int aoeSize, int aoeRange, int aoeDamage) : base(name, description, cost)
+    public TargetedAOEAttack(string name, string description, int cost, int aoeSize, int aoeRange, int aoeDamage, bool hurtOrHeal) : base(name, description, cost)
     {
         this.aoeSize = aoeSize;
         this.aoeRange = aoeRange;
         this.aoeDamage = aoeDamage;
         aoeRangeTiles = new Tile[0];
+        this.hurtOrHeal = hurtOrHeal;
     }
     // Implement this if you make a special attack
     public override void specialAttack(Map gameMap, characterInfo theCharacter, CharacterBehaviour character)
@@ -56,7 +58,14 @@ public class TargetedAOEAttack : specialCard
             {
                 Tile t = aoeRangeTiles[i];
                 if (t.enemyOnTile != null) {
-                    t.attackTile(aoeDamage);
+                    if (hurtOrHeal == true) { 
+                        t.attackTile(aoeDamage);
+                    } 
+                }
+
+                if (t.charOnTile != null && hurtOrHeal == false)
+                {
+                    t.healTile(aoeDamage);
                 }
                 
             }

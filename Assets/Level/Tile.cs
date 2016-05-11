@@ -137,6 +137,25 @@ public class Tile : MonoBehaviour
 
     }
 
+    public void healTile(int healingDealt)
+    {
+        GameObject damageNumber = Instantiate(Resources.Load("Prefabs/DamageText")) as GameObject;
+        DamageNumber damageUi = damageNumber.GetComponent<DamageNumber>();
+
+
+        if (charOnTile != null)
+        {
+            hasUnit = false;
+
+            charOnTile.heal(healingDealt);
+            damageUi.setPosition(Camera.main.WorldToScreenPoint(transform.position));
+            damageUi.setNumber("+" + healingDealt.ToString());
+
+        }
+
+        //No current support for enemy healing
+    }
+
     // This method can be used one of two ways:
     //  1) There is a unit present on this tile. In this case, the tile will 
     //      call the kill enemy on the unit present on the tile.
