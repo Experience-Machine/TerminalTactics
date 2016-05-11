@@ -288,7 +288,7 @@ public class CharacterBehaviour : MonoBehaviour
             return buildPathToTile(tileX, tileY);
         }
 
-        Debug.Log("Path: " + path.ToString());
+        //Debug.Log("Path: " + path.ToString());
 
         return path;
     }

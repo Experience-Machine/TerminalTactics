@@ -123,6 +123,9 @@ public class Tile : MonoBehaviour
         {
             actualDamage = damageDealt / enemyOnTile.GetComponent<EnemyBehaviour>().defense;
             enemyOnTile.damage(actualDamage);
+
+            Debug.Log("Damage: " + damageDealt + " " + enemyOnTile.GetComponent<EnemyBehaviour>().defense);
+            Debug.Log("Actual: " + actualDamage);
             
             damageUi.setPosition(Camera.main.WorldToScreenPoint(transform.position));
         }

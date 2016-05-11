@@ -93,10 +93,10 @@ public class EnemyBehaviour : MonoBehaviour
         List<specialCard> enemySpecial = manager.cardManager.getEnemySpecialCards();
         List<passiveCard> enemyPassives = manager.cardManager.getEnemyPassiveCards();
 
-        characterInfo info = new characterInfo(enemyCharacters[Random.Range(0, enemyCharacters.Count-1)],
-                                               enemyAttacks[Random.Range(0, enemyAttacks.Count - 1)],
-                                               enemySpecial[Random.Range(0, enemySpecial.Count - 1)],
-                                               enemyPassives[Random.Range(0, enemyPassives.Count - 1)]);
+        characterInfo info = new characterInfo(enemyCharacters[Random.Range(0, enemyCharacters.Count)],
+                                               enemyAttacks[Random.Range(0, enemyAttacks.Count)],
+                                               enemySpecial[Random.Range(0, enemySpecial.Count)],
+                                               enemyPassives[Random.Range(0, enemyPassives.Count)]);
 
         setCharInfo(info);
     }
@@ -366,7 +366,7 @@ public class EnemyBehaviour : MonoBehaviour
             return buildPathToTile(tileX, tileY);
         }
 
-        Debug.Log("Path: " + path.ToString());
+        //Debug.Log("Path: " + path.ToString());
 
         return path;
     }
