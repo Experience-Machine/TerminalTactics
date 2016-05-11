@@ -61,6 +61,7 @@ public class TargetedAOEAttack : specialCard
                 
             }
             gameMap.clearHighlights(aoeRangeTiles);
+            character.currentSpecial -= cost;
             character.setState(CharacterBehaviour.CharacterState.Idle);
         }
 
