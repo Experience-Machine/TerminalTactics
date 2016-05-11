@@ -188,6 +188,12 @@ public class CharacterBehaviour : MonoBehaviour
     {
         if (map.selectedTile != null)
         {
+            if (map.selectedTile.charOnTile != null)
+            {
+                map.selectedTile = null;
+                return;
+            }
+
             for (int i = 0; i < attackRange.Length; i++)
             {
                 // If the selected tile is in our attack range:
@@ -199,6 +205,7 @@ public class CharacterBehaviour : MonoBehaviour
                     state = CharacterState.Attacking;
                 }
             }
+            
         }
     }
 

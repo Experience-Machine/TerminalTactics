@@ -151,6 +151,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (timer > 1f)
         {
+            Debug.Log("Are we stuck?");
             meleeRange = map.getMeleeRange(posX, posY, MOVEMENT_RANGE); // Get enemies within melee range
             map.highlightTiles(meleeRange, attackHighlight); // Highlight them for demo purposes (aka remove this later)
             if(meleeRange.Length > 0)
