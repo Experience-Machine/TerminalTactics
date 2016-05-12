@@ -352,6 +352,9 @@ public class LevelScript : MonoBehaviour
                 }
             }
 
+            if (enemies.Count == 0 || characters.Count == 0)
+                SceneManager.LoadScene("GameMainMenu");
+
             // Catch carry-over currentPlayer / currentEnemy
             if (currentPlayer >= characters.Count) currentPlayer = 0;
             if (currentEnemy >= enemies.Count) currentEnemy = 0;
