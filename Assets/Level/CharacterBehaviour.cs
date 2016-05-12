@@ -27,6 +27,7 @@ public class CharacterBehaviour : MonoBehaviour
     public int currentHealth;
     public int currentSpecial;
     public int defense = 1;
+    public int attack = 1;
 
     // Movement stuff
     private Tile[] movementRange;
@@ -68,6 +69,11 @@ public class CharacterBehaviour : MonoBehaviour
         state = CharacterState.Idle;
         currentPath = null;
     }
+
+    void Start()
+    {
+        addPassives();
+    }
 	
     public void setCharInfo(characterInfo cInf)
     {
@@ -81,6 +87,24 @@ public class CharacterBehaviour : MonoBehaviour
         defense = cInf.getCharacter().DEF;
         MAX_SPECIAL = cInf.getCharacter().SPC;
         currentSpecial = MAX_SPECIAL;
+    }
+
+    private void addPassives()
+    {
+        passiveCard passive = charInfo.psvCard;
+        if (passive.statToChange.Equals("health"))
+            currentHealth += passive.statValue;
+        else if (passive.statToChange.Equals("attack"))
+            ATTACK_DAMAGE += passive.statValue;
+        else if (passive.statToChange.Equals("defense"))
+            defense += passive.statValue;
+        else if (passive.statToChange.Equals("special"))
+            currentSpecial += passive.statValue;
+        else if (passive.statToChange.Equals("movement"))
+            MOVEMENT_RANGE += passive.statValue;
+        else
+            Debug.Log("Invalid passive card type");
+        
     }
 
     public bool hasEnoughSpecial()

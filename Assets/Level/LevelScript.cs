@@ -49,7 +49,7 @@ public class LevelScript : MonoBehaviour
     GlobalGameManager manager;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         manager = GameObject.Find("GlobalGameManager").GetComponent<GlobalGameManager>();
         mapObject = new GameObject("Map");

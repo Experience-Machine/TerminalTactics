@@ -35,7 +35,7 @@ public class CardSelect : MonoBehaviour {
         if (manager.cardTypeSelected == GlobalGameManager.CardType.Character)
         {
             List<characterCard> characterCards = manager.cardManager.getOwnedCharacterCards();
-            int cardOffset = ((characterCards.Count-1 * cardWidth) + (characterCards.Count-1 * 5) / 2);
+            int cardOffset = ((characterCards.Count * (cardWidth + 5) / 2)) - 75;
             for (int i = 0; i < characterCards.Count; i++)
             {
                 GameObject characterCard = Instantiate(Resources.Load("Prefabs/Card")) as GameObject;
@@ -44,14 +44,15 @@ public class CardSelect : MonoBehaviour {
                 uiComponent.setCard(characterCards[i]);
                 uiComponent.setName(characterCards[i].getName());
                 uiComponent.setDescription(characterCards[i].getDescription());
-                Vector3 target = new Vector3((i * cardWidth) + (i * 5) + cardOffset, 0, 0);
+                Vector3 target = new Vector3((i * cardWidth) + (i * 5) - cardOffset, 0, 0);
                 RectTransform transform = (RectTransform)characterCard.transform;
                 transform.anchoredPosition = target;
             }
         } else if (manager.cardTypeSelected == GlobalGameManager.CardType.Attack)
         {
             List<attackCard> attackCards = manager.cardManager.getOwnedAttackCards();
-            int cardOffset = ((attackCards.Count - 1 * cardWidth) + (attackCards.Count - 1 * 5) / 2);
+            //int cardOffset = ((attackCards.Count - 1 * cardWidth) + (attackCards.Count - 1 * 5) / 2);
+            int cardOffset = ((attackCards.Count * (cardWidth + 5) / 2)) - 75;
             for (int i = 0; i < attackCards.Count; i++)
             {
                 GameObject attackCard = Instantiate(Resources.Load("Prefabs/Card")) as GameObject;
@@ -60,14 +61,14 @@ public class CardSelect : MonoBehaviour {
                 uiComponent.setCard(attackCards[i]);
                 uiComponent.setName(attackCards[i].getName());
                 uiComponent.setDescription(attackCards[i].getDescription());
-                Vector3 target = new Vector3((i * cardWidth) + (i * 5) + cardOffset, 0, 0);
+                Vector3 target = new Vector3((i * cardWidth) + (i * 5) - cardOffset, 0, 0);
                 RectTransform transform = (RectTransform)attackCard.transform;
                 transform.anchoredPosition = target;
             }
         } else if (manager.cardTypeSelected == GlobalGameManager.CardType.Special)
         {
             List<specialCard> specialCards = manager.cardManager.getOwnedSpecialCards();
-            int cardOffset = ((specialCards.Count - 1 * cardWidth) + (specialCards.Count - 1 * 5) / 2);
+            int cardOffset = ((specialCards.Count * (cardWidth+5) / 2)) - 75;
             for (int i = 0; i < specialCards.Count; i++)
             {
                 GameObject specialCard = Instantiate(Resources.Load("Prefabs/Card")) as GameObject;
@@ -76,14 +77,14 @@ public class CardSelect : MonoBehaviour {
                 uiComponent.setCard(specialCards[i]);
                 uiComponent.setName(specialCards[i].getName());
                 uiComponent.setDescription(specialCards[i].getDescription());
-                Vector3 target = new Vector3((i * cardWidth) + (i * 5) + cardOffset, 0, 0);
+                Vector3 target = new Vector3((i * cardWidth) + (i * 5) - cardOffset, 0, 0);
                 RectTransform transform = (RectTransform)specialCard.transform;
                 transform.anchoredPosition = target;
             }
         } else if (manager.cardTypeSelected == GlobalGameManager.CardType.Passive)
         {
             List<passiveCard> passiveCards = manager.cardManager.getOwnedPassiveCards();
-            int cardOffset = ((passiveCards.Count - 1 * cardWidth) + (passiveCards.Count - 1 * 5) / 2);
+            int cardOffset = ((passiveCards.Count * (cardWidth + 5) / 2)) - 75;
             for (int i = 0; i < passiveCards.Count; i++)
             {
                 GameObject passiveCard = Instantiate(Resources.Load("Prefabs/Card")) as GameObject;
