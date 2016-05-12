@@ -80,10 +80,10 @@ public class LevelScript : MonoBehaviour
         }
 
         //Randomly generate some collideable tiles
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 25; i++)
         {
-            float randomX = Random.Range(0f, 10f);
-            float randomY = Random.Range(0f, 10f);
+            float randomX = Random.Range(0f, 27f);
+            float randomY = Random.Range(0f, 18f);
 
             Tile t = map.getTile((int)randomX, (int)randomY);
 
@@ -104,8 +104,8 @@ public class LevelScript : MonoBehaviour
             bool foundTile = false;
             while (!foundTile)
             {
-                float randomX = Random.Range(0f, 10f);
-                float randomY = Random.Range(0f, 10f);
+                float randomX = Random.Range(5f, 15f);
+                float randomY = Random.Range(5f, 15f);
 
                 Tile t = map.getTile((int)randomX, (int)randomY);
                 if (t.isCollideable()) continue;
@@ -134,8 +134,8 @@ public class LevelScript : MonoBehaviour
             //Make sure that we don't spawn enemies on the same location as characters or collideable tiles
             while (!foundTile)
             {
-                float randomX = Random.Range(0f, 10f);
-                float randomY = Random.Range(0f, 10f);
+                float randomX = Random.Range(5f, 15f);
+                float randomY = Random.Range(5f, 15f);
 
                 Tile t = map.getTile((int)randomX, (int)randomY);
                 if (t.isCollideable()) continue;
