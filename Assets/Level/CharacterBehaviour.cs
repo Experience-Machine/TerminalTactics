@@ -93,7 +93,10 @@ public class CharacterBehaviour : MonoBehaviour
     {
         passiveCard passive = charInfo.psvCard;
         if (passive.statToChange.Equals("health"))
-            currentHealth += passive.statValue;
+        {
+            MAX_HEALTH += passive.statValue;
+            currentHealth = MAX_HEALTH;
+        }
         else if (passive.statToChange.Equals("attack"))
             ATTACK_DAMAGE += passive.statValue;
         else if (passive.statToChange.Equals("defense"))
