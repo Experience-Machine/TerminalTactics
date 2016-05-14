@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// character stats
+[System.Serializable]
 public class characterInfo
 {
     // Our character's four cards

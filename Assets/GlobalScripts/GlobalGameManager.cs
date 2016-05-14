@@ -14,6 +14,7 @@ public class GlobalGameManager : MonoBehaviour
         None
     }
 
+    public SaveLoad saveLoad;
 
     public CardManager cardManager;
     public CardType cardTypeSelected = CardType.None;
@@ -27,6 +28,7 @@ public class GlobalGameManager : MonoBehaviour
 	void Start () 
     {
 		DontDestroyOnLoad(this);
+        saveLoad = new SaveLoad();
         characterInfos = new characterInfo[3];
         cardManager = new CardManager();
 

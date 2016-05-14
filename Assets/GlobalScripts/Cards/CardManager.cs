@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class CardManager{
+[System.Serializable]
+public class CardManager
+{
 
     List<Card> allCards;
     

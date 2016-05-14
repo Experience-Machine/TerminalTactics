@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// handle changing the name
+[System.Serializable]
 public class attackCard : Card 
 {
     public int dmg; // Attack Damage

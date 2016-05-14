@@ -26,6 +26,7 @@ public class MainMenu : MonoBehaviour {
             () =>
             {
                 //Load game then go to gamemainmenu
+                GameObject.Find("GlobalGameManager").GetComponent<GlobalGameManager>().saveLoad.LoadAllData();
                 LoadScene("GameMainMenu");
             });
 

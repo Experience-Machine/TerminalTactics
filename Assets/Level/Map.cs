@@ -15,6 +15,9 @@ public class Map : MonoBehaviour
     public Tile selectedTile;
     private static GameObject tileSelector;
     private GameObject selectRef;
+
+    public Color movementHighlight = new Color(0, 0, 1f, .3f);
+    public Color attackHighlight = new Color(1f, 0, 0, .3f);
     public Map()
     {
         mapMaxX = 27;

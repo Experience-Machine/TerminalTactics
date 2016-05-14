@@ -27,7 +27,6 @@ public class GameMainMenu : MonoBehaviour {
         mCustomizeButton.onClick.AddListener(
             () =>
             {
-                //Load game then go to gamemainmenu
                 LoadScene("CharCustomization");
             });
 
@@ -35,6 +34,7 @@ public class GameMainMenu : MonoBehaviour {
             () =>
             {
                 //Save here
+                GameObject.Find("GlobalGameManager").GetComponent<GlobalGameManager>().saveLoad.SaveAllData();
             });
 
         mMenuButton.onClick.AddListener(

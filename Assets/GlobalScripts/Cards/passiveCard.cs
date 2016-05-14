@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// handle changing the name
+[System.Serializable]
 public class passiveCard : Card 
 {
     // Character stats

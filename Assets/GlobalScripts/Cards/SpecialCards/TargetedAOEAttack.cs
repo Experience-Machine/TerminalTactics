@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// handle changing the name
+[System.Serializable]
 public class TargetedAOEAttack : specialCard
 {
     int aoeSize = 1;
@@ -10,7 +10,6 @@ public class TargetedAOEAttack : specialCard
 
     Tile[] aoeRangeTiles;
 
-    private Color attackHighlight = new Color(1f, 0, 0, .3f);
     bool hurtOrHeal;
 
     public TargetedAOEAttack(string name, string description, int cost, int aoeSize, int aoeRange, int aoeDamage, bool hurtOrHeal) : base(name, description, cost)
@@ -49,7 +48,7 @@ public class TargetedAOEAttack : specialCard
         }
 
         aoeRangeTiles = gameMap.getRangeTiles(closestMouseTile.x, closestMouseTile.y, aoeSize);
-        gameMap.highlightTiles(aoeRangeTiles, attackHighlight);
+        gameMap.highlightTiles(aoeRangeTiles, gameMap.attackHighlight);
 
         //Player selected a tile
         if (gameMap.selectedTile != null)
