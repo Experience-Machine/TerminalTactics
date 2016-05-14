@@ -32,13 +32,10 @@ public class EnemyBehaviour : MonoBehaviour
     private int ATTACK_DAMAGE = 1;
     private int ATTACK_RANGE = 1;
 
-    Color movementHighlight = new Color(0, 0, 1f, .3f);
-    
     // Attacking stuff
     private Tile[] meleeRange;
     private Tile selectedUnitTile;
     private bool attacking;
-    Color attackHighlight = new Color(1f, 0, 0, .3f);
 
     // Path finding stuff
     private List<Path> possiblePaths;
@@ -47,7 +44,7 @@ public class EnemyBehaviour : MonoBehaviour
     private Vector3 endPosition;
     private float currentLerpTime = 0;
 
-    private float timer; // For initial wait 
+    private float timer; // For state change waiting 
 
     public int posX, posY;
 
@@ -109,11 +106,13 @@ public class EnemyBehaviour : MonoBehaviour
     public void setState(EnemyState es)
     {
         state = es;
+        /*
         if (state == EnemyState.Selected)
         {
             movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
-            map.highlightTiles(movementRange, movementHighlight);
+            map.highlightTiles(movementRange, map.movementHighlight);
         }
+         */
     }
 
     // Update is called once per frame
@@ -135,68 +134,53 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (timer > 1f)
         {
-            //Tile tileOn = map.getTile(posX, posY);
-            //tileOn.setCollideable(false);
-            //tileOn.enemyOnTile = null;
+            Debug.Log("Enemy: Service Selected State");
 
             // Highlight movement range (for player reference, really)
             movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
-            map.highlightTiles(movementRange, movementHighlight);
+            map.highlightTiles(movementRange, map.movementHighlight);
+
+            // Set next state to movement
             state = EnemyState.SelectMove;
             timer = 0;
-        }
-    }
 
-    private void serviceSelectMove()
-    {
-        if (timer > 1f)
-        {
-            Debug.Log("Are we stuck?");
             meleeRange = map.getMeleeRange(posX, posY, MOVEMENT_RANGE); // Get enemies within melee range
-            map.highlightTiles(meleeRange, attackHighlight); // Highlight them for demo purposes (aka remove this later)
-            if(meleeRange.Length > 0)
+            if (Debug.isDebugBuild) // Highlight them for debug purposes
+                map.highlightTiles(meleeRange, map.attackHighlight);
+
+            if (meleeRange.Length > 0)
             {
                 List<Tile> moveTiles = new List<Tile>(movementRange);
+                attacking = true;
                 selectedUnitTile = meleeRange[0]; // Attack the first guy in the list..
+
+                if (Mathf.Abs(selectedUnitTile.x - posX) + Mathf.Abs(selectedUnitTile.y - posY) < 2)
+                {
+                    return;
+                }
 
                 // Find which tile we can walk to around him..
                 selectedTile = map.getTile(meleeRange[0].x - 1, meleeRange[0].y);
-                if(moveTiles.Contains(selectedTile))
+                if (moveTiles.Contains(selectedTile))
                 {
-                    currentPath = buildPathToTile(selectedTile.x, selectedTile.y, movementRange);
-                    setStartAndEnd();
-                    state = EnemyState.Moving;
-                    attacking = true;
                     return;
                 }
 
                 selectedTile = map.getTile(meleeRange[0].x, meleeRange[0].y - 1);
                 if (moveTiles.Contains(selectedTile))
                 {
-                    currentPath = buildPathToTile(selectedTile.x, selectedTile.y, movementRange);
-                    setStartAndEnd();
-                    state = EnemyState.Moving;
-                    attacking = true;
                     return;
                 }
 
                 selectedTile = map.getTile(meleeRange[0].x + 1, meleeRange[0].y);
                 if (moveTiles.Contains(selectedTile))
                 {
-                    currentPath = buildPathToTile(selectedTile.x, selectedTile.y, movementRange);
-                    setStartAndEnd();
-                    state = EnemyState.Moving;
-                    attacking = true;
                     return;
                 }
 
                 selectedTile = map.getTile(meleeRange[0].x, meleeRange[0].y + 1);
                 if (moveTiles.Contains(selectedTile))
                 {
-                    currentPath = buildPathToTile(selectedTile.x, selectedTile.y, movementRange);
-                    setStartAndEnd();
-                    state = EnemyState.Moving;
-                    attacking = true;
                     return;
                 }
             }
@@ -204,10 +188,31 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 // No enemies in range, pick a random square to walk to..
                 selectedTile = movementRange[(int)Random.Range(0, movementRange.Length)];
-                currentPath = buildPathToTile(selectedTile.x, selectedTile.y, movementRange);
-                setStartAndEnd();
-                state = EnemyState.Moving;
             }
+        }
+    }
+
+    private void serviceSelectMove()
+    {
+        if (timer > 1f)
+        {
+            Debug.Log("Enemy: Service Select Move");
+            if (selectedUnitTile != null && Mathf.Abs(selectedUnitTile.x - posX) + Mathf.Abs(selectedUnitTile.y - posY) < 2)
+            {
+                Debug.Log("Enemy: Adjacent to target");
+                state = EnemyState.ViewAttackRange;
+                timer = 0;
+                selectedTile = null;
+                map.clearHighlights(movementRange); // Clear blue tiles
+                map.clearHighlights(meleeRange);    // Clear enemies highlighted for demo purposes
+                return;
+            }
+
+            // Walk to our selected tile..
+            currentPath = buildPathToTile(selectedTile.x, selectedTile.y, movementRange);
+            setStartAndEnd();
+            state = EnemyState.Moving;
+            return;
         }
     }
 
@@ -242,16 +247,12 @@ public class EnemyBehaviour : MonoBehaviour
                 }
                 else
                 {
-                    //state = EnemyState.Selected;
                     state = EnemyState.Idle;
                 }
                 timer = 0;
                 selectedTile = null;
                 map.clearHighlights(movementRange); // Clear blue tiles
                 map.clearHighlights(meleeRange);    // Clear enemies highlighted for demo purposes
-                //Tile tileOn = map.getTile(posX, posY);
-                //tileOn.setCollideable(true);
-                //tileOn.enemyOnTile = this;
             }
         }
     }
@@ -260,9 +261,11 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (timer > 1f)
         {
+            Debug.Log("Enemy: Service Attack Range State");
+
             // Get melee highlights
             meleeRange = map.getRangeTiles(posX, posY, 1); // Melee range of 1
-            map.highlightTiles(meleeRange, attackHighlight);
+            map.highlightTiles(meleeRange, map.attackHighlight);
 
             // Transition to attack state
             state = EnemyState.Attacking;
@@ -274,6 +277,8 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (timer > 1f)
         {
+            Debug.Log("Enemy: Service Attack State");
+
             // Clear highlights
             map.clearHighlights(meleeRange);
 

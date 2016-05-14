@@ -260,7 +260,6 @@ public class Map : MonoBehaviour
         List<Tile> t = new List<Tile>();
         List<Tile> units = new List<Tile>();
         getMeleeRangeTileHelper(x, y, range, t, units);
-        Debug.Log("UnitList: " + units);
         Tile[] unitList = new Tile[units.Count];
         unitList = units.ToArray();
         return unitList;

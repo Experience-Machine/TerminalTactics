@@ -164,19 +164,25 @@ public class LevelScript : MonoBehaviour
             }
         }
 
+        // Initilize enemy and player turns
         currentPlayer = 0;
         currentEnemy = 0;
-
-        //Is this being used for anything?
-        maxHealth = 100f;
-        curHealth = 50f;
         
+        // Set initial enemy/player colision values on the map
         resetCollision();
-        characters[0].setState(CharacterBehaviour.CharacterState.Selected);
+
+        // Set our player's first character to go first
+        characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Selected);
+        moveCamera(characters[currentPlayer].transform);
+
+        // Set the state of the level to be the player's turn
         state = LevelState.PlayerTurn;
+
+        // Initialize combat UI
         charUIInstance = Instantiate(charUI) as GameObject;
         UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
-        script.setContent(characters[0].GetComponent<SpriteRenderer>().sprite, characters[0].MAX_HEALTH, characters[0].currentHealth, characters[0].MAX_SPECIAL, characters[0].currentSpecial, characters[0].name);
+        script.setContent(characters[currentPlayer].GetComponent<SpriteRenderer>().sprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, characters[currentPlayer].MAX_SPECIAL, characters[currentPlayer].currentSpecial, characters[currentPlayer].name);
+    
     }
 
     // Update is called once per frame
