@@ -322,6 +322,7 @@ public class LevelScript : MonoBehaviour
                 //Set enemy turn 
                 state = LevelState.EnemyTurn;
                 enemies[currentEnemy].setState(EnemyBehaviour.EnemyState.Selected);
+                moveCamera(enemies[currentEnemy].transform);
             }
         }
     }
@@ -381,6 +382,7 @@ public class LevelScript : MonoBehaviour
                 // Set player turn
                 state = LevelState.PlayerTurn;
                 characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Selected);
+                moveCamera(characters[currentPlayer].transform);
             }
 
             
@@ -390,5 +392,11 @@ public class LevelScript : MonoBehaviour
     void serviceMoveState()
     {
 
+    }
+
+    void moveCamera(Transform t)
+    {
+        Vector3 newPos = new Vector3(t.position.x, t.position.y, Camera.main.transform.position.z);
+        Camera.main.transform.position = newPos;
     }
 }
