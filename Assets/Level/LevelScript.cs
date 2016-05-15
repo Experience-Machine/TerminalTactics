@@ -127,8 +127,10 @@ public class LevelScript : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            EnemyBehaviour eb = (Instantiate(enemyObject) as GameObject).GetComponent<EnemyBehaviour>();
+            EnemyBehaviourBerserk eb = (Instantiate(enemyObject) as GameObject).GetComponent<EnemyBehaviourBerserk>();
             eb.setRandomCharInfo();
+
+            eb.rushUnit(characters[0].posX, characters[0].posY);
 
             bool foundTile = false;
             //Make sure that we don't spawn enemies on the same location as characters or collideable tiles
@@ -328,6 +330,12 @@ public class LevelScript : MonoBehaviour
                 //Set enemy turn 
                 state = LevelState.EnemyTurn;
                 enemies[currentEnemy].setState(EnemyBehaviour.EnemyState.Selected);
+
+                if (typeof(EnemyBehaviourBerserk).IsAssignableFrom(enemies[currentEnemy].GetType()))
+                {
+                    EnemyBehaviourBerserk ebb = (EnemyBehaviourBerserk)enemies[currentEnemy];
+                    ebb.rushUnit(characters[0].posX, characters[0].posY);
+                }
                 moveCamera(enemies[currentEnemy].transform);
             }
         }

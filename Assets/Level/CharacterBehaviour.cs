@@ -213,7 +213,7 @@ public class CharacterBehaviour : MonoBehaviour
             } 
             else
             {                
-                Debug.Log(posX + " " + posY);
+                //Debug.Log(posX + " " + posY);
                 state = CharacterState.Selected;
                 map.selectedTile = null;
                 map.clearHighlights(movementRange);

@@ -15,10 +15,10 @@ public class EnemyBehaviour : MonoBehaviour
         Attacking,
         Dead
     };
-    private EnemyState state;
+    protected EnemyState state;
 
-    private characterInfo charInfo;
-    private Map map;
+    protected characterInfo charInfo;
+    protected Map map;
 
     // Enemy Stats stuff
     public int MAX_HEALTH = 1;
@@ -26,25 +26,25 @@ public class EnemyBehaviour : MonoBehaviour
     public int defense;
 
     // Movement Stuff
-    private Tile[] movementRange;
-    private Tile selectedTile;
-    private int MOVEMENT_RANGE = 4;
-    private int ATTACK_DAMAGE = 1;
-    private int ATTACK_RANGE = 1;
+    protected Tile[] movementRange;
+    protected Tile selectedTile;
+    protected int MOVEMENT_RANGE = 4;
 
     // Attacking stuff
-    private Tile[] meleeRange;
-    private Tile selectedUnitTile;
-    private bool attacking;
+    protected Tile[] meleeRange;
+    protected Tile selectedUnitTile;
+    protected bool attacking;
+    protected int ATTACK_DAMAGE = 1;
+    protected int ATTACK_RANGE = 1;
 
     // Path finding stuff
     private List<Path> possiblePaths;
-    private Path currentPath; //Current path for move state
+    protected Path currentPath; //Current path for move state
     private Vector3 startPosition;
     private Vector3 endPosition;
     private float currentLerpTime = 0;
 
-    private float timer; // For state change waiting 
+    protected float timer; // For state change waiting 
 
     public int posX, posY;
 
@@ -55,8 +55,6 @@ public class EnemyBehaviour : MonoBehaviour
         manager = GameObject.Find("GlobalGameManager").GetComponent<GlobalGameManager>();
 
         map = GameObject.Find("Map").GetComponent<Map>();
-        posX = 3;
-        posY = 3;
 
         movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
 
@@ -130,7 +128,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
 	}
 
-    private void serviceSelectedState()
+    protected virtual void serviceSelectedState()
     {
         if (timer > 1f)
         {
@@ -192,7 +190,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    private void serviceSelectMove()
+    protected virtual void serviceSelectMove()
     {
         if (timer > 1f)
         {
@@ -248,6 +246,7 @@ public class EnemyBehaviour : MonoBehaviour
                 else
                 {
                     state = EnemyState.Idle;
+                    attacking = false;
                 }
                 timer = 0;
                 selectedTile = null;
@@ -314,7 +313,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     #region Pathfinding
     //Set the beginning and ending points for one segment of a path
-    private void setStartAndEnd()
+    protected void setStartAndEnd()
     {
         startPosition = transform.position;
         Vector2 currentStep = currentPath.getStep();
@@ -343,7 +342,7 @@ public class EnemyBehaviour : MonoBehaviour
     }
 
     // The following assumes no obsticles, and makes a basic path to the tile
-    private Path buildPathToTile(int tileX, int tileY)
+    protected Path buildPathToTile(int tileX, int tileY)
     {
         Path path = (Path)ScriptableObject.CreateInstance(typeof(Path));
         int xDiff = tileX - posX;
@@ -357,7 +356,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     // The following uses the tileList and takes into account obsticles, avoiding them
     //  as it builds a path to the tile
-    private Path buildPathToTile(int tileX, int tileY, Tile[] tileList)
+    protected Path buildPathToTile(int tileX, int tileY, Tile[] tileList)
     {
         Path path = (Path)ScriptableObject.CreateInstance(typeof(Path));
         Vector2 dstPos = new Vector2(tileX, tileY);
@@ -454,7 +453,7 @@ public class EnemyBehaviour : MonoBehaviour
                     openTiles.Remove(t);
                     closedTiles.Add(t);
                     p.addStep(Path.HORIZONTAL, -1);
-                    p = pathFind(tileX - 1, tileY, dstPos, openTiles, closedTiles, p, t, dist++, bestDist);
+                    p = pathFind(tileX - 1, tileY, dstPos, openTiles, closedTiles, p, t, dist + 1, bestDist);
                     if (p != null)
                     {
                         return p;
@@ -465,7 +464,7 @@ public class EnemyBehaviour : MonoBehaviour
                     openTiles.Remove(t);
                     closedTiles.Add(t);
                     p.addStep(Path.VERTICAL, -1);
-                    p = pathFind(tileX, tileY - 1, dstPos, openTiles, closedTiles, p, t, dist++, bestDist);
+                    p = pathFind(tileX, tileY - 1, dstPos, openTiles, closedTiles, p, t, dist + 1, bestDist);
                     if (p != null)
                     {
                         return p;
@@ -476,7 +475,7 @@ public class EnemyBehaviour : MonoBehaviour
                     openTiles.Remove(t);
                     closedTiles.Add(t);
                     p.addStep(Path.HORIZONTAL, 1);
-                    p = pathFind(tileX + 1, tileY, dstPos, openTiles, closedTiles, p, t, dist++, bestDist);
+                    p = pathFind(tileX + 1, tileY, dstPos, openTiles, closedTiles, p, t, dist + 1, bestDist);
                     if (p != null)
                     {
                         return p;
@@ -487,7 +486,7 @@ public class EnemyBehaviour : MonoBehaviour
                     openTiles.Remove(t);
                     closedTiles.Add(t);
                     p.addStep(Path.VERTICAL, 1);
-                    p = pathFind(tileX, tileY + 1, dstPos, openTiles, closedTiles, p, t, dist++, bestDist);
+                    p = pathFind(tileX, tileY + 1, dstPos, openTiles, closedTiles, p, t, dist + 1, bestDist);
                     if (p != null)
                     {
                         return p;
