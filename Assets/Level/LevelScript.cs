@@ -57,7 +57,7 @@ public class LevelScript : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        manager = GameObject.Find("GlobalGameManager").GetComponent<GlobalGameManager>();
+        manager = GameObject.Find("GlobalGameManager(Clone)").GetComponent<GlobalGameManager>();
         mapObject = new GameObject("Map");
         map = mapObject.AddComponent<Map>();
         setColor = true;

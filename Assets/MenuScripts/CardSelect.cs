@@ -17,7 +17,7 @@ public class CardSelect : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        manager = GameObject.Find("GlobalGameManager").GetComponent<GlobalGameManager>() ;
+        manager = GameObject.Find("GlobalGameManager(Clone)").GetComponent<GlobalGameManager>() ;
         myCanvas = GameObject.Find("Canvas");
 
         GameObject characterCard = Instantiate(Resources.Load("Prefabs/Card")) as GameObject;

@@ -20,7 +20,7 @@ public class SaveLoad
     // Use this for initialization
     public SaveLoad()
     {
-        manager = GameObject.Find("GlobalGameManager").GetComponent<GlobalGameManager>();
+        manager = GameObject.Find("GlobalGameManager(Clone)").GetComponent<GlobalGameManager>();
     }
 
     public void SaveAllData()

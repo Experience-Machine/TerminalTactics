@@ -16,6 +16,11 @@ public class MainMenu : MonoBehaviour {
         mCreditsButton = GameObject.Find("Credits").GetComponent<Button>();
         mQuitButton = GameObject.Find("Quit").GetComponent<Button>();
 
+        if (GameObject.Find("GlobalGameManager(Clone)") == null)
+        {
+            Instantiate(Resources.Load("Prefabs/GlobalGameManager"));
+        }
+
         mStartButton.onClick.AddListener(
             () =>
             {
@@ -26,7 +31,7 @@ public class MainMenu : MonoBehaviour {
             () =>
             {
                 //Load game then go to gamemainmenu
-                GameObject.Find("GlobalGameManager").GetComponent<GlobalGameManager>().saveLoad.LoadAllData();
+                GameObject.Find("GlobalGameManager(Clone)").GetComponent<GlobalGameManager>().saveLoad.LoadAllData();
                 LoadScene("GameMainMenu");
             });
 

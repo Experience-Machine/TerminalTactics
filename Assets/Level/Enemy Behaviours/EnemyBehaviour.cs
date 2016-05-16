@@ -52,7 +52,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     protected virtual void Awake()
     {
-        manager = GameObject.Find("GlobalGameManager").GetComponent<GlobalGameManager>();
+        manager = GameObject.Find("GlobalGameManager(Clone)").GetComponent<GlobalGameManager>();
 
         map = GameObject.Find("Map").GetComponent<Map>();
 

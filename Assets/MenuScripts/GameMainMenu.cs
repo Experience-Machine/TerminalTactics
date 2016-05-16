@@ -34,7 +34,7 @@ public class GameMainMenu : MonoBehaviour {
             () =>
             {
                 //Save here
-                GameObject.Find("GlobalGameManager").GetComponent<GlobalGameManager>().saveLoad.SaveAllData();
+                GameObject.Find("GlobalGameManager(Clone)").GetComponent<GlobalGameManager>().saveLoad.SaveAllData();
             });
 
         mMenuButton.onClick.AddListener(

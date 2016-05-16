@@ -17,7 +17,7 @@ public class CardUI : MonoBehaviour {
     // Use this for initialization
     void Awake() {
 
-        manager = GameObject.Find("GlobalGameManager").GetComponent<GlobalGameManager>();
+        manager = GameObject.Find("GlobalGameManager(Clone)").GetComponent<GlobalGameManager>();
         type = GlobalGameManager.CardType.None;
         Text[] textComponents = GetComponentsInChildren<Text>();
         cardName = textComponents[1];
