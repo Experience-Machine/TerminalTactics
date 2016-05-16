@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11465486}
   - 114: {fileID: 11467868}
   m_Layer: 0
-  m_Name: EnemyBerserk
+  m_Name: Enemy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
