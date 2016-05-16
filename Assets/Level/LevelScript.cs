@@ -420,6 +420,7 @@ public class LevelScript : MonoBehaviour
                 cameraEndPosition = characters[currentPlayer].transform.position;
                 cameraMoving = true;
                 cameraMoveTime = 0;
+
             }
 
             
@@ -439,14 +440,17 @@ public class LevelScript : MonoBehaviour
 
     void cameraIncrementMove()
     {
-        if (Camera.main.transform.position.Equals(cameraEndPosition))
+
+        if (Camera.main.transform.position.x == cameraEndPosition.x && Camera.main.transform.position.y == cameraEndPosition.y)
         {
             cameraMoving = false;
             cameraMoveTime = 0;
             return;
+
         }
         cameraMoveTime += Time.deltaTime;
         Vector3 position = Vector3.MoveTowards(cameraStartPosition, cameraEndPosition, 20.0f * cameraMoveTime);
         Camera.main.transform.position = new Vector3(position.x, position.y, Camera.main.transform.position.z);
+        //Debug.Log("i am here");
     }
 }
