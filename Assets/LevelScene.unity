@@ -138,7 +138,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -231,6 +231,8 @@ MonoBehaviour:
   map: {fileID: 0}
   charUI: {fileID: 0}
   charUIInstance: {fileID: 0}
+  enemyUI: {fileID: 0}
+  enemyUIInstance: {fileID: 0}
   maxHealth: 0
   curHealth: 0
 --- !u!1 &418227301

@@ -31,6 +31,7 @@ public class LevelScript : MonoBehaviour
     // Actual GameObjects for char and enemy (temp)
     private GameObject characterObject;
     private GameObject enemyObject;
+    
 
     // Reusable tile-range
     private Tile[] tileRange;
@@ -43,7 +44,12 @@ public class LevelScript : MonoBehaviour
     public float maxHealth; // Used for Combat Menu
     public float curHealth; // 
 
-    UIBehavior.ButtonClicked lastClicked;  
+    UIBehavior.ButtonClicked lastClicked;
+
+    Vector3 cameraStartPosition;
+    Vector3 cameraEndPosition;
+    float cameraMoveTime = 0;
+    bool cameraMoving = false;
 
     bool setColor;
     GlobalGameManager manager;
@@ -127,7 +133,7 @@ public class LevelScript : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            EnemyBehaviourBerserk eb = (Instantiate(enemyObject) as GameObject).GetComponent<EnemyBehaviourBerserk>();
+            EnemyBehaviourBerserk eb = (Instantiate(Resources.Load("Prefabs/Enemy 1")) as GameObject).GetComponent<EnemyBehaviourBerserk>();
             eb.setRandomCharInfo();
 
             eb.rushUnit(characters[0].posX, characters[0].posY);
@@ -175,7 +181,7 @@ public class LevelScript : MonoBehaviour
 
         // Set our player's first character to go first
         characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Selected);
-        moveCamera(characters[currentPlayer].transform);
+        moveCamera(characters[currentPlayer].transform.position);
 
         // Set the state of the level to be the player's turn
         state = LevelState.PlayerTurn;
@@ -190,6 +196,8 @@ public class LevelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         // Check if the user has clicked a button on the Combat Menu
         if(lastClicked != UIBehavior.lastClicked)
         {
@@ -232,6 +240,12 @@ public class LevelScript : MonoBehaviour
             case LevelState.EnemyTurn: serviceEnemyTurn(); break;
             case LevelState.Move: serviceMoveState(); break;
         }
+
+        if (cameraMoving) {
+            cameraIncrementMove();
+        }
+
+        Camera.main.transform.rotation = Quaternion.identity;
     }
 
     void resetCollision()
@@ -336,7 +350,11 @@ public class LevelScript : MonoBehaviour
                     EnemyBehaviourBerserk ebb = (EnemyBehaviourBerserk)enemies[currentEnemy];
                     ebb.rushUnit(characters[0].posX, characters[0].posY);
                 }
-                moveCamera(enemies[currentEnemy].transform);
+                //moveCamera(enemies[currentEnemy].transform.position);
+                cameraStartPosition = Camera.main.transform.position;
+                cameraEndPosition = enemies[currentEnemy].transform.position;
+                cameraMoving = true;
+                cameraMoveTime = 0;
             }
         }
     }
@@ -396,7 +414,12 @@ public class LevelScript : MonoBehaviour
                 // Set player turn
                 state = LevelState.PlayerTurn;
                 characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Selected);
-                moveCamera(characters[currentPlayer].transform);
+                //moveCamera(characters[currentPlayer].transform.position);
+
+                cameraStartPosition = Camera.main.transform.position;
+                cameraEndPosition = characters[currentPlayer].transform.position;
+                cameraMoving = true;
+                cameraMoveTime = 0;
             }
 
             
@@ -408,9 +431,22 @@ public class LevelScript : MonoBehaviour
 
     }
 
-    void moveCamera(Transform t)
+    void moveCamera(Vector3 position)
     {
-        Vector3 newPos = new Vector3(t.position.x, t.position.y, Camera.main.transform.position.z);
+        Vector3 newPos = new Vector3(position.x, position.y, Camera.main.transform.position.z);
         Camera.main.transform.position = newPos;
+    }
+
+    void cameraIncrementMove()
+    {
+        if (Camera.main.transform.position.Equals(cameraEndPosition))
+        {
+            cameraMoving = false;
+            cameraMoveTime = 0;
+            return;
+        }
+        cameraMoveTime += Time.deltaTime;
+        Vector3 position = Vector3.MoveTowards(cameraStartPosition, cameraEndPosition, 20.0f * cameraMoveTime);
+        Camera.main.transform.position = new Vector3(position.x, position.y, Camera.main.transform.position.z);
     }
 }

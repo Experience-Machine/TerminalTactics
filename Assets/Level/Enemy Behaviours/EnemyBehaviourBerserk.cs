@@ -14,6 +14,11 @@ public class EnemyBehaviourBerserk : EnemyBehaviour
         tileReached = false;
     }
 
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     public void rushUnit(int x, int y)
     {
         positionToMoveTowards = new Vector2(x, y);

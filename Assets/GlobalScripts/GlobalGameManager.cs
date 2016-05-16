@@ -24,11 +24,8 @@ public class GlobalGameManager : MonoBehaviour
 	private string mCurrentLevel = "MenuLevel";
     public characterInfo[] characterInfos;
 
-	// Use this for initialization
-	void Start () 
+    void Awake()
     {
-		DontDestroyOnLoad(this);
-        saveLoad = new SaveLoad();
         characterInfos = new characterInfo[3];
         cardManager = new CardManager();
 
@@ -37,10 +34,16 @@ public class GlobalGameManager : MonoBehaviour
         attackCard defaultAtk = new attackCard();
         specialCard defaultSpc = new specialCard();
         passiveCard defaultPsv = new passiveCard();
-        for(int i = 0; i < characterInfos.Length; i++)
+        for (int i = 0; i < characterInfos.Length; i++)
         {
             characterInfos[i] = new characterInfo(defaultChar, defaultAtk, defaultSpc, defaultPsv);
         }
+    }
+	// Use this for initialization
+	void Start () 
+    {
+		DontDestroyOnLoad(this);
+        saveLoad = new SaveLoad();
 	}
 
 	// 
