@@ -162,6 +162,7 @@ public class CharacterBehaviour : MonoBehaviour
 
     public void setState(CharacterState cs)
     {
+        
         // Clear highlights
         if (state == CharacterState.Move && movementRange.Length > 0)
         {

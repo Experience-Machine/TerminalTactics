@@ -27,6 +27,14 @@ public class OverTimeSpecial : specialCard {
             if (gameMap.selectedTile.charOnTile != null)
             {
                 gameMap.selectedTile = null;
+                gameMap.clearHighlights(attackRangeTiles);
+                return;
+            }
+            //Don't attack empty
+            if (gameMap.selectedTile.enemyOnTile == null)
+            {
+                gameMap.selectedTile = null;
+                gameMap.clearHighlights(attackRangeTiles);
                 return;
             }
 
@@ -45,6 +53,7 @@ public class OverTimeSpecial : specialCard {
 
                 }
             }
+            gameMap.clearHighlights(attackRangeTiles);
             character.currentSpecial -= cost;
             character.setState(CharacterBehaviour.CharacterState.Idle);
         }

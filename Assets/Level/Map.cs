@@ -192,6 +192,7 @@ public class Map : MonoBehaviour
             for (int y = 0; y < mapMaxY; y++)
             {
                 map[x, y].currentColor = map[x, y].defaultColor;
+                map[x, y].tileRenderer.color = map[x, y].defaultColor;
             }
         }
     }

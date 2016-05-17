@@ -206,21 +206,26 @@ public class LevelScript : MonoBehaviour
             {
                 if (lastClicked == UIBehavior.ButtonClicked.None)
                 {
+                    map.clearAllHighlights();
                     characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Selected);
                 }
                 else if (lastClicked == UIBehavior.ButtonClicked.Move)
                 {
+                    map.clearAllHighlights();
                     characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Move);
                 }
                 else if (lastClicked == UIBehavior.ButtonClicked.Attack)
                 {
+                    map.clearAllHighlights();
                     characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Attack);
                 }
                 else if(lastClicked == UIBehavior.ButtonClicked.Wait)
                 {
+                    map.clearAllHighlights();
                     characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Idle);
                 } else if (lastClicked == UIBehavior.ButtonClicked.Special)
                 {
+                    map.clearAllHighlights();
                     map.selectedTile = null;
                     if (characters[currentPlayer].hasEnoughSpecial())
                         characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Special);             
