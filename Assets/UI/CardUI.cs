@@ -115,6 +115,20 @@ public class CardUI : MonoBehaviour
              + " SPC: " + cCard.SPC
              + " MOV: " + cCard.MOV;
         }
+        else if(card is attackCard)
+        {
+            attackCard aCard = (attackCard)card;
+            cardBody.text = "Deals " + aCard.getDamage() + " at a range of " + aCard.getRange();
+        }
+        else if(card is specialCard)
+        {
+
+        }
+        else if(card is passiveCard)
+        {
+            passiveCard pCard = (passiveCard)card;
+            cardBody.text = "Increases " + pCard.statToChange + " by " + pCard.statValue;
+        }
     }
 
     // Set the body to the specified text

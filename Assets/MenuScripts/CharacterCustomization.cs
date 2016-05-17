@@ -58,7 +58,7 @@ public class CharacterCustomization : MonoBehaviour
             uiComponent.setName(charCard.getName());
             uiComponent.setDescription(charCard.getDescription());
             uiComponent.setCharacter(characterInfo);
-            uiComponent.setBody(); // Uses the card's characterInfo
+            uiComponent.setBody(); // Uses the card's character stats
             Vector3 target = new Vector3(startPositionX + (i * cardWidth) + (i * 5), startPositionY, 0);
             RectTransform transform = (RectTransform)characterCard.transform;
             transform.anchoredPosition = target;
@@ -73,6 +73,7 @@ public class CharacterCustomization : MonoBehaviour
             uiComponent.setName(attackCard.getName());
             uiComponent.setDescription(attackCard.getDescription());
             uiComponent.setCharacter(characterInfo);
+            uiComponent.setBody(); // Uses the card's damage and range
             target = new Vector3(startPositionX + (i * cardWidth) + (i * 5), startPositionY - cardHeight - 5, 0);
             transform = (RectTransform)attack.transform;
             transform.anchoredPosition = target;
@@ -99,6 +100,7 @@ public class CharacterCustomization : MonoBehaviour
             uiComponent.setName(passiveCard.getName());
             uiComponent.setDescription(passiveCard.getDescription());
             uiComponent.setCharacter(characterInfo);
+            uiComponent.setBody(); // Uses the card's passive statToChange and statValue
             target = new Vector3(startPositionX + (i * cardWidth) + (i * 5), startPositionY - (cardHeight * 3) - 15, 0);
             transform = (RectTransform)passive.transform;
             transform.anchoredPosition = target;
