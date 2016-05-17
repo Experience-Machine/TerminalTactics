@@ -199,7 +199,6 @@ public class CharacterBehaviour : MonoBehaviour
         } else if (state == CharacterState.Special)
         {
             GameObject specialUi = Instantiate(Resources.Load("Prefabs/SpecialAttackUI")) as GameObject;
-            specialUi.transform.SetParent(GameObject.Find("Canvas").transform, false);
             Text uiText = specialUi.GetComponentInChildren<Text>();
             uiText.text = charInfo.getSpecial().nm;
         }
