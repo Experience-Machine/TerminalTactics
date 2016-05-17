@@ -123,36 +123,41 @@ public class EnemyBehaviour : MonoBehaviour
     public void giveOverTimeEffect(OverTimeEffect ote)
     {
         currentEffects.Add(ote);
+        applyEffect(ote);
+    }
+
+    public void applyEffect(OverTimeEffect ote)
+    {
+        switch (ote.statType)
+        {
+            case "health":
+                currentHealth = ote.getEffectResult(currentHealth, "HP", transform.position);
+                if (ote.numTurns == 0) currentEffects.Remove(ote);
+                break;
+            case "attack":
+                attack = ote.getEffectResult(attack, "ATK", transform.position);
+                if (ote.numTurns == 0) currentEffects.Remove(ote);
+                break;
+            case "defense":
+                defense = ote.getEffectResult(defense, "DEF", transform.position);
+                if (ote.numTurns == 0) currentEffects.Remove(ote);
+                break;
+            case "move":
+                MOVEMENT_RANGE = ote.getEffectResult(MOVEMENT_RANGE, "MOV", transform.position);
+                if (ote.numTurns == 0) currentEffects.Remove(ote);
+                break;
+            case "special":
+                currentSpecial = ote.getEffectResult(currentSpecial, "SPC", transform.position);
+                if (ote.numTurns == 0) currentEffects.Remove(ote);
+                break;
+        }
     }
 
     public void applyEffects()
     {
         for (int i = 0; i < currentEffects.Count; i++)
         {
-            OverTimeEffect ote = currentEffects[i];
-            switch (ote.statType)
-            {
-                case "health":
-                    currentHealth = ote.getEffectResult(currentHealth, "HP", transform.position);
-                    if (ote.numTurns == 0) currentEffects.Remove(ote);
-                    break;
-                case "attack":
-                    attack = ote.getEffectResult(attack, "ATK", transform.position);
-                    if (ote.numTurns == 0) currentEffects.Remove(ote);
-                    break;
-                case "defense":
-                    defense = ote.getEffectResult(defense, "DEF", transform.position);
-                    if (ote.numTurns == 0) currentEffects.Remove(ote);
-                    break;
-                case "move":
-                    MOVEMENT_RANGE = ote.getEffectResult(MOVEMENT_RANGE, "MOV", transform.position);
-                    if (ote.numTurns == 0) currentEffects.Remove(ote);
-                    break;
-                case "special":
-                    currentSpecial = ote.getEffectResult(currentSpecial, "SPC", transform.position);
-                    if (ote.numTurns == 0) currentEffects.Remove(ote);
-                    break;
-            }
+            applyEffect(currentEffects[i]);
         }
     }
 
