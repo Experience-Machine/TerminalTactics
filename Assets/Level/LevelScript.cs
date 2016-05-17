@@ -225,6 +225,7 @@ public class LevelScript : MonoBehaviour
                     characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Idle);
                 } else if (lastClicked == UIBehavior.ButtonClicked.Special)
                 {
+                    
                     map.clearAllHighlights();
                     map.selectedTile = null;
                     if (characters[currentPlayer].hasEnoughSpecial())

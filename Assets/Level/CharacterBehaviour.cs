@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class CharacterBehaviour : MonoBehaviour 
 {
@@ -173,7 +174,13 @@ public class CharacterBehaviour : MonoBehaviour
             map.clearHighlights(attackRange);
         }
 
+        //Get rid of special ui
+        if (state == CharacterState.Special)
+        {
+            GameObject.Destroy(GameObject.Find("SpecialAttackUI(Clone)"));
+        }
         state = cs;
+
 
         if (state == CharacterState.Move)
         {
@@ -184,7 +191,15 @@ public class CharacterBehaviour : MonoBehaviour
         {
             attackRange = map.getRangeTiles(posX, posY, ATTACK_RANGE);
             map.highlightTiles(attackRange, attackHighlight);
+        } else if (state == CharacterState.Special)
+        {
+            GameObject specialUi = Instantiate(Resources.Load("Prefabs/SpecialAttackUI")) as GameObject;
+            specialUi.transform.SetParent(GameObject.Find("Canvas").transform, false);
+            Text uiText = specialUi.GetComponentInChildren<Text>();
+            uiText.text = charInfo.getSpecial().nm;
         }
+
+
     }
 
 	// Update is called once per frame
