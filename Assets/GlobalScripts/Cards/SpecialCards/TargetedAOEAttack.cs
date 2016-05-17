@@ -23,7 +23,7 @@ public class TargetedAOEAttack : specialCard
     // Implement this if you make a special attack
     public override void specialAttack(Map gameMap, characterInfo theCharacter, CharacterBehaviour character)
     {
-        gameMap.clearHighlights(aoeRangeTiles);
+        gameMap.clearAllHighlights();
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
 

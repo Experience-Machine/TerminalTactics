@@ -17,7 +17,8 @@ public class OverTimeSpecial : specialCard {
     // Implement this if you make a special attack
     public override void specialAttack(Map gameMap, characterInfo theCharacter, CharacterBehaviour character)
     {
-        gameMap.clearHighlights(attackRangeTiles);
+        //gameMap.clearHighlights(attackRangeTiles);
+        gameMap.clearAllHighlights();
         attackRangeTiles = gameMap.getRangeTiles(character.posX, character.posY, attackRange);
         gameMap.highlightTiles(attackRangeTiles, gameMap.attackHighlight);
 
