@@ -326,6 +326,8 @@ public class LevelScript : MonoBehaviour
                 }
             }
 
+
+
             if (enemies.Count <= 0 || characters.Count <= 0)
                 SceneManager.LoadScene("GameMainMenu");
 
@@ -340,6 +342,12 @@ public class LevelScript : MonoBehaviour
             }
             else
             {
+                if (enemies[currentEnemy].getState() == EnemyBehaviour.EnemyState.Dead)
+                {
+                    enemies.Remove(enemies[currentEnemy]);
+                    return;
+                }
+
                 //Destroy Combat UI
                 Destroy(charUIInstance);
                 charUIInstance = null;

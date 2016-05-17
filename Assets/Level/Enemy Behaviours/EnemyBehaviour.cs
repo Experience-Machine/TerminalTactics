@@ -99,7 +99,8 @@ public class EnemyBehaviour : MonoBehaviour
                                                enemyAttacks[Random.Range(0, enemyAttacks.Count)],
                                                enemySpecial[Random.Range(0, enemySpecial.Count)],
                                                enemyPassives[Random.Range(0, enemyPassives.Count)]);
-
+        
+        
         setCharInfo(info);
     }
 
