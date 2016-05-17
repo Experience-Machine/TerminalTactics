@@ -47,4 +47,12 @@ public class DamageNumber : MonoBehaviour {
             Destroy(this);
         }
 	}
+
+    public static void createDamageNumber(string number, Vector3 position)
+    {
+        GameObject damageNumber = Instantiate(Resources.Load("Prefabs/DamageText")) as GameObject;
+        DamageNumber damageUi = damageNumber.GetComponent<DamageNumber>();
+        damageUi.setPosition(Camera.main.WorldToScreenPoint(position));
+        damageUi.setNumber(number);
+    }
 }

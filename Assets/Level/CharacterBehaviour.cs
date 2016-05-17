@@ -29,6 +29,8 @@ public class CharacterBehaviour : MonoBehaviour
     public int defense = 1;
     public int attack = 1;
 
+    private List<OverTimeEffect> currentEffects;
+
     // Movement stuff
     private Tile[] movementRange;
     Color movementHighlight = new Color(0, 0, 1f, .3f);
@@ -65,6 +67,7 @@ public class CharacterBehaviour : MonoBehaviour
         //map.highlightTiles(movementRange, movementHighlight);
 
         possiblePaths = new List<Path>();
+        currentEffects = new List<OverTimeEffect>();
 
         state = CharacterState.Idle;
         currentPath = null;
@@ -108,6 +111,42 @@ public class CharacterBehaviour : MonoBehaviour
         else
             Debug.Log("Invalid passive card type");
         
+    }
+
+    public void giveOverTimeEffect(OverTimeEffect ote)
+    {
+        currentEffects.Add(ote);
+    }
+
+    public void applyEffects()
+    {
+        for (int i = 0; i < currentEffects.Count; i++)
+        {
+            OverTimeEffect ote = currentEffects[i];
+            switch(ote.statType)
+            {
+                case "health":
+                    currentHealth = ote.getEffectResult(currentHealth, "HP", transform.position);
+                    if (ote.numTurns == 0) currentEffects.Remove(ote);
+                    break;
+                case "attack":
+                    attack = ote.getEffectResult(attack, "ATK", transform.position);
+                    if (ote.numTurns == 0) currentEffects.Remove(ote);
+                    break;
+                case "defense":
+                    defense = ote.getEffectResult(defense, "DEF", transform.position);
+                    if (ote.numTurns == 0) currentEffects.Remove(ote);
+                    break;
+                case "move":
+                    MOVEMENT_RANGE = ote.getEffectResult(MOVEMENT_RANGE, "MOV", transform.position);
+                    if (ote.numTurns == 0) currentEffects.Remove(ote);
+                    break;
+                case "special":
+                    currentSpecial = ote.getEffectResult(currentSpecial, "SPC", transform.position);
+                    if (ote.numTurns == 0) currentEffects.Remove(ote);
+                    break;
+            }
+        }
     }
 
     public bool hasEnoughSpecial()

@@ -156,6 +156,20 @@ public class Tile : MonoBehaviour
         //No current support for enemy healing
     }
 
+    public void applyOverTimeEffectToTile(OverTimeEffect ote)
+    {
+        if (charOnTile != null)
+        {
+            hasUnit = false;
+            //Clone the effect so we can avoid impacting the one in the special card
+            charOnTile.giveOverTimeEffect(ote.clone());
+        }
+        else if (enemyOnTile != null)
+        {
+            enemyOnTile.giveOverTimeEffect(ote.clone());
+        }
+    }
+
     // This method can be used one of two ways:
     //  1) There is a unit present on this tile. In this case, the tile will 
     //      call the kill enemy on the unit present on the tile.

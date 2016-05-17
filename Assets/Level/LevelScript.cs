@@ -297,6 +297,8 @@ public class LevelScript : MonoBehaviour
             map.clearAllHighlights();
             resetCollision();
 
+            characters[currentPlayer].applyEffects();
+
             // Itterate who gets to go on the next player turn
             currentPlayer++;
 
@@ -355,6 +357,8 @@ public class LevelScript : MonoBehaviour
                 cameraEndPosition = enemies[currentEnemy].transform.position;
                 cameraMoving = true;
                 cameraMoveTime = 0;
+
+               
             }
         }
     }
@@ -367,6 +371,8 @@ public class LevelScript : MonoBehaviour
             // Clean the map
             map.clearAllHighlights();
             resetCollision();
+
+            enemies[currentEnemy].applyEffects();
 
             // Itterate who gets to go on the next enemy turn
             currentEnemy++;

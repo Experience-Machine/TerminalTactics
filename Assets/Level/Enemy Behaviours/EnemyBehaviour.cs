@@ -24,6 +24,10 @@ public class EnemyBehaviour : MonoBehaviour
     public int MAX_HEALTH = 1;
     public int currentHealth;
     public int defense;
+    public int attack;
+    public int currentSpecial;
+
+    List<OverTimeEffect> currentEffects;
 
     // Movement Stuff
     protected Tile[] movementRange;
@@ -59,6 +63,7 @@ public class EnemyBehaviour : MonoBehaviour
         movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
 
         possiblePaths = new List<Path>();
+        currentEffects = new List<OverTimeEffect>();
 
         state = EnemyState.Idle;
         currentPath = null;
@@ -79,6 +84,8 @@ public class EnemyBehaviour : MonoBehaviour
         ATTACK_RANGE = cInf.getAttack().getRange();
         name = cInf.getCharacter().getName();
         defense = cInf.getCharacter().DEF;
+        attack = cInf.getCharacter().ATK;
+        currentSpecial = cInf.getCharacter().SPC;
     }
 
     public void setRandomCharInfo()
@@ -111,6 +118,42 @@ public class EnemyBehaviour : MonoBehaviour
             map.highlightTiles(movementRange, map.movementHighlight);
         }
          */
+    }
+
+    public void giveOverTimeEffect(OverTimeEffect ote)
+    {
+        currentEffects.Add(ote);
+    }
+
+    public void applyEffects()
+    {
+        for (int i = 0; i < currentEffects.Count; i++)
+        {
+            OverTimeEffect ote = currentEffects[i];
+            switch (ote.statType)
+            {
+                case "health":
+                    currentHealth = ote.getEffectResult(currentHealth, "HP", transform.position);
+                    if (ote.numTurns == 0) currentEffects.Remove(ote);
+                    break;
+                case "attack":
+                    attack = ote.getEffectResult(attack, "ATK", transform.position);
+                    if (ote.numTurns == 0) currentEffects.Remove(ote);
+                    break;
+                case "defense":
+                    defense = ote.getEffectResult(defense, "DEF", transform.position);
+                    if (ote.numTurns == 0) currentEffects.Remove(ote);
+                    break;
+                case "move":
+                    MOVEMENT_RANGE = ote.getEffectResult(MOVEMENT_RANGE, "MOV", transform.position);
+                    if (ote.numTurns == 0) currentEffects.Remove(ote);
+                    break;
+                case "special":
+                    currentSpecial = ote.getEffectResult(currentSpecial, "SPC", transform.position);
+                    if (ote.numTurns == 0) currentEffects.Remove(ote);
+                    break;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -282,7 +325,7 @@ public class EnemyBehaviour : MonoBehaviour
             map.clearHighlights(meleeRange);
 
             // Attack Unit on tile
-            selectedUnitTile.attackTile(ATTACK_DAMAGE + charInfo.getCharacter().ATK);
+            selectedUnitTile.attackTile(ATTACK_DAMAGE + attack);
 
             // We're done attacking
             selectedUnitTile = null;
