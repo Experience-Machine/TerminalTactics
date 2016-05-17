@@ -38,12 +38,13 @@ public class CardSelect : MonoBehaviour {
             int cardOffset = ((characterCards.Count * (cardWidth + 5) / 2)) - 75;
             for (int i = 0; i < characterCards.Count; i++)
             {
-                GameObject characterCard = Instantiate(Resources.Load("Prefabs/Card")) as GameObject;
+                GameObject characterCard = Instantiate(Resources.Load("Prefabs/CharCard")) as GameObject;
                 characterCard.transform.SetParent(myCanvas.transform, false);
                 CardUI uiComponent = characterCard.GetComponent<CardUI>();
                 uiComponent.setCard(characterCards[i]);
                 uiComponent.setName(characterCards[i].getName());
                 uiComponent.setDescription(characterCards[i].getDescription());
+                uiComponent.setBody();
                 Vector3 target = new Vector3((i * cardWidth) + (i * 5) - cardOffset, 0, 0);
                 RectTransform transform = (RectTransform)characterCard.transform;
                 transform.anchoredPosition = target;

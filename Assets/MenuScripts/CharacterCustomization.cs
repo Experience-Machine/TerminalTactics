@@ -3,7 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class CharacterCustomization : MonoBehaviour {
+public class CharacterCustomization : MonoBehaviour 
+{
 
     private const int startPositionX = -194;
     private const int startPositionY = 164;
@@ -18,7 +19,8 @@ public class CharacterCustomization : MonoBehaviour {
     GlobalGameManager manager;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
         manager = GameObject.Find("GlobalGameManager(Clone)").GetComponent<GlobalGameManager>();
 
         myCanvas = GameObject.Find("Canvas");
@@ -47,7 +49,7 @@ public class CharacterCustomization : MonoBehaviour {
             characterInfo characterInfo = manager.characterInfos[i];
             Camera camera = GetComponent<Camera>();
 
-            GameObject characterCard = Instantiate(Resources.Load("Prefabs/Card")) as GameObject;
+            GameObject characterCard = Instantiate(Resources.Load("Prefabs/CharCard")) as GameObject;
             characterCard.transform.SetParent(myCanvas.transform, false);
             CardUI uiComponent = characterCard.GetComponent<CardUI>();
 
@@ -56,6 +58,7 @@ public class CharacterCustomization : MonoBehaviour {
             uiComponent.setName(charCard.getName());
             uiComponent.setDescription(charCard.getDescription());
             uiComponent.setCharacter(characterInfo);
+            uiComponent.setBody(); // Uses the card's characterInfo
             Vector3 target = new Vector3(startPositionX + (i * cardWidth) + (i * 5), startPositionY, 0);
             RectTransform transform = (RectTransform)characterCard.transform;
             transform.anchoredPosition = target;

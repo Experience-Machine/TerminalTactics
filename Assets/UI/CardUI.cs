@@ -3,9 +3,11 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class CardUI : MonoBehaviour {
+public class CardUI : MonoBehaviour 
+{
     Text cardName;
     Text cardDescription;
+    Text cardBody;
     Card card;
     characterInfo charInfo; //If we need it
     GlobalGameManager.CardType type;
@@ -15,18 +17,21 @@ public class CardUI : MonoBehaviour {
     GlobalGameManager manager;
 
     // Use this for initialization
-    void Awake() {
+    void Awake() 
+    {
 
         manager = GameObject.Find("GlobalGameManager(Clone)").GetComponent<GlobalGameManager>();
         type = GlobalGameManager.CardType.None;
         Text[] textComponents = GetComponentsInChildren<Text>();
         cardName = textComponents[1];
         cardDescription = textComponents[2];
+        cardBody = textComponents[0];
 
         button = GetComponent<Button>();
 
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.name.Equals("CharCustomization")) { //If we're in the character customization scene, we want to go to the select card scene
+        if (scene.name.Equals("CharCustomization")) //If we're in the character customization scene, we want to go to the select card scene
+        {
             button.onClick.AddListener(
                 () =>
                 {
@@ -34,7 +39,8 @@ public class CardUI : MonoBehaviour {
                     manager.cardTypeSelected = type;
                     SceneManager.LoadScene("CardSelect");
                 });
-        } else if (scene.name.Equals("CardSelect")) //If we're in the card selection scene, we want to go back to char customization
+        } 
+        else if (scene.name.Equals("CardSelect")) //If we're in the card selection scene, we want to go back to char customization
         {
             button.onClick.AddListener(
                 () =>
@@ -63,7 +69,8 @@ public class CardUI : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
 	
 	}
     public void setCard(Card c)
@@ -93,5 +100,26 @@ public class CardUI : MonoBehaviour {
     public void setDescription(string description)
     {
         cardDescription.text = description;
+    }
+    
+    // Set body with empty paramaters sets the body to
+    //  the card's character stats
+    public void setBody()
+    {
+        if (card is characterCard)
+        {
+            characterCard cCard = (characterCard)card;
+            cardBody.text = "HP: " + cCard.maxHP
+             + "   ATK: " + cCard.ATK
+             + " DEF: " + cCard.DEF
+             + " SPC: " + cCard.SPC
+             + " MOV: " + cCard.MOV;
+        }
+    }
+
+    // Set the body to the specified text
+    public void setBody(string bodyText)
+    {
+        cardBody.text = bodyText;
     }
 }
