@@ -67,14 +67,8 @@ public class CharacterBehaviour : MonoBehaviour
     private int ATTACK_RANGE = 1;
     private int ATTACK_DAMAGE = 1;
 
-    AudioSource specialAudio;
-    AudioSource logoffAudio;
-
     void Awake()
     {
-        specialAudio = GameObject.Find("SpecialAttackAudio").GetComponent<AudioSource>();
-        logoffAudio = GameObject.Find("LogoffAudio").GetComponent<AudioSource>();
-
         map = GameObject.Find("Map").GetComponent<Map>();
         posX = 3;
         posY = 3;
@@ -446,16 +440,12 @@ public class CharacterBehaviour : MonoBehaviour
         //  revive! Maybe.
         setState(CharacterState.Dead);
         gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
-        logoffAudio.PlayOneShot(logoffAudio.clip, 0.75f);
     }
 
     public void serviceSpecialState()
     {
         charInfo.spcCard.specialAttack(map, charInfo, this);
-        if (state == CharacterState.Idle) //Special attack is over
-        {
-            specialAudio.PlayOneShot(specialAudio.clip, 0.75f);
-        }
+
         
 
     }

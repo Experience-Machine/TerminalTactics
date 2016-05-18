@@ -101,8 +101,6 @@ public class Tile : MonoBehaviour
 
     public void attackTile(int damageDealt)
     {
-        AudioSource attackAudio = GameObject.Find("AttackAudio").GetComponent<AudioSource>();
-
         GameObject damageNumber = Instantiate(Resources.Load("Prefabs/DamageText")) as GameObject;
         DamageNumber damageUi = damageNumber.GetComponent<DamageNumber>();
         
@@ -114,8 +112,6 @@ public class Tile : MonoBehaviour
             actualDamage = damageDealt / charOnTile.GetComponent<CharacterBehaviour>().defense;
             if (actualDamage == 0) actualDamage = 1; //Don't want 0 damage
             charOnTile.damage(actualDamage);
-
-            attackAudio.PlayOneShot(attackAudio.clip, 0.75f);
            
             damageUi.setPosition(Camera.main.WorldToScreenPoint(transform.position));
 
@@ -129,11 +125,10 @@ public class Tile : MonoBehaviour
             actualDamage = damageDealt / enemyOnTile.defense;
             if (actualDamage == 0) actualDamage = 1; //Don't want 0 damage
             enemyOnTile.damage(actualDamage);
-            attackAudio.PlayOneShot(attackAudio.clip, 0.75f);
 
             //Debug.Log("Damage: " + damageDealt + " " + enemyOnTile.defense);
             //Debug.Log("Actual: " + actualDamage);
-
+            
             damageUi.setPosition(Camera.main.WorldToScreenPoint(transform.position));
         }
 
