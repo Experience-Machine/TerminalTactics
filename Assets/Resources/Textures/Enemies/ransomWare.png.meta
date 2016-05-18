@@ -1,0 +1,314 @@
+fileFormatVersion: 2
+guid: 4f510016cee56a040a5acc5a0e96ae2b
+timeCreated: 1463610673
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ransomWare_0
+    21300002: ransomWare_1
+    21300004: ransomWare_2
+    21300006: ransomWare_3
+    21300008: ransomWare_6
+    21300010: ransomWare_7
+    21300012: ransomWare_8
+    21300014: ransomWare_11
+    21300016: ransomWare_12
+    21300018: ransomWare_13
+    21300020: ransomWare_16
+    21300022: ransomWare_17
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ransomWare_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 137
+        width: 34
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 23.5}
+        - {x: -17, y: 18.5}
+        - {x: -17, y: -15.5}
+        - {x: -15, y: -22.5}
+        - {x: -13, y: -23.5}
+        - {x: 9, y: -23.5}
+        - {x: 15, y: -21.5}
+        - {x: 17, y: -18.5}
+        - {x: 17, y: 18.5}
+        - {x: 13, y: 23.5}
+    - name: ransomWare_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 138
+        width: 36
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 22.5}
+        - {x: -18, y: 15.5}
+        - {x: -18, y: -16.5}
+        - {x: -16, y: -22.5}
+        - {x: 11, y: -22.5}
+        - {x: 18, y: -5.5}
+        - {x: 18, y: 15.5}
+        - {x: 9, y: 22.5}
+    - name: ransomWare_2
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 138
+        width: 36
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 22}
+        - {x: -13, y: 18}
+        - {x: -18, y: 13}
+        - {x: -18, y: -14}
+        - {x: -17, y: -19}
+        - {x: -10, y: -19}
+        - {x: -8, y: -16}
+        - {x: -9, y: -17}
+        - {x: -9, y: -19}
+        - {x: -8, y: -22}
+        - {x: 13, y: -22}
+        - {x: 18, y: -16}
+        - {x: 18, y: 13}
+        - {x: 9, y: 22}
+    - name: ransomWare_3
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 91
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 23}
+        - {x: -16, y: 14}
+        - {x: -16, y: -16}
+        - {x: -15, y: -21}
+        - {x: -12, y: -23}
+        - {x: 8, y: -23}
+        - {x: 14, y: -21}
+        - {x: 16, y: -12}
+        - {x: 16, y: 17}
+        - {x: 10, y: 23}
+    - name: ransomWare_6
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 92
+        width: 32
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 22.5}
+        - {x: -16, y: 19.5}
+        - {x: -16, y: -14.5}
+        - {x: -14, y: -21.5}
+        - {x: -12, y: -22.5}
+        - {x: 10, y: -22.5}
+        - {x: 16, y: -11.5}
+        - {x: 16, y: 13.5}
+        - {x: 9, y: 22.5}
+    - name: ransomWare_7
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 92
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 13}
+        - {x: 8, y: 22}
+        - {x: -9, y: 22}
+        - {x: -16, y: 12}
+        - {x: -16, y: -14}
+        - {x: -13, y: -21}
+        - {x: -9, y: -22}
+        - {x: 6, y: -22}
+        - {x: 10, y: -20}
+        - {x: 12, y: -15}
+        - {x: 16, y: -8}
+    - name: ransomWare_8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 45
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 23}
+        - {x: -17, y: 15}
+        - {x: -17, y: -14}
+        - {x: -11, y: -23}
+        - {x: 11, y: -23}
+        - {x: 15, y: -21}
+        - {x: 17, y: -12}
+        - {x: 17, y: 17}
+        - {x: 11, y: 23}
+    - name: ransomWare_11
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 46
+        width: 36
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 22.5}
+        - {x: -18, y: 15.5}
+        - {x: -18, y: -16.5}
+        - {x: -16, y: -22.5}
+        - {x: 11, y: -22.5}
+        - {x: 18, y: -5.5}
+        - {x: 18, y: 15.5}
+        - {x: 9, y: 22.5}
+    - name: ransomWare_12
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 46
+        width: 36
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 22}
+        - {x: -13, y: 18}
+        - {x: -18, y: 13}
+        - {x: -18, y: -14}
+        - {x: -17, y: -19}
+        - {x: -10, y: -19}
+        - {x: -8, y: -16}
+        - {x: -9, y: -17}
+        - {x: -9, y: -19}
+        - {x: -8, y: -22}
+        - {x: 13, y: -22}
+        - {x: 18, y: -16}
+        - {x: 18, y: 13}
+        - {x: 9, y: 22}
+    - name: ransomWare_13
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 32
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 22.5}
+        - {x: -16, y: 17.5}
+        - {x: -16, y: -22.5}
+        - {x: 16, y: -22.5}
+        - {x: 16, y: 17.5}
+        - {x: 14, y: 22.5}
+    - name: ransomWare_16
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 0
+        width: 32
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: 22.5}
+        - {x: -8, y: 22.5}
+        - {x: -16, y: 13.5}
+        - {x: -16, y: -5.5}
+        - {x: -9, y: -19.5}
+        - {x: -6, y: -22.5}
+        - {x: 8, y: -22.5}
+        - {x: 11, y: -19.5}
+        - {x: 16, y: -15.5}
+        - {x: 16, y: 18.5}
+    - name: ransomWare_17
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 0
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 22}
+        - {x: -16, y: -22}
+        - {x: 16, y: -22}
+        - {x: 16, y: 22}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
