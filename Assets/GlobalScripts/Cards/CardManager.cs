@@ -29,8 +29,12 @@ public class CardManager
     private static OverTimeSpecial testOverTime = new OverTimeSpecial("Test overtime attack", "...", 1, 2, testOTE);
     private static OverTimeSpecialAOE testOverTimeAOE = new OverTimeSpecialAOE("Test overtime aoe attack", "...", 1, testOTE, 3, 3);
 
-    private static OverTimeEffect testOTEBuff = new OverTimeEffect(3, 5, "defense", true, true, false);
-    private static OverTimeSpecialAOE testBuff = new OverTimeSpecialAOE("Test aoe buff", "", 1, testOTEBuff, 4, 4);
+    private static OverTimeEffect defOTEBuff = new OverTimeEffect(3, 2, "defense", true, true, false);
+    private static OverTimeSpecialAOE readOnly = new OverTimeSpecialAOE("Read only", "Gives +2 defense to teammates in an area for 3 turns", 3, defOTEBuff, 3, 2);
+
+    private static OverTimeEffect atkOTEBuff = new OverTimeEffect(3, 2, "attack", true, true, false);
+    private static OverTimeSpecialAOE adminRights = new OverTimeSpecialAOE("Admin rights", "Gives +2 attack to teammates in an area for 3 turns", 3, atkOTEBuff, 3, 2);
+
 
     private static passiveCard cooling = new passiveCard("Cooling", "Good cooling improves performance", "defense", 1);
     private static passiveCard priority = new passiveCard("Priority", "Increased priority for faster throughput", "movement", 1);
@@ -68,12 +72,14 @@ public class CardManager
         allCards.Add(blueScreen);
         allCards.Add(cooling);
         allCards.Add(priority);
+        allCards.Add(readOnly);
+        allCards.Add(adminRights);
 
         allCards.Add(testAOE);
         allCards.Add(testAOEHeal);
         allCards.Add(testOverTime);
         allCards.Add(testOverTimeAOE);
-        allCards.Add(testBuff);
+        
 
         enemyCards.Add(worm);
         enemyCards.Add(horse);
@@ -97,12 +103,15 @@ public class CardManager
         ownedCards.Add(blueScreen);
         ownedCards.Add(cooling);
         ownedCards.Add(priority);
+        ownedCards.Add(readOnly);
+        ownedCards.Add(adminRights);
+
 
         ownedCards.Add(testAOE);
         ownedCards.Add(testAOEHeal);
         ownedCards.Add(testOverTime);
         ownedCards.Add(testOverTimeAOE);
-        ownedCards.Add(testBuff);
+        
     }
 
     public List<characterCard> getOwnedCharacterCards()

@@ -407,7 +407,9 @@ public class CharacterBehaviour : MonoBehaviour
         // Do any attack animations here
         map.clearHighlights(attackRange);
 
-        tileToAttack.attackTile(charInfo.atkCard.dmg + ATTACK_DAMAGE);
+        
+
+        tileToAttack.attackTile(attack + ATTACK_DAMAGE);
         tileToAttack = null;
         state = CharacterState.Idle;
     }

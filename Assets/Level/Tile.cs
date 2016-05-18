@@ -126,8 +126,8 @@ public class Tile : MonoBehaviour
             if (actualDamage == 0) actualDamage = 1; //Don't want 0 damage
             enemyOnTile.damage(actualDamage);
 
-            Debug.Log("Damage: " + damageDealt + " " + enemyOnTile.defense);
-            Debug.Log("Actual: " + actualDamage);
+            //Debug.Log("Damage: " + damageDealt + " " + enemyOnTile.defense);
+            //Debug.Log("Actual: " + actualDamage);
             
             damageUi.setPosition(Camera.main.WorldToScreenPoint(transform.position));
         }
