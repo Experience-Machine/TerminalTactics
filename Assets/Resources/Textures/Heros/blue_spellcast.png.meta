@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: 0f342019ca190c04d80588762e35ec79
+timeCreated: 1463546757
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: blue_spellcast_0
+    21300002: blue_spellcast_1
+    21300004: blue_spellcast_2
+    21300006: blue_spellcast_3
+    21300008: blue_spellcast_4
+    21300010: blue_spellcast_5
+    21300012: blue_spellcast_7
+    21300014: blue_spellcast_8
+    21300016: blue_spellcast_9
+    21300018: blue_spellcast_10
+    21300020: blue_spellcast_11
+    21300022: blue_spellcast_12
+    21300024: blue_spellcast_14
+    21300026: blue_spellcast_15
+    21300028: blue_spellcast_16
+    21300030: blue_spellcast_17
+    21300032: blue_spellcast_18
+    21300034: blue_spellcast_19
+    21300036: blue_spellcast_21
+    21300038: blue_spellcast_22
+    21300040: blue_spellcast_23
+    21300042: blue_spellcast_24
+    21300044: blue_spellcast_25
+    21300046: blue_spellcast_26
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: blue_spellcast_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 194
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_spellcast_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 194
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_spellcast_2
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 194
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_spellcast_3
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 194
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: 25}
+        - {x: -13, y: 25}
+        - {x: -18, y: 14}
+        - {x: -18, y: -23}
+        - {x: -16, y: -25}
+        - {x: 15, y: -25}
+        - {x: 18, y: -20}
+        - {x: 18, y: 22}
+    - name: blue_spellcast_4
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 194
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 25}
+        - {x: -25, y: 11}
+        - {x: -25, y: -18}
+        - {x: -20, y: -25}
+        - {x: 25, y: -25}
+        - {x: 25, y: 12}
+        - {x: 6, y: 25}
+    - name: blue_spellcast_5
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 194
+        width: 48
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 25}
+        - {x: -24, y: 19}
+        - {x: -24, y: -21}
+        - {x: -23, y: -25}
+        - {x: 15, y: -25}
+        - {x: 24, y: -14}
+        - {x: 24, y: 25}
+    - name: blue_spellcast_7
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 130
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18, y: 24.5}
+        - {x: 13, y: 25.5}
+        - {x: -12, y: 25.5}
+        - {x: -18, y: 23.5}
+        - {x: -18, y: -25.5}
+        - {x: 7, y: -25.5}
+        - {x: 12, y: -11.5}
+        - {x: 10, y: -0.5}
+        - {x: 18, y: 15.5}
+    - name: blue_spellcast_8
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 130
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 25.5}
+        - {x: -18, y: 22.5}
+        - {x: -18, y: -9.5}
+        - {x: -17, y: -24.5}
+        - {x: -16, y: -25.5}
+        - {x: 10, y: -25.5}
+        - {x: 18, y: 7.5}
+        - {x: 18, y: 25.5}
+    - name: blue_spellcast_9
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 130
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 25.5}
+        - {x: -18, y: 24.5}
+        - {x: -18, y: -25.5}
+        - {x: 11, y: -25.5}
+        - {x: 18, y: -21.5}
+        - {x: 18, y: 25.5}
+    - name: blue_spellcast_10
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 130
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: 25.5}
+        - {x: -18, y: 25.5}
+        - {x: -18, y: -25.5}
+        - {x: 7, y: -25.5}
+        - {x: 17, y: -8.5}
+        - {x: 18, y: 3.5}
+        - {x: 18, y: 24.5}
+    - name: blue_spellcast_11
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 130
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11, y: 6.5}
+        - {x: 8, y: 3.5}
+        - {x: 14, y: 10.5}
+        - {x: 18, y: 17.5}
+        - {x: 18, y: 24.5}
+        - {x: 13, y: 25.5}
+        - {x: -10, y: 25.5}
+        - {x: -18, y: 20.5}
+        - {x: -18, y: -19.5}
+        - {x: -16, y: -25.5}
+        - {x: 8, y: -25.5}
+        - {x: 18, y: -8.5}
+        - {x: 18, y: 4.5}
+        - {x: 16, y: 7.5}
+    - name: blue_spellcast_12
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 130
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 25.5}
+        - {x: -18, y: 24.5}
+        - {x: -18, y: -25.5}
+        - {x: 6, y: -25.5}
+        - {x: 18, y: -0.5}
+        - {x: 18, y: 25.5}
+    - name: blue_spellcast_14
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 66
+        width: 30
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_spellcast_15
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 66
+        width: 30
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_spellcast_16
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 66
+        width: 28
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_spellcast_17
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 66
+        width: 36
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 28}
+        - {x: -17, y: 28}
+        - {x: -18, y: 22}
+        - {x: -18, y: -19}
+        - {x: -15, y: -28}
+        - {x: 15, y: -28}
+        - {x: 18, y: -22}
+        - {x: 18, y: 11}
+        - {x: 15, y: 26}
+    - name: blue_spellcast_18
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 66
+        width: 50
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 28}
+        - {x: -25, y: 14}
+        - {x: -25, y: -27}
+        - {x: -23, y: -28}
+        - {x: 25, y: -28}
+        - {x: 25, y: 18}
+        - {x: 10, y: 28}
+    - name: blue_spellcast_19
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 66
+        width: 48
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 27}
+        - {x: 1, y: 28}
+        - {x: -16, y: 28}
+        - {x: -24, y: 21}
+        - {x: -24, y: -12}
+        - {x: -18, y: -28}
+        - {x: 14, y: -28}
+        - {x: 24, y: -3}
+        - {x: 24, y: 14}
+    - name: blue_spellcast_21
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 2
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 25.5}
+        - {x: -18, y: 25.5}
+        - {x: -18, y: 7.5}
+        - {x: -9, y: -25.5}
+        - {x: 15, y: -25.5}
+        - {x: 17, y: -24.5}
+        - {x: 18, y: -5.5}
+        - {x: 18, y: 21.5}
+    - name: blue_spellcast_22
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 2
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 25.5}
+        - {x: -18, y: 10.5}
+        - {x: -13, y: -9.5}
+        - {x: -5, y: -25.5}
+        - {x: 18, y: -25.5}
+        - {x: 18, y: 22.5}
+        - {x: 13, y: 25.5}
+    - name: blue_spellcast_23
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 2
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 25.5}
+        - {x: -18, y: 8.5}
+        - {x: -7, y: -25.5}
+        - {x: 14, y: -25.5}
+        - {x: 18, y: -21.5}
+        - {x: 18, y: 25.5}
+    - name: blue_spellcast_24
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 2
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 25.5}
+        - {x: -18, y: 7.5}
+        - {x: -13, y: -7.5}
+        - {x: -6, y: -25.5}
+        - {x: 18, y: -25.5}
+        - {x: 18, y: 21.5}
+        - {x: 12, y: 25.5}
+    - name: blue_spellcast_25
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 2
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 25.5}
+        - {x: -18, y: -11.5}
+        - {x: -6, y: -25.5}
+        - {x: 18, y: -25.5}
+        - {x: 18, y: 23.5}
+        - {x: 17, y: 25.5}
+    - name: blue_spellcast_26
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 2
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 25.5}
+        - {x: -18, y: -15.5}
+        - {x: -13, y: -25.5}
+        - {x: 18, y: -25.5}
+        - {x: 18, y: 25.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

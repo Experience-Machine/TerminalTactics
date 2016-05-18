@@ -1,0 +1,625 @@
+fileFormatVersion: 2
+guid: 67e98dd240e670e40b5069cbe5760d3d
+timeCreated: 1463546732
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: blue_walk_0
+    21300002: blue_walk_1
+    21300004: blue_walk_2
+    21300006: blue_walk_3
+    21300008: blue_walk_4
+    21300010: blue_walk_5
+    21300012: blue_walk_6
+    21300014: blue_walk_7
+    21300016: blue_walk_8
+    21300018: blue_walk_9
+    21300020: blue_walk_10
+    21300022: blue_walk_11
+    21300024: blue_walk_12
+    21300026: blue_walk_13
+    21300028: blue_walk_14
+    21300030: blue_walk_15
+    21300032: blue_walk_16
+    21300034: blue_walk_17
+    21300036: blue_walk_18
+    21300038: blue_walk_19
+    21300040: blue_walk_20
+    21300042: blue_walk_21
+    21300044: blue_walk_22
+    21300046: blue_walk_23
+    21300048: blue_walk_24
+    21300050: blue_walk_25
+    21300052: blue_walk_26
+    21300054: blue_walk_27
+    21300056: blue_walk_28
+    21300058: blue_walk_29
+    21300060: blue_walk_30
+    21300062: blue_walk_31
+    21300064: blue_walk_32
+    21300066: blue_walk_33
+    21300068: blue_walk_34
+    21300070: blue_walk_35
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: blue_walk_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 195
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_walk_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 195
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_walk_2
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 194
+        width: 30
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_walk_3
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 193
+        width: 29
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_walk_4
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 194
+        width: 30
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_walk_5
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 195
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_walk_6
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 194
+        width: 30
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_walk_7
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 193
+        width: 29
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_walk_8
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 194
+        width: 30
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_walk_9
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 130
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18, y: 24.5}
+        - {x: 13, y: 25.5}
+        - {x: -12, y: 25.5}
+        - {x: -18, y: 23.5}
+        - {x: -18, y: -25.5}
+        - {x: 7, y: -25.5}
+        - {x: 12, y: -11.5}
+        - {x: 10, y: -0.5}
+        - {x: 18, y: 15.5}
+    - name: blue_walk_10
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 130
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 25}
+        - {x: -18, y: 22}
+        - {x: -18, y: -23}
+        - {x: -16, y: -25}
+        - {x: 10, y: -25}
+        - {x: 15, y: -18}
+        - {x: 18, y: 6}
+        - {x: 18, y: 25}
+    - name: blue_walk_11
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 131
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 25}
+        - {x: -18, y: 23}
+        - {x: -18, y: -13}
+        - {x: -17, y: -25}
+        - {x: 10, y: -25}
+        - {x: 18, y: 9}
+        - {x: 18, y: 25}
+    - name: blue_walk_12
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 131
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 25}
+        - {x: -18, y: 22}
+        - {x: -18, y: 4}
+        - {x: -14, y: -25}
+        - {x: 6, y: -25}
+        - {x: 15, y: -16}
+        - {x: 18, y: 6}
+        - {x: 18, y: 25}
+    - name: blue_walk_13
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 130
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: 25.5}
+        - {x: -11, y: 25.5}
+        - {x: -18, y: 21.5}
+        - {x: -18, y: -24.5}
+        - {x: -17, y: -25.5}
+        - {x: 9, y: -25.5}
+        - {x: 17, y: -14.5}
+        - {x: 18, y: -7.5}
+        - {x: 18, y: 24.5}
+    - name: blue_walk_14
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 130
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 25}
+        - {x: -18, y: 21}
+        - {x: -18, y: -25}
+        - {x: 7, y: -25}
+        - {x: 16, y: -14}
+        - {x: 18, y: 4}
+        - {x: 18, y: 25}
+    - name: blue_walk_15
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 130
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 25.5}
+        - {x: -18, y: 22.5}
+        - {x: -18, y: -8.5}
+        - {x: -16, y: -25.5}
+        - {x: 8, y: -25.5}
+        - {x: 10, y: -24.5}
+        - {x: 18, y: 1.5}
+        - {x: 18, y: 25.5}
+    - name: blue_walk_16
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 130
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 25.5}
+        - {x: -18, y: 22.5}
+        - {x: -18, y: -1.5}
+        - {x: -15, y: -25.5}
+        - {x: 8, y: -25.5}
+        - {x: 18, y: 6.5}
+        - {x: 18, y: 25.5}
+    - name: blue_walk_17
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 130
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 25.5}
+        - {x: -18, y: 22.5}
+        - {x: -18, y: 5.5}
+        - {x: -13, y: -25.5}
+        - {x: 8, y: -25.5}
+        - {x: 18, y: 13.5}
+        - {x: 18, y: 25.5}
+    - name: blue_walk_18
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 66
+        width: 30
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_walk_19
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 66
+        width: 30
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_walk_20
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 65
+        width: 30
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_walk_21
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 65
+        width: 29
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_walk_22
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 65
+        width: 30
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_walk_23
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 66
+        width: 30
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_walk_24
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 65
+        width: 30
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_walk_25
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 65
+        width: 29
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_walk_26
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 65
+        width: 30
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: blue_walk_27
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 2
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 25.5}
+        - {x: -18, y: 25.5}
+        - {x: -18, y: 7.5}
+        - {x: -9, y: -25.5}
+        - {x: 15, y: -25.5}
+        - {x: 17, y: -24.5}
+        - {x: 18, y: -5.5}
+        - {x: 18, y: 21.5}
+    - name: blue_walk_28
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 2
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 25}
+        - {x: -18, y: 16}
+        - {x: -14, y: 10}
+        - {x: -15, y: -25}
+        - {x: 18, y: -25}
+        - {x: 18, y: 23}
+        - {x: 14, y: 25}
+    - name: blue_walk_29
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 3
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 25}
+        - {x: -18, y: 9}
+        - {x: -8, y: -25}
+        - {x: 18, y: -25}
+        - {x: 18, y: 21}
+        - {x: 12, y: 25}
+    - name: blue_walk_30
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 3
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 25}
+        - {x: -18, y: 7}
+        - {x: -14, y: -15}
+        - {x: -9, y: -25}
+        - {x: 12, y: -25}
+        - {x: 18, y: -22}
+        - {x: 18, y: 21}
+        - {x: 12, y: 25}
+    - name: blue_walk_31
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 2
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 25.5}
+        - {x: -18, y: -17.5}
+        - {x: -7, y: -25.5}
+        - {x: 14, y: -25.5}
+        - {x: 18, y: -23.5}
+        - {x: 18, y: 25.5}
+    - name: blue_walk_32
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 2
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 25}
+        - {x: -18, y: 0}
+        - {x: -16, y: -14}
+        - {x: -11, y: -25}
+        - {x: 18, y: -25}
+        - {x: 18, y: 23}
+        - {x: 13, y: 25}
+    - name: blue_walk_33
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 2
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: 25.5}
+        - {x: -18, y: 25.5}
+        - {x: -18, y: 8.5}
+        - {x: -13, y: -14.5}
+        - {x: -5, y: -25.5}
+        - {x: 15, y: -25.5}
+        - {x: 18, y: -21.5}
+        - {x: 18, y: 22.5}
+    - name: blue_walk_34
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 2
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: 25.5}
+        - {x: -18, y: 25.5}
+        - {x: -18, y: 11.5}
+        - {x: -9, y: -22.5}
+        - {x: -6, y: -25.5}
+        - {x: 12, y: -25.5}
+        - {x: 15, y: -15.5}
+        - {x: 18, y: 6.5}
+        - {x: 18, y: 22.5}
+    - name: blue_walk_35
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 2
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 25.5}
+        - {x: -18, y: 7.5}
+        - {x: -6, y: -25.5}
+        - {x: 14, y: -25.5}
+        - {x: 18, y: 0.5}
+        - {x: 18, y: 23.5}
+        - {x: 13, y: 25.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
