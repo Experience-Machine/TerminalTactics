@@ -13,6 +13,7 @@ public class OverTimeEffect {
     public bool resetAtEnd;
 
     public bool isAttack;
+    public bool isBuff;
 
     public OverTimeEffect(int numTurns, int statChange, string statType, bool applyOnce, bool reset, bool isAttack)
     {
@@ -23,12 +24,21 @@ public class OverTimeEffect {
         this.resetAtEnd = reset;
         MAX_NUM_TURNS = numTurns;
         this.isAttack = isAttack;
+
+        if (statChange >= 0)
+        {
+            isBuff = true;
+        } else
+        {
+            isBuff = false;
+        }
     }
 
     public bool equals(OverTimeEffect other)
     {
-        if (numTurns == other.numTurns && statChange == other.statChange &&
-            statType.Equals(other.statType) && applyOnce == other.applyOnce)
+        //Check for if the other effect has the same stat type and if it's a buff/debuff
+        if (statType.Equals(other.statType) && applyOnce == other.applyOnce && resetAtEnd == other.resetAtEnd &&
+            isBuff == other.isBuff && isAttack == other.isAttack)
         {
             return true;
         }

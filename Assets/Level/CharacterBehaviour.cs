@@ -135,42 +135,59 @@ public class CharacterBehaviour : MonoBehaviour
 
     public void giveOverTimeEffect(OverTimeEffect ote)
     {
+        for (int i = 0; i < currentEffects.Count; i++)
+        {
+            if (ote.equals(currentEffects[i]))
+            {
+                currentEffects[i] = ote; //Overwrite the old effect
+                applyEffect(ote, transform.position);
+                return;
+            }
+        }
+
         currentEffects.Add(ote);
-        applyEffect(ote);
+        applyEffect(ote, transform.position);
     }
 
-    public void applyEffect(OverTimeEffect ote)
+    public void applyEffect(OverTimeEffect ote, Vector3 position)
     {
         switch (ote.statType)
         {
             case "health":
-                currentHealth = ote.getEffectResult(currentHealth, "HP", transform.position);
+                currentHealth = ote.getEffectResult(currentHealth, "HP", position);
                 if (ote.numTurns == 0) currentEffects.Remove(ote);
                 break;
             case "attack":
-                attack = ote.getEffectResult(attack, "ATK", transform.position);
+                attack = ote.getEffectResult(attack, "ATK", position);
                 if (ote.numTurns == 0) currentEffects.Remove(ote);
                 break;
             case "defense":
-                defense = ote.getEffectResult(defense, "DEF", transform.position);
+                defense = ote.getEffectResult(defense, "DEF", position);
                 if (ote.numTurns == 0) currentEffects.Remove(ote);
                 break;
             case "move":
-                MOVEMENT_RANGE = ote.getEffectResult(MOVEMENT_RANGE, "MOV", transform.position);
+                MOVEMENT_RANGE = ote.getEffectResult(MOVEMENT_RANGE, "MOV", position);
                 if (ote.numTurns == 0) currentEffects.Remove(ote);
                 break;
             case "special":
-                currentSpecial = ote.getEffectResult(currentSpecial, "SPC", transform.position);
+                currentSpecial = ote.getEffectResult(currentSpecial, "SPC", position);
                 if (ote.numTurns == 0) currentEffects.Remove(ote);
                 break;
+        }
+
+        if (currentHealth <= 0)
+        {
+            kill();
         }
     }
 
     public void applyEffects()
     {
+        Debug.Log(currentEffects.Count);
         for (int i = 0; i < currentEffects.Count; i++)
         {
-            applyEffect(currentEffects[i]);
+            Vector3 positionOffset = new Vector3(transform.position.x, transform.position.y - i, transform.position.z);
+            applyEffect(currentEffects[i], positionOffset);
         }
     }
 
