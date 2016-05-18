@@ -12,7 +12,9 @@ public class OverTimeEffect {
     public bool applyOnce;
     public bool resetAtEnd;
 
-    public OverTimeEffect(int numTurns, int statChange, string statType, bool applyOnce, bool reset)
+    public bool isAttack;
+
+    public OverTimeEffect(int numTurns, int statChange, string statType, bool applyOnce, bool reset, bool isAttack)
     {
         this.numTurns = numTurns;
         this.statChange = statChange;
@@ -20,6 +22,7 @@ public class OverTimeEffect {
         this.applyOnce = applyOnce;
         this.resetAtEnd = reset;
         MAX_NUM_TURNS = numTurns;
+        this.isAttack = isAttack;
     }
 
     public bool equals(OverTimeEffect other)
@@ -35,7 +38,7 @@ public class OverTimeEffect {
 
     public OverTimeEffect clone()
     {
-        return new OverTimeEffect(numTurns, statChange, statType, applyOnce, resetAtEnd);
+        return new OverTimeEffect(numTurns, statChange, statType, applyOnce, resetAtEnd, isAttack);
     }
 
     public int getEffectResult(int stat, string dmgNumberTxt, Vector3 position)

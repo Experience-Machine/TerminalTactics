@@ -25,9 +25,9 @@ public class CardManager
     private static TargetedAOEAttack testAOE = new TargetedAOEAttack("Test aoe", "Damage in an area around the target", 1, 2, 3, 5, true);
     private static TargetedAOEAttack testAOEHeal = new TargetedAOEAttack("Test aoe heal", "Heal in an area around the target", 1, 2, 3, 2, false);
 
-    private static OverTimeEffect testOTE = new OverTimeEffect(3, -1, "health", false, false);
+    private static OverTimeEffect testOTE = new OverTimeEffect(3, -1, "health", false, false, true);
     private static OverTimeSpecial testOverTime = new OverTimeSpecial("Test overtime attack", "...", 1, 2, testOTE);
-
+    private static OverTimeSpecialAOE testOverTimeAOE = new OverTimeSpecialAOE("Test overtime aoe attack", "...", 1, testOTE, 3, 3);
 
 
     private static passiveCard cooling = new passiveCard("Cooling", "Good cooling improves performance", "defense", 1);
@@ -70,6 +70,7 @@ public class CardManager
         allCards.Add(testAOE);
         allCards.Add(testAOEHeal);
         allCards.Add(testOverTime);
+        allCards.Add(testOverTimeAOE);
 
         enemyCards.Add(worm);
         enemyCards.Add(horse);
@@ -97,6 +98,7 @@ public class CardManager
         ownedCards.Add(testAOE);
         ownedCards.Add(testAOEHeal);
         ownedCards.Add(testOverTime);
+        ownedCards.Add(testOverTimeAOE);
     }
 
     public List<characterCard> getOwnedCharacterCards()

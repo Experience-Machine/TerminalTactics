@@ -152,6 +152,11 @@ public class EnemyBehaviour : MonoBehaviour
                 if (ote.numTurns == 0) currentEffects.Remove(ote);
                 break;
         }
+
+        if (currentHealth <= 0)
+        {
+            kill();
+        }
     }
 
     public void applyEffects()
