@@ -27,10 +27,10 @@ public class UIBehavior : MonoBehaviour {
 
     void Start ()
     {
-        moveButton = GameObject.Find("CharacterUI(Clone)/Actions/MoveButton").GetComponent<Button>();
-        attackButton = GameObject.Find("CharacterUI(Clone)/Actions/AttackButton").GetComponent<Button>();
-        specialButton = GameObject.Find("CharacterUI(Clone)/Actions/SpecialButton").GetComponent<Button>();
-        waitButton = GameObject.Find("CharacterUI(Clone)/Actions/WaitButton").GetComponent<Button>();
+        moveButton = GameObject.Find("CharacterUI(Clone)/Actions/Image/MoveButton").GetComponent<Button>();
+        attackButton = GameObject.Find("CharacterUI(Clone)/Actions/Image/AttackButton").GetComponent<Button>();
+        specialButton = GameObject.Find("CharacterUI(Clone)/Actions/Image/SpecialButton").GetComponent<Button>();
+        waitButton = GameObject.Find("CharacterUI(Clone)/Actions/Image/WaitButton").GetComponent<Button>();
 
         lastClicked = ButtonClicked.None;
 
@@ -80,18 +80,18 @@ public class UIBehavior : MonoBehaviour {
         this.curSPC = curSPC;
         this.maxSPC = maxSPC;
 
-        GameObject charPortrait = GameObject.Find("CharacterUI(Clone)/Character Info/Image");
+        GameObject charPortrait = GameObject.Find("CharacterUI(Clone)/Character Info/Image/Image");
 
         Image i = charPortrait.GetComponent<Image>();
         i.sprite = s;
 
-        GameObject textComp = GameObject.Find("CharacterUI(Clone)/Character Info/Panel (1)/CharName");
+        GameObject textComp = GameObject.Find("CharacterUI(Clone)/Character Info/Image/Panel (1)/CharName");
         Text charName = textComp.GetComponent<Text>();
         charName.text = characterName;
 
 
         //Governs Healthbar behavior
-        GameObject healthBar = GameObject.Find("CharacterUI(Clone)/Character Info/Panel (2)/HealthBar/Panel");
+        GameObject healthBar = GameObject.Find("CharacterUI(Clone)/Character Info/Image/Panel (2)/HealthBar/Panel");
         RectTransform transformHealth = healthBar.GetComponent<RectTransform>();
         
         transformHealth.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, (curHealth / maxHealth) * 240f);
@@ -99,7 +99,7 @@ public class UIBehavior : MonoBehaviour {
         imageHealth.color = UnityEngine.Color.red;
 
         //Governs SPCbar behavior
-        GameObject spcBar = GameObject.Find("CharacterUI(Clone)/Character Info/Panel (3)/SpecialBar/Panel");
+        GameObject spcBar = GameObject.Find("CharacterUI(Clone)/Character Info/Image/Panel (3)/SpecialBar/Panel");
         RectTransform transformSPC = spcBar.GetComponent<RectTransform>();
 
         transformSPC.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, (curSPC / maxSPC) * 240f);
