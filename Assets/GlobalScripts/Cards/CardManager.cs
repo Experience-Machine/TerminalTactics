@@ -22,23 +22,22 @@ public class CardManager
     private static specialCard nullPointer = new specialCard("Null pointer", "Stop an enemy from attacking for two turns", 3);
     private static AttackAll blueScreen = new AttackAll("Blue screen", "Everyone takes 5 damage", 8, 5, true, false);
 
-    private static TargetedAOEAttack testAOE = new TargetedAOEAttack("Logic bomb", "Damage in an area around the target", 1, 2, 3, 5, true);
-    private static TargetedAOEAttack testAOEHeal = new TargetedAOEAttack("Refactor", "Heal in an area around the target", 1, 2, 3, 2, false);
+    private static TargetedAOEAttack testAOE = new TargetedAOEAttack("Test aoe", "Damage in an area around the target", 1, 2, 3, 5, true);
+    private static TargetedAOEAttack testAOEHeal = new TargetedAOEAttack("Test aoe heal", "Heal in an area around the target", 1, 2, 3, 2, false);
 
     private static OverTimeEffect testOTE = new OverTimeEffect(3, -1, "health", false, false, true);
-    private static OverTimeEffect testOTE2 = new OverTimeEffect(3, -2, "health", false, false, true);
-    private static OverTimeSpecial testOverTime = new OverTimeSpecial("Iterator", "Does 2 damage per turn for 3 turns", 1, 2, testOTE2);
-    private static OverTimeSpecialAOE testOverTimeAOE = new OverTimeSpecialAOE("Multiple iterator", "Does 1 damage per turn for 3 turns to enemies in an area", 1, testOTE, 3, 3);
+    private static OverTimeSpecial testOverTime = new OverTimeSpecial("Test overtime attack", "...", 1, 2, testOTE);
+    private static OverTimeSpecialAOE testOverTimeAOE = new OverTimeSpecialAOE("Test overtime aoe attack", "...", 1, testOTE, 3, 3);
 
     private static OverTimeEffect defOTEBuff = new OverTimeEffect(3, 2, "defense", true, true, false);
-    private static OverTimeSpecialAOE readOnly = new OverTimeSpecialAOE("Read only", "Gives +2 defense to teammates in an area for 3 turns", 3, defOTEBuff, 3, 3);
+    private static OverTimeSpecialAOE readOnly = new OverTimeSpecialAOE("Read only", "Gives +2 defense to teammates in an area for 3 turns", 3, defOTEBuff, 3, 2);
 
     private static OverTimeEffect atkOTEBuff = new OverTimeEffect(3, 2, "attack", true, true, false);
-    private static OverTimeSpecialAOE adminRights = new OverTimeSpecialAOE("Admin rights", "Gives +2 attack to teammates in an area for 3 turns", 3, atkOTEBuff, 3, 3);
+    private static OverTimeSpecialAOE adminRights = new OverTimeSpecialAOE("Admin rights", "Gives +2 attack to teammates in an area for 3 turns", 3, atkOTEBuff, 3, 2);
 
 
-    private static passiveCard cooling = new passiveCard("Cooling", "Good cooling improves performance. Defense +1", "defense", 1);
-    private static passiveCard priority = new passiveCard("Priority", "Increased priority for faster throughput. Attack +1", "attack", 1);
+    private static passiveCard cooling = new passiveCard("Cooling", "Good cooling improves performance", "defense", 1);
+    private static passiveCard priority = new passiveCard("Priority", "Increased priority for faster throughput", "movement", 1);
 
     List<Card> enemyCards;
 
