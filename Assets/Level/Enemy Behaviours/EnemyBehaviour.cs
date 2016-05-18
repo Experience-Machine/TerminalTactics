@@ -54,8 +54,12 @@ public class EnemyBehaviour : MonoBehaviour
 
     GlobalGameManager manager;
 
+    AudioSource logoffAudio;
+
     protected virtual void Awake()
     {
+        logoffAudio = GameObject.Find("LogoffAudio").GetComponent<AudioSource>();
+
         manager = GameObject.Find("GlobalGameManager(Clone)").GetComponent<GlobalGameManager>();
 
         map = GameObject.Find("Map").GetComponent<Map>();
@@ -395,6 +399,7 @@ public class EnemyBehaviour : MonoBehaviour
         //  revive! Maybe.
         setState(EnemyState.Dead);
         gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
+        logoffAudio.PlayOneShot(logoffAudio.clip, 0.75f);
     }
 
     #region Pathfinding
