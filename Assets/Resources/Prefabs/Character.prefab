@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 420992}
   - 212: {fileID: 21233060}
   - 114: {fileID: 11499426}
+  - 95: {fileID: 9548060}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -29,6 +30,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!95 &9548060
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157190}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7e0d3142f557544582b0b166b94b3e8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11499426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -40,6 +58,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76520e223da0d4e44b6442e2b35541d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveDirection: 0
+  MAX_HEALTH: 3
+  MAX_SPECIAL: 0
+  currentHealth: 0
+  currentSpecial: 0
+  defense: 1
+  attack: 1
   posX: 0
   posY: 0
 --- !u!212 &21233060

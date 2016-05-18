@@ -19,6 +19,19 @@ public class CharacterBehaviour : MonoBehaviour
     };
     private CharacterState state;
 
+    // Animation stuff
+    public enum CharacterDirection
+    {
+        Up,
+        Down, 
+        Left,
+        Right
+    }
+    public CharacterDirection moveDirection;
+    private CharacterDirection lastDirection;
+    private Animator anim;
+
+
     private Map map; // Used for interfacing with tiles
     private characterInfo charInfo;
 
@@ -72,6 +85,8 @@ public class CharacterBehaviour : MonoBehaviour
 
         state = CharacterState.Idle;
         currentPath = null;
+
+        anim = GetComponent<Animator>();
     }
 
     void Start()
@@ -91,6 +106,10 @@ public class CharacterBehaviour : MonoBehaviour
         defense = cInf.getCharacter().DEF;
         MAX_SPECIAL = cInf.getCharacter().SPC;
         currentSpecial = MAX_SPECIAL;
+        
+        string walkAnimPath = "Textures/Heros/Animation/" + cInf.getCharacter().spriteName + "_walk";
+        anim.runtimeAnimatorController = Resources.Load(walkAnimPath) as RuntimeAnimatorController;
+        
     }
 
     private void addPassives()
@@ -220,6 +239,26 @@ public class CharacterBehaviour : MonoBehaviour
             case CharacterState.Special: serviceSpecialState(); break;
             case CharacterState.Moving: serviceMovingState(); break;
         }
+
+        if (lastDirection != moveDirection)
+        {
+            switch (moveDirection)
+            {
+                case CharacterDirection.Down:
+                    anim.SetInteger("Direction", 0);
+                    break;
+                case CharacterDirection.Left:
+                    anim.SetInteger("Direction", 1);
+                    break;
+                case CharacterDirection.Up:
+                    anim.SetInteger("Direction", 2);
+                    break;
+                case CharacterDirection.Right:
+                    anim.SetInteger("Direction", 3);
+                    break;
+            }
+            lastDirection = moveDirection;
+        }
 	}
 
     private void serviceMoveState()
@@ -262,7 +301,6 @@ public class CharacterBehaviour : MonoBehaviour
         
         if (transform.position.Equals(endPosition))
         {
-
             currentPath.incrementPathStep();
             if (currentPath.getPathStep() < currentPath.getNumSteps()) 
             {
@@ -362,6 +400,14 @@ public class CharacterBehaviour : MonoBehaviour
 
         if (currentStep.x == Path.VERTICAL) //Vertical step
         {
+            if(currentStep.y > 0)
+            {
+                moveDirection = CharacterDirection.Up;
+            }
+            else
+            {
+                moveDirection = CharacterDirection.Down;
+            }
             endPosition = map.getTile(posX, posY + (int)currentStep.y).transform.position;
             //Debug.Log("Subsequent: " + startPosition + " " + endPosition);
             //Debug.Log("Position: " + posY);
@@ -370,6 +416,14 @@ public class CharacterBehaviour : MonoBehaviour
         }
         else if (currentStep.x == Path.HORIZONTAL) //Horizontal step
         {
+            if (currentStep.y > 0)
+            {
+                moveDirection = CharacterDirection.Right;
+            }
+            else
+            {
+                moveDirection = CharacterDirection.Left;
+            }
             endPosition = map.getTile(posX + (int)currentStep.y, posY).transform.position;
             posX = posX + (int)currentStep.y;
         }

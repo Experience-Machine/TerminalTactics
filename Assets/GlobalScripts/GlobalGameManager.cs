@@ -30,7 +30,7 @@ public class GlobalGameManager : MonoBehaviour
         cardManager = new CardManager();
 
         // Dummy CharInfo stuff:
-        characterCard defaultChar = new characterCard("Char", "New char", 1, 1, 1, 3, 3);
+        characterCard defaultChar = new characterCard("Char", "New char", 1, 1, 1, 3, 3, "hero");
         attackCard defaultAtk = new attackCard();
         specialCard defaultSpc = new specialCard();
         passiveCard defaultPsv = new passiveCard();

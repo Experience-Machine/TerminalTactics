@@ -59,6 +59,7 @@ public class CharacterCustomization : MonoBehaviour
             uiComponent.setDescription(charCard.getDescription());
             uiComponent.setCharacter(characterInfo);
             uiComponent.setBody(); // Uses the card's character stats
+            uiComponent.setImage(charCard.spriteName); // Specifically for character cards
             Vector3 target = new Vector3(startPositionX + (i * cardWidth) + (i * 5), startPositionY, 0);
             RectTransform transform = (RectTransform)characterCard.transform;
             transform.anchoredPosition = target;

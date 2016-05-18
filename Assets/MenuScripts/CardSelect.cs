@@ -45,6 +45,7 @@ public class CardSelect : MonoBehaviour {
                 uiComponent.setName(characterCards[i].getName());
                 uiComponent.setDescription(characterCards[i].getDescription());
                 uiComponent.setBody();
+                uiComponent.setImage(characterCards[i].spriteName);
                 Vector3 target = new Vector3((i * cardWidth) + (i * 5) - cardOffset, 0, 0);
                 RectTransform transform = (RectTransform)characterCard.transform;
                 transform.anchoredPosition = target;

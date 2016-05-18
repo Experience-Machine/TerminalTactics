@@ -8,6 +8,7 @@ public class CardUI : MonoBehaviour
     Text cardName;
     Text cardDescription;
     Text cardBody;
+    Image charImage;
     Card card;
     characterInfo charInfo; //If we need it
     GlobalGameManager.CardType type;
@@ -135,5 +136,29 @@ public class CardUI : MonoBehaviour
     public void setBody(string bodyText)
     {
         cardBody.text = bodyText;
+    }
+    public void setImage(string spriteName)
+    {
+        if (card is characterCard) // Only do this if we have a characterCard, to avoid null pointer
+        {
+            Transform imageChild = transform.FindChild("Image");
+            if (imageChild)
+            {
+                charImage = imageChild.GetComponent<Image>();
+                if(spriteName == "hero")
+                {
+                    charImage.sprite = Resources.Load("Textures/" + spriteName, typeof(Sprite)) as Sprite;
+                    Debug.Log("Loaded " + "Textures/" + spriteName + " into: " + charImage);
+                    return;
+                }
+
+                Sprite[] sprites = Resources.LoadAll<Sprite>("Textures/Heros/walk_" + spriteName);
+
+                charImage.sprite = sprites[18]; // <--------------- This is assuming we'll find it at 18. THIS MIGHT NOT BE RIGHT.
+                Debug.Log("Loaded " + "Textures/Heros/walk_" + spriteName + "_18" + " into: " + charImage);
+                return;
+            }
+            
+        }
     }
 }
