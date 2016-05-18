@@ -48,7 +48,7 @@ public class CharacterBehaviour : MonoBehaviour
     // Movement stuff
     private Tile[] movementRange;
     Color movementHighlight = new Color(0, 0, 1f, .3f);
-    private int MOVEMENT_RANGE = 4;
+    public int MOVEMENT_RANGE = 4;
     
     // Pathing stuff
     private List<Path> possiblePaths;
@@ -228,7 +228,22 @@ public class CharacterBehaviour : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-	    switch(state)
+        if (currentSpecial > MAX_SPECIAL)
+        {
+            currentSpecial = MAX_SPECIAL;
+        }
+
+        if (currentHealth > MAX_HEALTH)
+        {
+            currentHealth = MAX_HEALTH;
+        }
+
+        if (MOVEMENT_RANGE > 4)
+        {
+            MOVEMENT_RANGE = 4;
+        }
+
+        switch (state)
         {
             case CharacterState.Idle: break;
             case CharacterState.Dead: break;
@@ -386,9 +401,10 @@ public class CharacterBehaviour : MonoBehaviour
 
     public void serviceSpecialState()
     {
-        //Debug.Log(charInfo.spcCard.nm);
         charInfo.spcCard.specialAttack(map, charInfo, this);
+
         
+
     }
 
     #region Pathfinding and movement

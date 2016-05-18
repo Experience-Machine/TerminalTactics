@@ -196,10 +196,11 @@ public class LevelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (characters.Count == 0 || enemies.Count == 0)
+            SceneManager.LoadScene("GameMainMenu");
 
         // Check if the user has clicked a button on the Combat Menu
-        if(lastClicked != UIBehavior.lastClicked)
+        if (lastClicked != UIBehavior.lastClicked)
         {
             lastClicked = UIBehavior.lastClicked;
             if(state == LevelState.PlayerTurn)
@@ -280,6 +281,9 @@ public class LevelScript : MonoBehaviour
                 tileOn.setCollideable(true);
                 tileOn.hasUnit = true;
                 tileOn.charOnTile = characters[i];
+            } else
+            {
+                characters.Remove(characters[i]);
             }
         }
 
@@ -290,12 +294,17 @@ public class LevelScript : MonoBehaviour
                 Tile tileOn = map.getTile(enemies[i].posX, enemies[i].posY);
                 tileOn.setCollideable(true);
                 tileOn.enemyOnTile = enemies[i];
+            } else
+            {
+                enemies.Remove(enemies[i]);
             }
         }
-
+       
     }
     void servicePlayerTurn()
     {
+
+
         // Wait until the selected player's turn is over
         if (characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Idle)
         {
@@ -422,6 +431,13 @@ public class LevelScript : MonoBehaviour
             }
             else
             {
+                if (characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Dead)
+                {
+                    characters.Remove(characters[currentPlayer]);
+                    return;
+                }
+
+
                 // Destroy Enemy UI
                 Destroy(enemyUIInstance);
                 enemyUIInstance = null;

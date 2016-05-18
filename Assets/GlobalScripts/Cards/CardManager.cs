@@ -18,9 +18,9 @@ public class CardManager
     private static characterCard bruteForce = new characterCard("Brute force", "Attacker", 8, 2, 1, 3, 5, "blue");
     private static characterCard firewall = new characterCard("Firewall", "Tank", 2, 7, 2, 2, 12, "hero");
 
-    private static specialCard selfModifying = new specialCard("Self-modifying", "Heal for 5 health", 3);
+    private static SelfBuff selfModifying = new SelfBuff("Self-modifying", "Heal for 5 health", 3, "health", 5);
     private static specialCard nullPointer = new specialCard("Null pointer", "Stop an enemy from attacking for two turns", 3);
-    private static specialCard blueScreen = new specialCard("Blue screen", "Everyone takes 5 damage", 8);
+    private static AttackAll blueScreen = new AttackAll("Blue screen", "Everyone takes 5 damage", 8, 5, true, false);
 
     private static TargetedAOEAttack testAOE = new TargetedAOEAttack("Test aoe", "Damage in an area around the target", 1, 2, 3, 5, true);
     private static TargetedAOEAttack testAOEHeal = new TargetedAOEAttack("Test aoe heal", "Heal in an area around the target", 1, 2, 3, 2, false);
@@ -28,7 +28,10 @@ public class CardManager
     private static OverTimeEffect testOTE = new OverTimeEffect(3, -1, "health", false, false);
     private static OverTimeSpecial testOverTime = new OverTimeSpecial("Test overtime attack", "...", 1, 2, testOTE);
 
-    private static passiveCard cooling = new passiveCard("Cooling", "Good cooling improves performance", "health", 1);
+
+
+    private static passiveCard cooling = new passiveCard("Cooling", "Good cooling improves performance", "defense", 1);
+    private static passiveCard priority = new passiveCard("Priority", "Increased priority for faster throughput", "movement", 1);
 
     List<Card> enemyCards;
 
@@ -62,6 +65,7 @@ public class CardManager
         allCards.Add(nullPointer);
         allCards.Add(blueScreen);
         allCards.Add(cooling);
+        allCards.Add(priority);
 
         allCards.Add(testAOE);
         allCards.Add(testAOEHeal);
@@ -88,6 +92,7 @@ public class CardManager
         ownedCards.Add(nullPointer);
         ownedCards.Add(blueScreen);
         ownedCards.Add(cooling);
+        ownedCards.Add(priority);
 
         ownedCards.Add(testAOE);
         ownedCards.Add(testAOEHeal);

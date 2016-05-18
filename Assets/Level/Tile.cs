@@ -117,7 +117,7 @@ public class Tile : MonoBehaviour
 
             if (charOnTile.getState() == CharacterBehaviour.CharacterState.Dead)
             {
-            charOnTile = null;
+                charOnTile = null;
             }
         }
         else if(enemyOnTile != null)
