@@ -85,6 +85,9 @@ public class LevelScript : MonoBehaviour
             enemyUI = Resources.Load("Prefabs/EnemyUI") as GameObject;
         }
 
+        loadMap();
+
+        /*
         //Randomly generate some collideable tiles
         for (int i = 0; i < 25; i++)
         {
@@ -97,7 +100,7 @@ public class LevelScript : MonoBehaviour
             t.defaultColor = Color.green;
             map.setTileColor(t, Color.green);
         }
-
+       
         //Todo: Functionalize
         //This block adds 3 characters and 5 enemies and makes sure that they don't overlap with other units/collideable terrain
         for (int i = 0; i < 3; i++)
@@ -171,7 +174,7 @@ public class LevelScript : MonoBehaviour
                 enemies.Add(eb);
             }
         }
-
+        */
         // Initilize enemy and player turns
         currentPlayer = 0;
         currentEnemy = 0;
@@ -191,6 +194,59 @@ public class LevelScript : MonoBehaviour
         UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
         script.setContent(characters[currentPlayer].GetComponent<SpriteRenderer>().sprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, characters[currentPlayer].MAX_SPECIAL, characters[currentPlayer].currentSpecial, characters[currentPlayer].name);
     
+    }
+
+    public void loadMap()
+    {
+        int characterNumber = 0;
+
+        SpriteRenderer spriteRenderer = GameObject.Find("MapImage").GetComponent<SpriteRenderer>();
+        Sprite sprite = spriteRenderer.sprite;
+        Color[] pixels = sprite.texture.GetPixels((int)sprite.textureRect.x,
+                                         (int)sprite.textureRect.y,
+                                         (int)sprite.textureRect.width,
+                                         (int)sprite.textureRect.height);
+
+
+        //Debug.Log("WIDTH:" + (int)sprite.textureRect.width);
+        //Debug.Log("HEIGHT:" + (int)sprite.textureRect.height);
+        for (int x = 0; x < (int)sprite.textureRect.width; x++)
+        {
+            for (int y = 0; y < (int)sprite.textureRect.height; y++)
+            {
+                Color pixelColor = pixels[x + y * (int)sprite.textureRect.width];
+
+                if (pixelColor.Equals(Color.green))
+                {
+                    //Debug.Log("Pixel at (" + x + ", " + y + ") is green");
+                    Tile t = map.getTile(x, y);
+                    t.setCollideable(true);
+                    t.defaultColor = Color.green;
+                    map.setTileColor(t, Color.green);
+                }
+
+                else if (pixelColor.Equals(Color.blue))
+                {
+                    CharacterBehaviour cb = (Instantiate(characterObject) as GameObject).GetComponent<CharacterBehaviour>();
+                    if (manager.characterInfos != null) // Ensure we're running from main menu
+                        cb.setCharInfo(manager.characterInfos[characterNumber]);
+                    cb.move(x, y);
+                    characters.Add(cb);
+                    characterNumber++;
+                }
+
+                else if (pixelColor.Equals(Color.red))
+                {
+                    EnemyBehaviourBerserk eb = (Instantiate(Resources.Load("Prefabs/Enemy 1")) as GameObject).GetComponent<EnemyBehaviourBerserk>();
+                    eb.setRandomCharInfo();
+
+                    eb.rushUnit(characters[0].posX, characters[0].posY);
+                    eb.move(x, y);
+                    enemies.Add(eb);
+                }
+                
+            }
+        }
     }
 
     // Update is called once per frame
