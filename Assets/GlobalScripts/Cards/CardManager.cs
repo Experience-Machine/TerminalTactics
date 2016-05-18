@@ -15,7 +15,7 @@ public class CardManager
     private static attackCard ctrlaltdel = new attackCard("Ctrl+Alt+Del", "The classic command always has its uses", 4, 1);
 
     private static characterCard whitehat = new characterCard("White hat", "Support", 2, 2, 8, 3, 9, "white");
-    private static characterCard bruteForce = new characterCard("Brute force", "Attacker", 8, 2, 1, 3, 5, "hero");
+    private static characterCard bruteForce = new characterCard("Brute force", "Attacker", 8, 2, 1, 3, 5, "blue");
     private static characterCard firewall = new characterCard("Firewall", "Tank", 2, 7, 2, 2, 12, "hero");
 
     private static specialCard selfModifying = new specialCard("Self-modifying", "Heal for 5 health", 3);
