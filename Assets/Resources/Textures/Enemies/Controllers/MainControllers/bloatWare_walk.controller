@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: white_walk
+  m_Name: bloatWare_walk
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Direction
@@ -321,7 +321,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: walk_white_right
+  m_Name: walk_bloatWare_right
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -336,7 +336,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 95e652616fe312b4eb7ffe6f9984b7e8, type: 2}
+  m_Motion: {fileID: 7400000, guid: d7e13d3f617c27a4cb8ce6db302fe7c6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -347,7 +347,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: walk_white_left
+  m_Name: walk_bloatWare_left
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -362,7 +362,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a047927cbdfe2024fb5029a40893b674, type: 2}
+  m_Motion: {fileID: 7400000, guid: 75b51dfa7a773ad408ce3ebe1bc17161, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -373,7 +373,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: walk_white_up
+  m_Name: walk_bloatWare_up
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -388,7 +388,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 370021a9f9714b845a91b1fbd488c3e7, type: 2}
+  m_Motion: {fileID: 7400000, guid: 84613a7b0fd33f94d93d5910989ac8a4, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -399,7 +399,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: walk_white_down
+  m_Name: walk_bloatWare_down
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -414,7 +414,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 44c344b4e2fe1f74a863e255f953cb0b, type: 2}
+  m_Motion: {fileID: 7400000, guid: 807595b87dd86da43a9073a5a57bf57a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

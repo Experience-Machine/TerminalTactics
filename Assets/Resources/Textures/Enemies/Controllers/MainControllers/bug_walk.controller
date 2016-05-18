@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: white_walk
+  m_Name: bug_walk
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Direction
@@ -321,7 +321,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: walk_white_right
+  m_Name: walk_bug_right
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -336,7 +336,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 95e652616fe312b4eb7ffe6f9984b7e8, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4f6d786f7ed6f7e49b84752857f243b7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -347,7 +347,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: walk_white_left
+  m_Name: walk_bug_left
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -362,7 +362,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a047927cbdfe2024fb5029a40893b674, type: 2}
+  m_Motion: {fileID: 7400000, guid: 677f2a4f223cc9640b2ee85462818599, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -373,7 +373,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: walk_white_up
+  m_Name: walk_bug_up
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -388,7 +388,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 370021a9f9714b845a91b1fbd488c3e7, type: 2}
+  m_Motion: {fileID: 7400000, guid: 82a05689cbda74f428f031283e4bf070, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -399,7 +399,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: walk_white_down
+  m_Name: walk_bug_down
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -414,7 +414,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 44c344b4e2fe1f74a863e255f953cb0b, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1987402f00bd8df4d85a9036c48efb9a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
