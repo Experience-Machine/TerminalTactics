@@ -1,0 +1,486 @@
+fileFormatVersion: 2
+guid: 1fa064685071a114585efc50efc37d65
+timeCreated: 1463612700
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: spellcast_black_0
+    21300002: spellcast_black_1
+    21300004: spellcast_black_2
+    21300006: spellcast_black_3
+    21300008: spellcast_black_4
+    21300010: spellcast_black_5
+    21300012: spellcast_black_6
+    21300014: spellcast_black_7
+    21300016: spellcast_black_8
+    21300018: spellcast_black_9
+    21300020: spellcast_black_10
+    21300022: spellcast_black_11
+    21300024: spellcast_black_12
+    21300026: spellcast_black_13
+    21300028: spellcast_black_14
+    21300030: spellcast_black_15
+    21300032: spellcast_black_16
+    21300034: spellcast_black_17
+    21300036: spellcast_black_18
+    21300038: spellcast_black_19
+    21300040: spellcast_black_20
+    21300042: spellcast_black_21
+    21300044: spellcast_black_22
+    21300046: spellcast_black_23
+    21300048: spellcast_black_24
+    21300050: spellcast_black_25
+    21300052: spellcast_black_26
+    21300054: spellcast_black_27
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: spellcast_black_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 194
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: spellcast_black_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 194
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: spellcast_black_2
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 194
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: spellcast_black_3
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 194
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 24}
+        - {x: -18, y: 11}
+        - {x: -18, y: -17}
+        - {x: -16, y: -24}
+        - {x: 17, y: -24}
+        - {x: 18, y: -22}
+        - {x: 18, y: 9}
+        - {x: 12, y: 24}
+    - name: spellcast_black_4
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 194
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 24}
+        - {x: -11, y: 24}
+        - {x: -25, y: 12}
+        - {x: -25, y: -18}
+        - {x: -16, y: -24}
+        - {x: 15, y: -24}
+        - {x: 16, y: -23}
+        - {x: 25, y: -6}
+        - {x: 25, y: 15}
+    - name: spellcast_black_5
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 194
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -12}
+        - {x: -19, y: -24}
+        - {x: 21, y: -24}
+        - {x: 24, y: -15}
+        - {x: 24, y: 24}
+    - name: spellcast_black_6
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 194
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 24}
+        - {x: -18, y: 11}
+        - {x: -18, y: -17}
+        - {x: -16, y: -24}
+        - {x: 17, y: -24}
+        - {x: 18, y: -22}
+        - {x: 18, y: 9}
+        - {x: 12, y: 24}
+    - name: spellcast_black_7
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 130
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: spellcast_black_8
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 130
+        width: 23
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: spellcast_black_9
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 130
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: spellcast_black_10
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 130
+        width: 26
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: spellcast_black_11
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 130
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.5, y: 24}
+        - {x: -16.5, y: -22}
+        - {x: -13.5, y: -24}
+        - {x: 7.5, y: -24}
+        - {x: 16.5, y: -12}
+        - {x: 16.5, y: 21}
+        - {x: 13.5, y: 24}
+    - name: spellcast_black_12
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 130
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7.5, y: 24}
+        - {x: -10.5, y: 24}
+        - {x: -16.5, y: 18}
+        - {x: -16.5, y: -9}
+        - {x: -13.5, y: -24}
+        - {x: 6.5, y: -24}
+        - {x: 8.5, y: -23}
+        - {x: 16.5, y: -3}
+        - {x: 16.5, y: 20}
+    - name: spellcast_black_13
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 130
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: spellcast_black_14
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 66
+        width: 30
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: spellcast_black_15
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 66
+        width: 30
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: spellcast_black_16
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 66
+        width: 28
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: spellcast_black_17
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 66
+        width: 36
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 24.5}
+        - {x: -18, y: -24.5}
+        - {x: 18, y: -24.5}
+        - {x: 18, y: 24.5}
+    - name: spellcast_black_18
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 66
+        width: 50
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11, y: 24.5}
+        - {x: -11, y: 24.5}
+        - {x: -25, y: 10.5}
+        - {x: -25, y: -12.5}
+        - {x: -18, y: -24.5}
+        - {x: 19, y: -24.5}
+        - {x: 25, y: -13.5}
+        - {x: 25, y: 11.5}
+        - {x: 19, y: 10.5}
+    - name: spellcast_black_19
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 66
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 24.5}
+        - {x: -13, y: 24.5}
+        - {x: -24, y: 19.5}
+        - {x: -24, y: -2.5}
+        - {x: -17, y: -24.5}
+        - {x: 17, y: -24.5}
+        - {x: 24, y: -2.5}
+        - {x: 24, y: 17.5}
+        - {x: 22, y: 18.5}
+    - name: spellcast_black_20
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 66
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 24.5}
+        - {x: -13, y: 17.5}
+        - {x: -17, y: 10.5}
+        - {x: -17, y: -24.5}
+        - {x: 17, y: -24.5}
+        - {x: 17, y: 13.5}
+        - {x: 11, y: 24.5}
+    - name: spellcast_black_21
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 2
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: spellcast_black_22
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 2
+        width: 23
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: spellcast_black_23
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 2
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: spellcast_black_24
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 2
+        width: 26
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: spellcast_black_25
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 2
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6.5, y: 24}
+        - {x: -16.5, y: 16}
+        - {x: -16.5, y: -8}
+        - {x: -10.5, y: -24}
+        - {x: 14.5, y: -24}
+        - {x: 16.5, y: -15}
+        - {x: 16.5, y: 18}
+        - {x: 10.5, y: 24}
+    - name: spellcast_black_26
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 2
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9.5, y: 24}
+        - {x: -7.5, y: 24}
+        - {x: -16.5, y: 19}
+        - {x: -16.5, y: -7}
+        - {x: -11.5, y: -24}
+        - {x: 13.5, y: -24}
+        - {x: 15.5, y: -23}
+        - {x: 16.5, y: -14}
+        - {x: 16.5, y: 17}
+    - name: spellcast_black_27
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 2
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
