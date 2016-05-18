@@ -127,6 +127,27 @@ public class EnemyBehaviour : MonoBehaviour
         {
             if(ote.equals(currentEffects[i]))
             {
+                if (ote.resetAtEnd) //If we were going to reset this effect when the numturns = 0, reset it now
+                {
+                    switch (ote.statType)
+                    {
+                        case "health":
+                            currentHealth = ote.earlyReset(currentHealth);
+                            break;
+                        case "attack":
+                            attack = ote.earlyReset(attack);
+                            break;
+                        case "defense":
+                            defense = ote.earlyReset(defense);
+                            break;
+                        case "move":
+                            MOVEMENT_RANGE = ote.earlyReset(MOVEMENT_RANGE);
+                            break;
+                        case "special":
+                            currentSpecial = ote.earlyReset(currentSpecial);
+                            break;
+                    }
+                }
                 currentEffects[i] = ote; //Overwrite the old effect
                 applyEffect(ote, transform.position);
                 return;
@@ -171,7 +192,6 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void applyEffects()
     {
-        Debug.Log(currentEffects.Count);
         for (int i = 0; i < currentEffects.Count; i++)
         {
             Vector3 positionOffset = new Vector3(transform.position.x, transform.position.y - i, transform.position.z);

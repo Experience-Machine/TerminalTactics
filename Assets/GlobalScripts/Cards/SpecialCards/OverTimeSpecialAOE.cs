@@ -38,7 +38,7 @@ public class OverTimeSpecialAOE : specialCard
         {
             Tile tile = characterAttackRange[i];
             float distance = Mathf.Abs(Vector3.Distance(tile.transform.position, mousePosition));
-            Debug.Log("Distance: " + distance);
+            //Debug.Log("Distance: " + distance);
 
             if (distance < minDistance)
             {

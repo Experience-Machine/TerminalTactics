@@ -22,14 +22,14 @@ public class EnemyBehaviourBerserk : EnemyBehaviour
     public void rushUnit(int x, int y)
     {
         positionToMoveTowards = new Vector2(x, y);
-        Debug.Log("EnemyBerserk unit defined.");
+        //Debug.Log("EnemyBerserk unit defined.");
     }
 
     protected override void serviceSelectedState()
     {
         if (timer > 1f)
         {
-            Debug.Log("EnemyBerserk: Service Selected State");
+            //Debug.Log("EnemyBerserk: Service Selected State");
 
             // Highlight movement range (for player reference, really)
             movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
@@ -91,10 +91,10 @@ public class EnemyBehaviourBerserk : EnemyBehaviour
     {
         if (timer > 1f)
         {
-            Debug.Log("EnemyBerserk: Service Select Move");
+            //Debug.Log("EnemyBerserk: Service Select Move");
             if (selectedUnitTile != null && Mathf.Abs(selectedUnitTile.x - posX) + Mathf.Abs(selectedUnitTile.y - posY) < 2)
             {
-                Debug.Log("EnemyBerserk: Adjacent to target");
+                //Debug.Log("EnemyBerserk: Adjacent to target");
                 state = EnemyState.ViewAttackRange;
                 timer = 0;
                 selectedTile = null;
@@ -106,7 +106,7 @@ public class EnemyBehaviourBerserk : EnemyBehaviour
             // Walk to the proper patrol tile..
             if(!attacking)
             {
-                Debug.Log("EnemyBerserk: Moving towards patrol square: <" + positionToMoveTowards.x + ", " + positionToMoveTowards.y + ">");
+                //Debug.Log("EnemyBerserk: Moving towards patrol square: <" + positionToMoveTowards.x + ", " + positionToMoveTowards.y + ">");
 
                 currentPath = buildPatrolPathToTile((int)positionToMoveTowards.x, (int)positionToMoveTowards.y, movementRange);
                 setStartAndEnd();
@@ -118,7 +118,7 @@ public class EnemyBehaviourBerserk : EnemyBehaviour
             currentPath = buildPathToTile(selectedTile.x, selectedTile.y, movementRange);
             setStartAndEnd();
             state = EnemyState.Moving;
-            Debug.Log("EnemyBerserk: Moving towards <" + selectedTile.x + ", " + selectedTile.y + ">");
+            //Debug.Log("EnemyBerserk: Moving towards <" + selectedTile.x + ", " + selectedTile.y + ">");
             return;
         }
     }

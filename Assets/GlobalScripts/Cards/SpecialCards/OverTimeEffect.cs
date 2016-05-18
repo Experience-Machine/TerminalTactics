@@ -61,20 +61,30 @@ public class OverTimeEffect {
             DamageNumber.createDamageNumber(statChange.ToString() + " " + dmgNumberTxt, position);
             
         }
-        if (applyOnce && applied)
+        if (applyOnce && !applied)
         {
             stat += statChange;
             DamageNumber.createDamageNumber(statChange.ToString() + " " + dmgNumberTxt, position);
             applied = true;
         }
 
+        
+
+        numTurns--;
         if (resetAtEnd && numTurns == 0)
         {
             if (applyOnce) stat -= statChange;
             else stat -= MAX_NUM_TURNS * statChange;
         }
 
-        numTurns--;
+        return stat;
+    }
+
+
+    public int earlyReset(int stat)
+    {
+        if (applyOnce) stat -= statChange;
+        else stat -= MAX_NUM_TURNS * statChange;
         return stat;
     }
 }
