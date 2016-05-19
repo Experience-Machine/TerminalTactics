@@ -16,7 +16,7 @@ public class CardManager
 
     private static characterCard whitehat = new characterCard("White hat", "Support", 2, 2, 8, 3, 9, "white");
     private static characterCard bruteForce = new characterCard("Brute force", "Attacker", 8, 2, 1, 3, 5, "blue");
-    private static characterCard firewall = new characterCard("Firewall", "Tank", 2, 7, 2, 2, 12, "hero");
+    private static characterCard firewall = new characterCard("Firewall", "Tank", 2, 7, 2, 2, 12, "black");
 
     private static SelfBuff selfModifying = new SelfBuff("Self-modifying", "Heal for 5 health", 3, "health", 5);
     private static specialCard nullPointer = new specialCard("Null pointer", "Stop an enemy from attacking for two turns", 3);
@@ -42,8 +42,8 @@ public class CardManager
 
     List<Card> enemyCards;
 
-    private static characterCard worm = new characterCard("Worm", "Average", 2, 1, 4, 4, 3, "enemy");
-    private static characterCard horse = new characterCard("Trojan Horse", "Tank", 2, 4, 3, 3, 6, "enemy");
+    private static characterCard worm = new characterCard("Worm", "Average", 2, 1, 4, 4, 3, "worm");
+    private static characterCard horse = new characterCard("Trojan Horse", "Tank", 2, 4, 3, 3, 6, "trojan");
 
     private static attackCard infect = new attackCard("Infect", "...", 1, 1);
     private static attackCard backdoor = new attackCard("Backdoor", "...", 2, 2);

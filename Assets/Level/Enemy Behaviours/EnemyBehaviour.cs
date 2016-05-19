@@ -17,6 +17,18 @@ public class EnemyBehaviour : MonoBehaviour
     };
     protected EnemyState state;
 
+    // Animation stuff
+    public enum EnemyDirection
+    {
+        Up,
+        Down,
+        Left,
+        Right
+    }
+    public EnemyDirection moveDirection;
+    private EnemyDirection lastDirection;
+    private Animator anim;
+
     protected characterInfo charInfo;
     protected Map map;
 
@@ -76,6 +88,8 @@ public class EnemyBehaviour : MonoBehaviour
         currentHealth = MAX_HEALTH;
 
         timer = 0;
+        
+        anim = GetComponent<Animator>();
     }
 
     public void setCharInfo(characterInfo cInf)
@@ -90,6 +104,9 @@ public class EnemyBehaviour : MonoBehaviour
         defense = cInf.getCharacter().DEF;
         attack = cInf.getCharacter().ATK;
         currentSpecial = cInf.getCharacter().SPC;
+
+        string walkAnimPath = "Textures/Enemies/Controllers/MainControllers/" + cInf.getCharacter().spriteName + "_walk";
+        anim.runtimeAnimatorController = Resources.Load(walkAnimPath) as RuntimeAnimatorController;
     }
 
     public void setRandomCharInfo()
@@ -215,6 +232,26 @@ public class EnemyBehaviour : MonoBehaviour
             case EnemyState.Moving: serviceMoveState(); break;
             case EnemyState.ViewAttackRange: serviceViewAttackRangeState(); break;
             case EnemyState.Attacking: serviceAttackState(); break;
+        }
+
+        if (lastDirection != moveDirection)
+        {
+            switch (moveDirection)
+            {
+                case EnemyDirection.Down:
+                    anim.SetInteger("Direction", 0);
+                    break;
+                case EnemyDirection.Left:
+                    anim.SetInteger("Direction", 1);
+                    break;
+                case EnemyDirection.Up:
+                    anim.SetInteger("Direction", 2);
+                    break;
+                case EnemyDirection.Right:
+                    anim.SetInteger("Direction", 3);
+                    break;
+            }
+            lastDirection = moveDirection;
         }
 	}
 
@@ -411,6 +448,16 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (currentStep.x == Path.VERTICAL) //Vertical step
         {
+
+            if (currentStep.y > 0)
+            {
+                moveDirection = EnemyDirection.Up;
+            }
+            else
+            {
+                moveDirection = EnemyDirection.Down;
+            }
+
             endPosition = map.getTile(posX, posY + (int)currentStep.y).transform.position;
             //Debug.Log("Subsequent: " + startPosition + " " + endPosition);
             //Debug.Log("Position: " + posY);
@@ -419,6 +466,16 @@ public class EnemyBehaviour : MonoBehaviour
         }
         else if (currentStep.x == Path.HORIZONTAL) //Horizontal step
         {
+
+            if (currentStep.y > 0)
+            {
+                moveDirection = EnemyDirection.Right;
+            }
+            else
+            {
+                moveDirection = EnemyDirection.Left;
+            }
+
             endPosition = map.getTile(posX + (int)currentStep.y, posY).transform.position;
             posX = posX + (int)currentStep.y;
         }

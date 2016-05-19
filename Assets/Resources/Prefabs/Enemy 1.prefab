@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21289334}
   - 114: {fileID: 11465486}
   - 114: {fileID: 11467868}
+  - 95: {fileID: 9515358}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: Untagged
@@ -30,6 +31,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!95 &9515358
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141524}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11465486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -41,9 +59,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f121a350b9876045998cfd9da7f2b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveDirection: 0
   MAX_HEALTH: 1
   currentHealth: 1
   defense: 0
+  attack: 0
+  currentSpecial: 0
   posX: 0
   posY: 0
 --- !u!114 &11467868
@@ -57,9 +78,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6464d519c6cdf4eb2385103f294968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveDirection: 0
   MAX_HEALTH: 1
   currentHealth: 0
   defense: 0
+  attack: 0
+  currentSpecial: 0
   posX: 0
   posY: 0
   positionToMoveTowards: {x: 0, y: 0}
