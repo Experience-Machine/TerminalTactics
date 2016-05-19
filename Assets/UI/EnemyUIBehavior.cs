@@ -23,16 +23,16 @@ public class EnemyUIBehavior : MonoBehaviour {
         this.maxHealth = maxHealth;
         this.curHealth = minHealth;
 
-        GameObject charPortrait = GameObject.Find("EnemyUI(Clone)/Character Info/Image");
+        GameObject charPortrait = GameObject.Find("EnemyUI(Clone)/Character Info/Image/Image");
 
         Image i = charPortrait.GetComponent<Image>();
         i.sprite = s;
 
-        GameObject textComp = GameObject.Find("EnemyUI(Clone)/Character Info/Panel (1)/CharName");
+        GameObject textComp = GameObject.Find("EnemyUI(Clone)/Character Info/Image/Panel (1)/CharName");
         Text charName = textComp.GetComponent<Text>();
         charName.text = characterName;
 
-        GameObject healthBar = GameObject.Find("EnemyUI(Clone)/Character Info/Panel (2)/HealthBar/Panel");
+        GameObject healthBar = GameObject.Find("EnemyUI(Clone)/Character Info/Image/Panel (2)/HealthBar/Panel");
         RectTransform transform = healthBar.GetComponent<RectTransform>();
         float size = (curHealth / maxHealth) * 240f;
         
