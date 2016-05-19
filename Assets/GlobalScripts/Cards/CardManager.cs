@@ -21,7 +21,7 @@ public class CardManager
     private static characterCard firewall = new characterCard("Firewall", "Tank", 2, 7, 2, 2, 12, "black");
 
     private static SelfBuff selfModifying = new SelfBuff("Self-modifying", "Heal for 5 health", 3, "health", 5);
-    private static specialCard nullPointer = new specialCard("Null pointer", "Stop an enemy from attacking for two turns", 3);
+    //private static specialCard nullPointer = new specialCard("Null pointer", "Stop an enemy from attacking for two turns", 3);
     private static AttackAll blueScreen = new AttackAll("Blue screen", "Everyone takes 5 damage", 8, 5, true, false);
 
     private static TargetedAOEAttack testAOE = new TargetedAOEAttack("Logic bomb", "Damage in an area around the target", 1, 2, 3, 5, true);
@@ -72,7 +72,7 @@ public class CardManager
         allCards.Add(bruteForce);
         allCards.Add(firewall);
         allCards.Add(selfModifying);
-        allCards.Add(nullPointer);
+        //allCards.Add(nullPointer);
         allCards.Add(blueScreen);
         allCards.Add(cooling);
         allCards.Add(priority);
@@ -103,7 +103,7 @@ public class CardManager
         ownedCards.Add(bruteForce);
         ownedCards.Add(firewall);
         ownedCards.Add(selfModifying);
-        ownedCards.Add(nullPointer);
+        //ownedCards.Add(nullPointer);
         ownedCards.Add(blueScreen);
         ownedCards.Add(cooling);
         ownedCards.Add(priority);

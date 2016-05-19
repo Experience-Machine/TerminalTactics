@@ -70,19 +70,42 @@ public class CardSelect : MonoBehaviour {
         } else if (manager.cardTypeSelected == GlobalGameManager.CardType.Special)
         {
             List<specialCard> specialCards = manager.cardManager.getOwnedSpecialCards();
-            int cardOffset = ((specialCards.Count * (cardWidth+5) / 2)) - 75;
+            int cardOffset = ((5 * (cardWidth+5) / 2)) - 75;
+            int yOffset = cardHeight;
+
+            if (specialCards.Count < 5)
+                cardOffset = (specialCards.Count * (cardWidth + 5) / 2) - 75;
+
+            int cardsInRow = 0;
+
             for (int i = 0; i < specialCards.Count; i++)
             {
+                if (i % 5 == 0 && i != 0)
+                {
+                    cardsInRow = 0;
+                    yOffset -= cardHeight + 5;
+                    int difference = specialCards.Count - i;
+
+                    if (difference < 5)
+                        cardOffset = ((difference * (cardWidth + 5) / 2)) - 75;
+                }
+
                 GameObject specialCard = Instantiate(Resources.Load("Prefabs/Card")) as GameObject;
                 specialCard.transform.SetParent(myCanvas.transform, false);
                 CardUI uiComponent = specialCard.GetComponent<CardUI>();
                 uiComponent.setCard(specialCards[i]);
                 uiComponent.setName(specialCards[i].getName());
                 uiComponent.setDescription(specialCards[i].getDescription());
-                Vector3 target = new Vector3((i * cardWidth) + (i * 5) - cardOffset, 0, 0);
+                Vector3 target = new Vector3((cardsInRow * cardWidth) + (cardsInRow * 5) - cardOffset, yOffset, 0);
                 RectTransform transform = (RectTransform)specialCard.transform;
                 transform.anchoredPosition = target;
+
+                cardsInRow++;
+                
             }
+
+           
+
         } else if (manager.cardTypeSelected == GlobalGameManager.CardType.Passive)
         {
             List<passiveCard> passiveCards = manager.cardManager.getOwnedPassiveCards();
