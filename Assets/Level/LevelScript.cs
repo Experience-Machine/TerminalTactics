@@ -190,10 +190,18 @@ public class LevelScript : MonoBehaviour
         state = LevelState.PlayerTurn;
 
         // Initialize combat UI
+        
+        //UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
+        //script.setContent(characters[currentPlayer].GetComponent<SpriteRenderer>().sprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, characters[currentPlayer].MAX_SPECIAL, characters[currentPlayer].currentSpecial, characters[currentPlayer].name);
+    
+    }
+
+    public void Start()
+    {
         charUIInstance = Instantiate(charUI) as GameObject;
         UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
         script.setContent(characters[currentPlayer].GetComponent<SpriteRenderer>().sprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, characters[currentPlayer].MAX_SPECIAL, characters[currentPlayer].currentSpecial, characters[currentPlayer].name);
-    
+
     }
 
     public void loadMap()
