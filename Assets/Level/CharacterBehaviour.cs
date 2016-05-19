@@ -15,6 +15,7 @@ public class CharacterBehaviour : MonoBehaviour
         Idle, 
         Selected,
         Special,
+        AnimateWait,
         Dead
     };
     private CharacterState state;
@@ -31,6 +32,9 @@ public class CharacterBehaviour : MonoBehaviour
     private CharacterDirection lastDirection;
     private Animator anim;
     public static float yOffset = 0.3f; // Flat value to offset in Y direction by  
+    private RuntimeAnimatorController moveControl;
+    private RuntimeAnimatorController attackControl;
+    private bool animAttackState = false;
 
 
     private Map map; // Used for interfacing with tiles
@@ -118,8 +122,10 @@ public class CharacterBehaviour : MonoBehaviour
         MAX_SPECIAL = cInf.getCharacter().SPC;
         currentSpecial = MAX_SPECIAL;
         
-        string walkAnimPath = "Textures/Heros/Animation/" + cInf.getCharacter().spriteName + "_walk";
-        anim.runtimeAnimatorController = Resources.Load(walkAnimPath) as RuntimeAnimatorController;
+        string animPath = "Textures/Heros/Animation/" + cInf.getCharacter().spriteName;
+        moveControl = Resources.Load(animPath + "_walk") as RuntimeAnimatorController;
+        attackControl = Resources.Load(animPath + "_spellcast") as RuntimeAnimatorController;
+        anim.runtimeAnimatorController = moveControl;
         
     }
 
@@ -326,6 +332,13 @@ public class CharacterBehaviour : MonoBehaviour
             }
             lastDirection = moveDirection;
         }
+
+        if(animAttackState && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !anim.IsInTransition(0))
+        {
+            state = CharacterState.Idle;
+            anim.runtimeAnimatorController = moveControl;
+            animAttackState = false;
+        }
 	}
 
     private void serviceMoveState()
@@ -407,6 +420,9 @@ public class CharacterBehaviour : MonoBehaviour
                     tileToAttack = map.selectedTile;
                     map.clearHighlights(attackRange);
                     state = CharacterState.Attacking;
+
+                    anim.runtimeAnimatorController = attackControl;
+                    animAttackState = true;
                 }
             }
             
@@ -422,7 +438,7 @@ public class CharacterBehaviour : MonoBehaviour
 
         tileToAttack.attackTile(attack + ATTACK_DAMAGE);
         tileToAttack = null;
-        state = CharacterState.Idle;
+       state = CharacterState.AnimateWait; // Idle after animation is over..
     }
 
     public void damage(int damageDealt)
