@@ -473,8 +473,10 @@ public class CharacterBehaviour : MonoBehaviour
     public void serviceSpecialState()
     {
         charInfo.spcCard.specialAttack(map, charInfo, this);
-        if (state == CharacterState.Idle) //Special attack is over
+        if (state == CharacterState.AnimateWait) //Special attack is over
         {
+            anim.runtimeAnimatorController = attackControl;
+            animAttackState = true;
             specialAudio.PlayOneShot(specialAudio.clip, 0.75f);
         }
         

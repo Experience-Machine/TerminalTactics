@@ -29,6 +29,6 @@ public class SelfBuff : specialCard
         }
 
         character.currentSpecial -= cost;
-        character.setState(CharacterBehaviour.CharacterState.Idle);
+        character.setState(CharacterBehaviour.CharacterState.AnimateWait);
     }
 }

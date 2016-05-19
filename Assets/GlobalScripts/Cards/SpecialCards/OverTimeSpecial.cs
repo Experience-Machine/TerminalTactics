@@ -56,7 +56,7 @@ public class OverTimeSpecial : specialCard {
             }
             gameMap.clearHighlights(attackRangeTiles);
             character.currentSpecial -= cost;
-            character.setState(CharacterBehaviour.CharacterState.Idle);
+            character.setState(CharacterBehaviour.CharacterState.AnimateWait);
         }
         
 
