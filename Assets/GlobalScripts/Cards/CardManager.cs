@@ -15,6 +15,7 @@ public class CardManager
     //Player cards
     private static attackCard thread = new attackCard("Thread", "Even more dangerous than a needle", 3, 2);
     private static attackCard ctrlaltdel = new attackCard("Ctrl+Alt+Del", "The classic command always has its uses", 4, 1);
+    private static attackCard process = new attackCard("Process", "Like a thread... but bigger", 4, 2);
 
     private static characterCard whitehat = new characterCard("White hat", "Support", 2, 2, 8, 3, 9, "white");
     private static characterCard bruteForce = new characterCard("Brute force", "Attacker", 8, 2, 1, 3, 5, "blue");
@@ -41,6 +42,7 @@ public class CardManager
 
     private static passiveCard cooling = new passiveCard("Cooling", "Good cooling improves performance. Defense +1", "defense", 1);
     private static passiveCard priority = new passiveCard("Priority", "Increased priority for faster throughput. Attack +1", "attack", 1);
+    private static passiveCard overClocking = new passiveCard("Overclocking", "Crank that CPU over 9000!  Attack +2", "attack", 2);
 
     List<Card> enemyCards;
 
@@ -83,7 +85,8 @@ public class CardManager
         allCards.Add(testAOEHeal);
         allCards.Add(testOverTime);
         allCards.Add(testOverTimeAOE);
-        
+        allCards.Add(process);
+        allCards.Add(overClocking);
 
         enemyCards.Add(worm);
         enemyCards.Add(horse);
@@ -111,11 +114,14 @@ public class CardManager
         ownedCards.Add(adminRights);
 
 
-        ownedCards.Add(testAOE);
+        
         ownedCards.Add(testAOEHeal);
         ownedCards.Add(testOverTime);
         ownedCards.Add(testOverTimeAOE);
-        
+
+        unownedCards.Add(testAOE);
+        unownedCards.Add(process);
+        unownedCards.Add(overClocking);
     }
 
     public List<characterCard> getOwnedCharacterCards()
