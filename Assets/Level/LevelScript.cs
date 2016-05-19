@@ -288,8 +288,10 @@ public class LevelScript : MonoBehaviour
                 }
                 else if (lastClicked == UIBehavior.ButtonClicked.Move)
                 {
-                    map.clearAllHighlights();
-                    characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Move);
+                    if (!characters[currentPlayer].movedThisTurn) { 
+                        map.clearAllHighlights();
+                        characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Move);
+                    }
                 }
                 else if (lastClicked == UIBehavior.ButtonClicked.Attack)
                 {
@@ -539,6 +541,7 @@ public class LevelScript : MonoBehaviour
                 state = LevelState.PlayerTurn;
                 characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Selected);
                 //moveCamera(characters[currentPlayer].transform.position);
+                characters[currentPlayer].movedThisTurn = false;
 
                 cameraStartPosition = Camera.main.transform.position;
                 cameraEndPosition = characters[currentPlayer].transform.position;

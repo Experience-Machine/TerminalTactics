@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CharacterBehaviour : MonoBehaviour 
 {
+    public bool movedThisTurn;
 
     public enum CharacterState
     {
@@ -103,6 +104,8 @@ public class CharacterBehaviour : MonoBehaviour
         Vector2 newPos = transform.position;
         newPos.y += yOffset;
         transform.position = newPos;
+
+        movedThisTurn = false;
     }
 
     void Start()
@@ -248,7 +251,7 @@ public class CharacterBehaviour : MonoBehaviour
     {
         
         // Clear highlights
-        if (state == CharacterState.Move && movementRange.Length > 0)
+        if (state == CharacterState.Move && movementRange.Length > 0 && !movedThisTurn)
         {
             map.clearHighlights(movementRange);
         }
@@ -262,6 +265,10 @@ public class CharacterBehaviour : MonoBehaviour
         {
             GameObject.Destroy(GameObject.Find("SpecialAttackUI(Clone)"));
         }
+
+        
+        if (movedThisTurn && cs == CharacterState.Move) return;
+
         state = cs;
 
 
@@ -394,6 +401,7 @@ public class CharacterBehaviour : MonoBehaviour
             {                
                 //Debug.Log(posX + " " + posY);
                 state = CharacterState.Selected;
+                movedThisTurn = true;
                 map.selectedTile = null;
                 map.clearHighlights(movementRange);
                 //movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
