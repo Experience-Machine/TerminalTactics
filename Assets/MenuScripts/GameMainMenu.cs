@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameMainMenu : MonoBehaviour {
 
+    GlobalGameManager manager;
+
     public Button mNextLevelButton;
     public Button mCustomizeButton;
     public Button mSaveButton;
@@ -13,6 +15,7 @@ public class GameMainMenu : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        manager = GameObject.Find("GlobalGameManager(Clone)").GetComponent<GlobalGameManager>();
         mNextLevelButton = GameObject.Find("NextLevel").GetComponent<Button>();
         mCustomizeButton = GameObject.Find("Customize").GetComponent<Button>();
         mSaveButton = GameObject.Find("Save").GetComponent<Button>();
@@ -21,7 +24,10 @@ public class GameMainMenu : MonoBehaviour {
         mNextLevelButton.onClick.AddListener(
             () =>
             {
-                LoadScene("LevelScene");
+                if (manager.level > manager.NUMBER_OF_LEVELS)
+                    manager.level = 1;
+    
+                LoadScene("Level" + manager.level);
             });
 
         mCustomizeButton.onClick.AddListener(

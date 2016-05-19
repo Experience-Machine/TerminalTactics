@@ -17,3 +17,7 @@ EditorBuildSettings:
     path: Assets/CardSelect.unity
   - enabled: 1
     path: Assets/CharCustomization.unity
+  - enabled: 1
+    path: Assets/Level1.unity
+  - enabled: 1
+    path: Assets/Level2.unity

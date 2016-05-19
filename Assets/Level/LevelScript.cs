@@ -252,9 +252,19 @@ public class LevelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (characters.Count == 0 || enemies.Count == 0)
-            SceneManager.LoadScene("GameMainMenu");
+        if (Input.GetKeyDown("space"))
+            enemies.RemoveRange(0, 1);
 
+        if (enemies.Count <= 0)
+        {
+            manager.level++;
+            SceneManager.LoadScene("GameMainMenu");
+        }
+
+        if (characters.Count <= 0)
+        {
+            SceneManager.LoadScene("GameMainMenu");
+        }
         // Check if the user has clicked a button on the Combat Menu
         if (lastClicked != UIBehavior.lastClicked)
         {
@@ -391,11 +401,16 @@ public class LevelScript : MonoBehaviour
                 }
             }
 
-
-
-            if (enemies.Count <= 0 || characters.Count <= 0)
+            if (enemies.Count <= 0)
+            {
+                manager.level++;
                 SceneManager.LoadScene("GameMainMenu");
+            } 
 
+            if (characters.Count <= 0)
+            {
+                SceneManager.LoadScene("GameMainMenu");
+            }
 
             // Catch carry-over currentPlayer / currentEnemy
             if (currentPlayer >= characters.Count) currentPlayer = 0;
@@ -474,9 +489,16 @@ public class LevelScript : MonoBehaviour
                 }
             }
 
-            if (enemies.Count <= 0 || characters.Count <= 0)
+            if (enemies.Count <= 0)
+            {
+                manager.level++;
                 SceneManager.LoadScene("GameMainMenu");
+            }
 
+            if (characters.Count <= 0)
+            {
+                SceneManager.LoadScene("GameMainMenu");
+            }
             // Catch carry-over currentPlayer / currentEnemy
             if (currentPlayer >= characters.Count) currentPlayer = 0;
             if (currentEnemy >= enemies.Count) currentEnemy = 0;
