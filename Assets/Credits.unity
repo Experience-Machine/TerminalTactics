@@ -345,8 +345,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: -96}
-  m_SizeDelta: {x: 965, y: 381.5}
+  m_AnchoredPosition: {x: 14, y: -52}
+  m_SizeDelta: {x: 967, y: 444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1032348600
 MonoBehaviour:
@@ -388,9 +388,11 @@ MonoBehaviour:
     from Stephen Challener:\nhttps://github.com/seveibar/liberated-pixel-cup/tree/master/resources/assets/lpc_full_assets/base_assets\n\nCharacter
     clothing from Johannes Sjolund: https://github.com/seveibar/liberated-pixel-cup/tree/master/resources/assets/lpc_full_assets/Johannes_Sjolund__Character%20animations%2C%20clothes%2C%20armor%2C%20weapons%2C%20skeleton%20enemy%2C%20combat%20dummy\n\nBig
     worm by Charles Sanchez: https://github.com/seveibar/liberated-pixel-cup/blob/master/resources/assets/lpc_full_assets/base_assets/big_worm.png\n\nAll
-    LPC assets follow the CC-BY-SA 3.0 and GNU GPL 3.0 licenses\n\nCC-BY-SA 3.0: http://creativecommons.org/licenses/by-sa/3.0/\nGNU
-    GPL 3.0: http://www.gnu.org/licenses/gpl-3.0.html\nGNU GPL 2.0: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html\nOGA-BY
-    3.0: http://static.opengameart.org/OGA-BY-3.0.txt\nCCO 1.0: http://creativecommons.org/publicdomain/zero/1.0/\n"
+    LPC assets follow the CC-BY-SA 3.0 and GNU GPL 3.0 licenses\n\nMusic: https://soundcloud.com/thesonicxclash/unite-synchronization-8-bit\n\nSound
+    effects generated in SFXR: http://www.drpetter.se/project_sfxr.html\n\nCC-BY-SA
+    3.0: http://creativecommons.org/licenses/by-sa/3.0/\nGNU GPL 3.0: http://www.gnu.org/licenses/gpl-3.0.html\nGNU
+    GPL 2.0: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html\nOGA-BY 3.0: http://static.opengameart.org/OGA-BY-3.0.txt\nCCO
+    1.0: http://creativecommons.org/publicdomain/zero/1.0/\n"
 --- !u!222 &1032348601
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -602,7 +604,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 141}
+  m_AnchoredPosition: {x: 382.5, y: 253}
   m_SizeDelta: {x: 230, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1716221098
