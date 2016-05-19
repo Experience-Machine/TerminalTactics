@@ -496,6 +496,9 @@ public class CharacterBehaviour : MonoBehaviour
 
         if (alphaValue <= 0f)
         {
+            Tile currentTile = map.getTile(posX, posY);
+            currentTile.charOnTile = null;
+            currentTile.collideable = false;
             Destroy(this);
         }
     }

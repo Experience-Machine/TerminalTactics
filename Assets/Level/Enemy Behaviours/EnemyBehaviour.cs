@@ -452,6 +452,9 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (alphaValue <= 0f)
         {
+            Tile currentTile = map.getTile(posX, posY);
+            currentTile.enemyOnTile = null;
+            currentTile.collideable = false;
             Destroy(this);
         }
     }
