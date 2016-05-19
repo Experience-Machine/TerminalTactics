@@ -111,7 +111,7 @@ public class CardManager
         ownedCards.Add(adminRights);
 
 
-        ownedCards.Add(testAOE);
+        unownedCards.Add(testAOE);
         ownedCards.Add(testAOEHeal);
         ownedCards.Add(testOverTime);
         ownedCards.Add(testOverTimeAOE);
