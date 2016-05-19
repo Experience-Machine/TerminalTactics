@@ -119,7 +119,7 @@ public class CardUI : MonoBehaviour
         else if(card is attackCard)
         {
             attackCard aCard = (attackCard)card;
-            cardBody.text = "Deals " + aCard.getDamage() + " damage at a range of " + aCard.getRange();
+            cardBody.text = "Deals " + aCard.getDamage() + " at a range of " + aCard.getRange();
         }
         else if(card is specialCard)
         {

@@ -34,10 +34,10 @@ public class CardManager
     private static OverTimeSpecialAOE testOverTimeAOE = new OverTimeSpecialAOE("Multiple iterator", "Does 1 damage per turn for 3 turns to enemies in an area", 1, testOTE, 3, 3);
 
     private static OverTimeEffect defOTEBuff = new OverTimeEffect(3, 2, "defense", true, true, false);
-    private static OverTimeSpecialAOE readOnly = new OverTimeSpecialAOE("Read only", "+2 defense to allies in an area for 3 turns", 3, defOTEBuff, 3, 3);
+    private static OverTimeSpecialAOE readOnly = new OverTimeSpecialAOE("Read only", "Gives +2 defense to teammates in an area for 3 turns", 3, defOTEBuff, 3, 3);
 
     private static OverTimeEffect atkOTEBuff = new OverTimeEffect(3, 2, "attack", true, true, false);
-    private static OverTimeSpecialAOE adminRights = new OverTimeSpecialAOE("Admin rights", "+2 attack to allies in an area for 3 turns", 3, atkOTEBuff, 3, 3);
+    private static OverTimeSpecialAOE adminRights = new OverTimeSpecialAOE("Admin rights", "Gives +2 attack to teammates in an area for 3 turns", 3, atkOTEBuff, 3, 3);
 
 
     private static passiveCard cooling = new passiveCard("Cooling", "Good cooling improves performance. Defense +1", "defense", 1);
