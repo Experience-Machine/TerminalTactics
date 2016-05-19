@@ -252,15 +252,15 @@ public class LevelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-         //Cheat code: Remove enemy to progress to next level 
-         if (Input.GetKeyDown("space"))
+
+        //Cheat code: Remove enemy to progress to next level 
+        if (Input.GetKeyDown("space"))
             enemies.RemoveRange(0, 1);
-        */
+
         if (enemies.Count <= 0)
         {
             manager.level++;
-            SceneManager.LoadScene("GameMainMenu");
+            SceneManager.LoadScene("VictoryScene");
         }
 
         if (characters.Count <= 0)
@@ -406,7 +406,7 @@ public class LevelScript : MonoBehaviour
             if (enemies.Count <= 0)
             {
                 manager.level++;
-                SceneManager.LoadScene("GameMainMenu");
+                SceneManager.LoadScene("VictoryScene");
             } 
 
             if (characters.Count <= 0)
@@ -494,7 +494,7 @@ public class LevelScript : MonoBehaviour
             if (enemies.Count <= 0)
             {
                 manager.level++;
-                SceneManager.LoadScene("GameMainMenu");
+                SceneManager.LoadScene("VictoryScene");
             }
 
             if (characters.Count <= 0)

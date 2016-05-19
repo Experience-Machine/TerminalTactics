@@ -8,7 +8,9 @@ public class CardManager
 
     List<Card> allCards;
     
-    List<Card> ownedCards;
+    public List<Card> ownedCards;
+
+    public List<Card> unownedCards;
 
     //Player cards
     private static attackCard thread = new attackCard("Thread", "Even more dangerous than a needle", 3, 2);
@@ -55,6 +57,7 @@ public class CardManager
         allCards = new List<Card>();
         ownedCards = new List<Card>();
         enemyCards = new List<Card>();
+        unownedCards = new List<Card>();
 
         loadAllCards();
         loadOwnedCards();
@@ -162,6 +165,45 @@ public class CardManager
         {
             if (ownedCards[i] is passiveCard)
                 cards.Add(ownedCards[i] as passiveCard);
+        }
+
+        return cards;
+    }
+
+    public List<attackCard> getUnownedAttackCards()
+    {
+        List<attackCard> cards = new List<attackCard>();
+
+        for (int i = 0; i < unownedCards.Count; i++)
+        {
+            if (unownedCards[i] is attackCard)
+                cards.Add(unownedCards[i] as attackCard);
+        }
+
+        return cards;
+    }
+
+    public List<specialCard> getUnownedSpecialCards()
+    {
+        List<specialCard> cards = new List<specialCard>();
+
+        for (int i = 0; i < unownedCards.Count; i++)
+        {
+            if (unownedCards[i] is specialCard)
+                cards.Add(unownedCards[i] as specialCard);
+        }
+
+        return cards;
+    }
+
+    public List<passiveCard> getUnownedPassiveCards()
+    {
+        List<passiveCard> cards = new List<passiveCard>();
+
+        for (int i = 0; i < unownedCards.Count; i++)
+        {
+            if (unownedCards[i] is passiveCard)
+                cards.Add(unownedCards[i] as passiveCard);
         }
 
         return cards;
