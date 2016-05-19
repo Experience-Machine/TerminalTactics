@@ -28,6 +28,7 @@ public class EnemyBehaviour : MonoBehaviour
     public EnemyDirection moveDirection;
     private EnemyDirection lastDirection;
     private Animator anim;
+    public static float yOffset = 0.3f;
 
     protected characterInfo charInfo;
     protected Map map;
@@ -479,6 +480,7 @@ public class EnemyBehaviour : MonoBehaviour
             endPosition = map.getTile(posX + (int)currentStep.y, posY).transform.position;
             posX = posX + (int)currentStep.y;
         }
+        endPosition.y += yOffset;
         currentLerpTime = 0;
     }
 
@@ -486,7 +488,9 @@ public class EnemyBehaviour : MonoBehaviour
     {
         posX = x;
         posY = y;
-        transform.position = map.getTile(x, y).transform.position;
+        Vector2 newPos = map.getTile(x, y).transform.position;
+        newPos.y += yOffset;
+        transform.position = newPos;
     }
 
     // The following assumes no obsticles, and makes a basic path to the tile

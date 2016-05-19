@@ -30,6 +30,7 @@ public class CharacterBehaviour : MonoBehaviour
     public CharacterDirection moveDirection;
     private CharacterDirection lastDirection;
     private Animator anim;
+    public static float yOffset = 0.3f; // Flat value to offset in Y direction by  
 
 
     private Map map; // Used for interfacing with tiles
@@ -93,6 +94,10 @@ public class CharacterBehaviour : MonoBehaviour
         currentPath = null;
 
         anim = GetComponent<Animator>();
+
+        Vector2 newPos = transform.position;
+        newPos.y += yOffset;
+        transform.position = newPos;
     }
 
     void Start()
@@ -496,6 +501,7 @@ public class CharacterBehaviour : MonoBehaviour
             endPosition = map.getTile(posX + (int)currentStep.y, posY).transform.position;
             posX = posX + (int)currentStep.y;
         }
+        endPosition.y += yOffset;
         currentLerpTime = 0;
     }
 
@@ -503,7 +509,9 @@ public class CharacterBehaviour : MonoBehaviour
     {
         posX = x;
         posY = y;
-        transform.position = map.getTile(x, y).transform.position;
+        Vector2 newPos = map.getTile(x, y).transform.position;
+        newPos.y += yOffset;
+        transform.position = newPos;
     }
 
     private Path buildPathToTile(int tileX, int tileY)
