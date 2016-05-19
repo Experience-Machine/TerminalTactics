@@ -304,7 +304,7 @@ public class CharacterBehaviour : MonoBehaviour
         switch (state)
         {
             case CharacterState.Idle: break;
-            case CharacterState.Dead: break;
+            case CharacterState.Dead: serviceDeadState(); break;
             case CharacterState.Selected: break;
             case CharacterState.Attack: serviceAttackState(); break;
             case CharacterState.Attacking: serviceAttackingState();  break;
@@ -459,6 +459,7 @@ public class CharacterBehaviour : MonoBehaviour
         }
     }
 
+
     // Kill this character off
     public void kill()
     {
@@ -481,6 +482,22 @@ public class CharacterBehaviour : MonoBehaviour
         }
         
 
+    }
+
+    float lerpTime = 0;
+
+    public void serviceDeadState()
+    {
+        lerpTime += Time.deltaTime;
+        SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
+        float alphaValue = Mathf.Lerp(1f, 0f, lerpTime);
+        renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, alphaValue);
+
+
+        if (alphaValue <= 0f)
+        {
+            Destroy(this);
+        }
     }
 
     #region Pathfinding and movement

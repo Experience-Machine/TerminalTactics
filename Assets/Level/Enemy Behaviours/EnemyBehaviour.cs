@@ -228,6 +228,7 @@ public class EnemyBehaviour : MonoBehaviour
         switch (state)
         {
             case EnemyState.Idle: break;
+            case EnemyState.Dead: serviceDeadState(); break;
             case EnemyState.Selected: serviceSelectedState(); break;
             case EnemyState.SelectMove: serviceSelectMove(); break;
             case EnemyState.Moving: serviceMoveState(); break;
@@ -438,6 +439,21 @@ public class EnemyBehaviour : MonoBehaviour
         setState(EnemyState.Dead);
         gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
         logoffAudio.PlayOneShot(logoffAudio.clip, 0.75f);
+    }
+
+    float lerpTime = 0;
+    public void serviceDeadState()
+    {
+        lerpTime += Time.deltaTime;
+        SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
+        float alphaValue = Mathf.Lerp(1f, 0f, lerpTime);
+        renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, alphaValue);
+
+
+        if (alphaValue <= 0f)
+        {
+            Destroy(this);
+        }
     }
 
     #region Pathfinding
