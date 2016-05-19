@@ -26,7 +26,8 @@ public class CharacterBehaviour : MonoBehaviour
         Up = 2,
         Down = 0, 
         Left = 1,
-        Right = 3
+        Right = 3,
+        None
     }
     public CharacterDirection moveDirection;
     private CharacterDirection lastDirection;
@@ -449,7 +450,7 @@ public class CharacterBehaviour : MonoBehaviour
                         moveDirection = CharacterDirection.Up;
                     }
 
-                    Debug.Log("Angle: " + angle);
+                    lastDirection = CharacterDirection.None;
                 }
             }
             
