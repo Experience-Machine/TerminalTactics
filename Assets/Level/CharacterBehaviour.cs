@@ -23,10 +23,10 @@ public class CharacterBehaviour : MonoBehaviour
     // Animation stuff
     public enum CharacterDirection
     {
-        Up,
-        Down, 
-        Left,
-        Right
+        Up = 2,
+        Down = 0, 
+        Left = 1,
+        Right = 3
     }
     public CharacterDirection moveDirection;
     private CharacterDirection lastDirection;
@@ -337,6 +337,7 @@ public class CharacterBehaviour : MonoBehaviour
         {
             state = CharacterState.Idle;
             anim.runtimeAnimatorController = moveControl;
+            anim.SetInteger("Direction", (int)moveDirection);
             animAttackState = false;
         }
 	}
@@ -423,6 +424,32 @@ public class CharacterBehaviour : MonoBehaviour
 
                     anim.runtimeAnimatorController = attackControl;
                     animAttackState = true;
+
+                    float angle = Mathf.Atan2(posY - map.selectedTile.y, posX - map.selectedTile.x) * (180 / Mathf.PI); // In degrees
+
+                    // Find direction based on attack tile position
+                    if(angle >= -45 && angle < 45)
+                    {
+                        // Direction left
+                        moveDirection = CharacterDirection.Left;
+                    }
+                    else if(angle >= 45 && angle < 135)
+                    {
+                        // Direction down
+                        moveDirection = CharacterDirection.Down;
+                    }
+                    else if(angle >= 135 || angle < -135)
+                    {
+                        // Direction right
+                        moveDirection = CharacterDirection.Right;
+                    }
+                    else if (angle < -45 && angle >= -135)
+                    {
+                        // Direction up
+                        moveDirection = CharacterDirection.Up;
+                    }
+
+                    Debug.Log("Angle: " + angle);
                 }
             }
             
@@ -438,7 +465,7 @@ public class CharacterBehaviour : MonoBehaviour
 
         tileToAttack.attackTile(attack + ATTACK_DAMAGE);
         tileToAttack = null;
-       state = CharacterState.AnimateWait; // Idle after animation is over..
+        state = CharacterState.AnimateWait; // Idle after animation is over..
     }
 
     public void damage(int damageDealt)
