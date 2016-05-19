@@ -33,14 +33,16 @@ public class GlobalGameManager : MonoBehaviour
         cardManager = new CardManager();
 
         // Dummy CharInfo stuff:
-        characterCard defaultChar = new characterCard("Char", "New char", 1, 1, 1, 3, 3, "hero");
+        /*characterCard defaultChar = new characterCard("Char", "New char", 1, 1, 1, 3, 3, "hero");
         attackCard defaultAtk = new attackCard();
         specialCard defaultSpc = new specialCard();
         passiveCard defaultPsv = new passiveCard();
         for (int i = 0; i < characterInfos.Length; i++)
         {
             characterInfos[i] = new characterInfo(defaultChar, defaultAtk, defaultSpc, defaultPsv);
-        }
+        }*/
+
+        characterInfos = cardManager.getDefaultCharInfo();
     }
 	// Use this for initialization
 	void Start () 

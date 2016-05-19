@@ -260,4 +260,15 @@ public class CardManager
 
         return cards;
     }
+
+    public characterInfo[] getDefaultCharInfo()
+    {
+        characterInfo[] characterInfos = new characterInfo[3];
+        characterInfos[0] = new characterInfo(whitehat, thread, readOnly, cooling);
+        characterInfos[1] = new characterInfo(firewall, thread, testAOEHeal, cooling);
+        characterInfos[2] = new characterInfo(bruteForce, thread, testAOE, cooling);
+
+        return characterInfos;
+
+    }
 }
