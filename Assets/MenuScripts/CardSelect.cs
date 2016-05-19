@@ -63,7 +63,6 @@ public class CardSelect : MonoBehaviour {
                 uiComponent.setCard(attackCards[i]);
                 uiComponent.setName(attackCards[i].getName());
                 uiComponent.setDescription(attackCards[i].getDescription());
-                uiComponent.setBody();
                 Vector3 target = new Vector3((i * cardWidth) + (i * 5) - cardOffset, 0, 0);
                 RectTransform transform = (RectTransform)attackCard.transform;
                 transform.anchoredPosition = target;
@@ -97,7 +96,6 @@ public class CardSelect : MonoBehaviour {
                 uiComponent.setCard(specialCards[i]);
                 uiComponent.setName(specialCards[i].getName());
                 uiComponent.setDescription(specialCards[i].getDescription());
-                uiComponent.setBody();
                 Vector3 target = new Vector3((cardsInRow * cardWidth) + (cardsInRow * 5) - cardOffset, yOffset, 0);
                 RectTransform transform = (RectTransform)specialCard.transform;
                 transform.anchoredPosition = target;
@@ -120,7 +118,6 @@ public class CardSelect : MonoBehaviour {
                 uiComponent.setCard(passiveCards[i]);
                 uiComponent.setName(passiveCards[i].getName());
                 uiComponent.setDescription(passiveCards[i].getDescription());
-                uiComponent.setBody();
                 Vector3 target = new Vector3((i * cardWidth) + (i * 5) + cardOffset, 0, 0);
                 RectTransform transform = (RectTransform)passiveCard.transform;
                 transform.anchoredPosition = target;
