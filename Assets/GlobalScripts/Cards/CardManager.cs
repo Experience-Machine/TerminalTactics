@@ -19,7 +19,7 @@ public class CardManager
 
     private static characterCard whitehat = new characterCard("White hat", "Support", 2, 2, 8, 3, 9, "white");
     private static characterCard bruteForce = new characterCard("Brute force", "Attacker", 8, 2, 1, 3, 5, "blue");
-    private static characterCard firewall = new characterCard("Firewall", "Tank", 2, 7, 2, 2, 12, "black");
+    private static characterCard firewall = new characterCard("Firewall", "Tank", 20, 99, 20, 20, 120, "black");
 
     private static SelfBuff selfModifying = new SelfBuff("Self-modifying", "Heal for 5 health", 3, "health", 5);
     //private static specialCard nullPointer = new specialCard("Null pointer", "Stop an enemy from attacking for two turns", 3);

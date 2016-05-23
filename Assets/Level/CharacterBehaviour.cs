@@ -279,7 +279,7 @@ public class CharacterBehaviour : MonoBehaviour
         }
         else if (state == CharacterState.Attack)
         {
-            attackRange = map.getRangeTiles(posX, posY, ATTACK_RANGE);
+            attackRange = map.getMovementRangeTiles(posX, posY, ATTACK_RANGE); // No attack around walls this way
             map.highlightTiles(attackRange, attackHighlight);
         } else if (state == CharacterState.Special)
         {

@@ -110,11 +110,11 @@ public class CardUI : MonoBehaviour
         if (card is characterCard)
         {
             characterCard cCard = (characterCard)card;
-            cardBody.text = "HP: " + cCard.maxHP
-             + "   ATK: " + cCard.ATK
-             + " DEF: " + cCard.DEF
-             + " SPC: " + cCard.SPC
-             + " MOV: " + cCard.MOV;
+            cardBody.text = "HP:" + cCard.maxHP
+             + "   ATK:" + cCard.ATK
+             + " DEF:" + cCard.DEF
+             + " SPC:" + cCard.SPC
+             + " MOV:" + cCard.MOV;
         }
         else if(card is attackCard)
         {
