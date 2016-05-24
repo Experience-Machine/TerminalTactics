@@ -127,7 +127,7 @@ public class CharacterBehaviour : MonoBehaviour
         currentSpecial = MAX_SPECIAL;
 
         Sprite[] sprites = Resources.LoadAll<Sprite>("Textures/Heros/walk_" + cInf.getCharacter().spriteName);
-        charImage = sprites[18];
+        charSprite = sprites[18];
 
         string animPath = "Textures/Heros/Animation/" + cInf.getCharacter().spriteName;
         moveControl = Resources.Load(animPath + "_walk") as RuntimeAnimatorController;
