@@ -96,7 +96,7 @@ public class LevelScript : MonoBehaviour
 
         // Set our player's first character to go first
         //characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Selected);
-        //moveCamera(characters[currentPlayer].transform.position);
+        moveCamera(characters[currentPlayer].transform.position);
 
         // Set the state of the level to be the player's turn
         state = LevelState.EnemyTurn;

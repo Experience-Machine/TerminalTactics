@@ -8,6 +8,9 @@ public class Camerabehaviour : MonoBehaviour {
     float mSpeed = 10.0f; // Speed of the movement
     private Vector3 mRightDirection = Vector3.right;
 
+    private float cameraMaxSize = 7f;
+    private float cameraMinSize = 4f;
+
     // Use this for initialization
     void Start () {
 
@@ -20,6 +23,7 @@ public class Camerabehaviour : MonoBehaviour {
         panLeft();
         panUp();
         panDown();
+        zoom();
     }
 
     bool panRight() {
@@ -64,6 +68,24 @@ public class Camerabehaviour : MonoBehaviour {
         {
             newpos.y -= Time.deltaTime * mSpeed;
             transform.position = newpos;
+        }
+
+        return false;
+    }
+
+    bool zoom()
+    {
+        float change = Input.GetAxis("Mouse ScrollWheel");
+
+        Debug.Log(change);
+        if (change > 0f || Input.GetKeyDown(KeyCode.Minus)) 
+        {
+            if (Camera.main.orthographicSize + 0.5f <= cameraMaxSize)
+                Camera.main.orthographicSize += 0.5f;
+        } else if (change < 0f || Input.GetKeyDown(KeyCode.Equals)) //Actually the plus key (non shift)
+        {
+            if (Camera.main.orthographicSize - 0.5f >= cameraMinSize) 
+                Camera.main.orthographicSize -= 0.5f;
         }
 
         return false;
