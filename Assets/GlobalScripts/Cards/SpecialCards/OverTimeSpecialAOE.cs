@@ -53,20 +53,30 @@ public class OverTimeSpecialAOE : specialCard
         //Player selected a tile
         if (gameMap.selectedTile != null)
         {
+            bool noTilesAttacked = true;
             for (int i = 0; i < aoeRangeTiles.Length; i++)
             {
                 Tile t = aoeRangeTiles[i];
                 if (t.enemyOnTile != null && effect.isAttack)
                 {
                     t.applyOverTimeEffectToTile(effect);
+                    noTilesAttacked = false;
                 }
 
                 if (t.charOnTile != null && !effect.isAttack)
                 {
                     t.applyOverTimeEffectToTile(effect);
+                    noTilesAttacked = false;
                 }
 
             }
+
+            if (noTilesAttacked)
+            {
+                gameMap.selectedTile = null;
+                return;
+            }
+
             gameMap.clearHighlights(aoeRangeTiles);
             character.currentSpecial -= cost;
             character.setState(CharacterBehaviour.CharacterState.AnimateWait);

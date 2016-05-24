@@ -24,6 +24,7 @@ public class OverTimeSpecial : specialCard {
 
         if (gameMap.selectedTile != null)
         {
+            
             //Cant attack another player currently
             if (gameMap.selectedTile.charOnTile != null)
             {

@@ -53,7 +53,7 @@ public class TargetedAOEAttack : specialCard
         //Player selected a tile
         if (gameMap.selectedTile != null)
         {
-            //bool noTilesAttacked
+            bool noTilesAttacked = true;
             for (int i = 0; i < aoeRangeTiles.Length; i++)
             {
                 Tile t = aoeRangeTiles[i];
@@ -63,15 +63,24 @@ public class TargetedAOEAttack : specialCard
                     if (hurtOrHeal == true) 
                     { 
                         t.attackTile(aoeDamage);
+                        noTilesAttacked = false;
                     } 
                 }
 
                 if (t.charOnTile != null && hurtOrHeal == false)
                 {
                     t.healTile(aoeDamage);
+                    noTilesAttacked = false;
                 }
                 
             }
+
+            if (noTilesAttacked)
+            {
+                gameMap.selectedTile = null;
+                return;
+            }
+
             if (hurtOrHeal) // Hurt
             {
                 GameObject buffObj = Object.Instantiate(Resources.Load("Prefabs/AoE Attack")) as GameObject;
