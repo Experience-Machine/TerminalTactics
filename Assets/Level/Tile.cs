@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class Tile : MonoBehaviour
 {
@@ -96,7 +97,10 @@ public class Tile : MonoBehaviour
         sr.enabled = true;
         */
         //Debug.Log("Tile " + transform.position.ToString() + " clicked");
-        map.lastTileClicked = this;
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            map.lastTileClicked = this;
+        }
     }
 
     public void attackTile(int damageDealt)
