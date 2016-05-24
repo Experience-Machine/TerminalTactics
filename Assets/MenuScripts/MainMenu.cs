@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour {
     public Button mLoadButton;
     public Button mCreditsButton;
     public Button mQuitButton;
+    public Button mHowToPlay;
 
     // Use this for initialization
     void Start () {
@@ -15,6 +16,7 @@ public class MainMenu : MonoBehaviour {
         mLoadButton = GameObject.Find("Load Game").GetComponent<Button>();
         mCreditsButton = GameObject.Find("Credits").GetComponent<Button>();
         mQuitButton = GameObject.Find("Quit").GetComponent<Button>();
+        mHowToPlay = GameObject.Find("How To Play").GetComponent<Button>();
 
         if (GameObject.Find("GlobalGameManager(Clone)") == null)
         {
@@ -34,6 +36,13 @@ public class MainMenu : MonoBehaviour {
                 //Load game then go to gamemainmenu
                 GameObject.Find("GlobalGameManager(Clone)").GetComponent<GlobalGameManager>().saveLoad.LoadAllData();
                 LoadScene("GameMainMenu");
+            });
+
+        mHowToPlay.onClick.AddListener(
+            () =>
+            {
+
+                LoadScene("HowToPlay");
             });
 
         mCreditsButton.onClick.AddListener(

@@ -159,8 +159,6 @@ public class LevelScript : MonoBehaviour
                     EnemyBehaviourBerserk eb = (Instantiate(Resources.Load("Prefabs/Enemy 1")) as GameObject).GetComponent<EnemyBehaviourBerserk>();
                     eb.setEnemyCharInfo(1);
 
-                    Debug.Log("hererere");
-
                     eb.rushUnit(characters[0].posX, characters[0].posY);
                     eb.move(x, y);
                     enemies.Add(eb);
