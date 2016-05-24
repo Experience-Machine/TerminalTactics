@@ -331,6 +331,7 @@ public class LevelScript : MonoBehaviour
         // Wait until the selected player's turn is over
         if (characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Idle)
         {
+            UIBehavior.resetButtonColors();
             // Clean the map
             map.clearAllHighlights();
             resetCollision();

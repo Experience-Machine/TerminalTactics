@@ -448,6 +448,13 @@ public class CharacterBehaviour : MonoBehaviour
                 return;
             }
 
+            //Don't attack empty tiles
+            if (map.selectedTile.enemyOnTile == null)
+            {
+                map.selectedTile = null;
+                return;
+            }
+
             for (int i = 0; i < attackRange.Length; i++)
             {
                 // If the selected tile is in our attack range:

@@ -53,14 +53,7 @@ public class TargetedAOEAttack : specialCard
         //Player selected a tile
         if (gameMap.selectedTile != null)
         {
-            if(hurtOrHeal) // Hurt
-            {
-                GameObject buffObj = Object.Instantiate(Resources.Load("Prefabs/AoE Attack")) as GameObject;
-                Vector2 spawnPosition = gameMap.selectedTile.transform.position;
-                spawnPosition.y -= 1.8f;
-                buffObj.transform.position = spawnPosition;
-            }
-
+            //bool noTilesAttacked
             for (int i = 0; i < aoeRangeTiles.Length; i++)
             {
                 Tile t = aoeRangeTiles[i];
@@ -79,6 +72,14 @@ public class TargetedAOEAttack : specialCard
                 }
                 
             }
+            if (hurtOrHeal) // Hurt
+            {
+                GameObject buffObj = Object.Instantiate(Resources.Load("Prefabs/AoE Attack")) as GameObject;
+                Vector2 spawnPosition = gameMap.selectedTile.transform.position;
+                spawnPosition.y -= 1.8f;
+                buffObj.transform.position = spawnPosition;
+            }
+
             gameMap.clearHighlights(aoeRangeTiles);
             character.currentSpecial -= cost;
             character.setState(CharacterBehaviour.CharacterState.AnimateWait);

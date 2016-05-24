@@ -73,8 +73,14 @@ public class UIBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-	   
-	}
+        
+    }
+
+    public static void resetButtonColors()
+    {
+        attackButtonsGrey = false;
+        moveButtonGrey = false;
+    }
 
     public void greyOutAttackButtons()
     {
