@@ -216,7 +216,8 @@ public class LevelScript : MonoBehaviour
                 {
                     map.clearAllHighlights();
                     characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Idle);
-                } else if (lastClicked == UIBehavior.ButtonClicked.Special)
+                } 
+                else if (lastClicked == UIBehavior.ButtonClicked.Special)
                 {
                     
                     map.clearAllHighlights();
@@ -225,11 +226,11 @@ public class LevelScript : MonoBehaviour
                         characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Special);             
                 }
             }
-            else
-            {
-                UIBehavior.lastClicked = UIBehavior.ButtonClicked.None;
-                lastClicked = UIBehavior.ButtonClicked.None;
-            }
+        }
+        else
+        {
+            UIBehavior.lastClicked = UIBehavior.ButtonClicked.None;
+            lastClicked = UIBehavior.ButtonClicked.None;
         }
 
         // Handle the Game State

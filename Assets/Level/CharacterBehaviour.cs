@@ -255,9 +255,8 @@ public class CharacterBehaviour : MonoBehaviour
 
     public void setState(CharacterState cs)
     {
-        
         // Clear highlights
-        if (state == CharacterState.Move && movementRange.Length > 0 && movementLeft > 0)
+        if (state == CharacterState.Move && movementRange.Length > 0)
         {
             map.clearHighlights(movementRange);
         }
@@ -275,8 +274,8 @@ public class CharacterBehaviour : MonoBehaviour
 
         if (movementLeft == 0 && cs == CharacterState.Move) return;
         else if (hasAttacked && cs == CharacterState.Attack) return;
-        state = cs;
 
+        state = cs;
 
         if (state == CharacterState.Move)
         {
