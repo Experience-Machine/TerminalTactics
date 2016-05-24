@@ -37,7 +37,7 @@ public class CharacterBehaviour : MonoBehaviour
     private RuntimeAnimatorController moveControl;
     private RuntimeAnimatorController attackControl;
     private bool animAttackState = false;
-
+    public Sprite charSprite;
 
     private Map map; // Used for interfacing with tiles
     private characterInfo charInfo;
@@ -125,7 +125,10 @@ public class CharacterBehaviour : MonoBehaviour
         defense = cInf.getCharacter().DEF;
         MAX_SPECIAL = cInf.getCharacter().SPC;
         currentSpecial = MAX_SPECIAL;
-        
+
+        Sprite[] sprites = Resources.LoadAll<Sprite>("Textures/Heros/walk_" + cInf.getCharacter().spriteName);
+        charImage = sprites[18];
+
         string animPath = "Textures/Heros/Animation/" + cInf.getCharacter().spriteName;
         moveControl = Resources.Load(animPath + "_walk") as RuntimeAnimatorController;
         attackControl = Resources.Load(animPath + "_spellcast") as RuntimeAnimatorController;

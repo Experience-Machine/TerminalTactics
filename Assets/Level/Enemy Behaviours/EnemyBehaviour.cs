@@ -29,11 +29,11 @@ public class EnemyBehaviour : MonoBehaviour
     private EnemyDirection lastDirection;
     private Animator anim;
     public static float yOffset = 0.3f;
-
-    protected characterInfo charInfo;
-    protected Map map;
+    public Sprite enemySprite;
 
     // Enemy Stats stuff
+    protected characterInfo charInfo;
+    protected Map map;
     public int MAX_HEALTH = 1;
     public int currentHealth;
     public int defense;

@@ -87,120 +87,32 @@ public class LevelScript : MonoBehaviour
 
         loadMap();
 
-        /*
-        //Randomly generate some collideable tiles
-        for (int i = 0; i < 25; i++)
-        {
-            float randomX = Random.Range(0f, 27f);
-            float randomY = Random.Range(0f, 18f);
-
-            Tile t = map.getTile((int)randomX, (int)randomY);
-
-            t.setCollideable(true);
-            t.defaultColor = Color.green;
-            map.setTileColor(t, Color.green);
-        }
-       
-        //Todo: Functionalize
-        //This block adds 3 characters and 5 enemies and makes sure that they don't overlap with other units/collideable terrain
-        for (int i = 0; i < 3; i++)
-        {
-            CharacterBehaviour cb = (Instantiate(characterObject) as GameObject).GetComponent<CharacterBehaviour>();
-            
-            if(manager.characterInfos != null) // Ensure we're running from main menu
-                cb.setCharInfo(manager.characterInfos[i]);
-
-            bool foundTile = false;
-            while (!foundTile)
-            {
-                float randomX = Random.Range(5f, 15f);
-                float randomY = Random.Range(5f, 15f);
-
-                Tile t = map.getTile((int)randomX, (int)randomY);
-                if (t.isCollideable()) continue;
-
-                bool samePosAsChar = false;
-                for (int j = 0; j < characters.Count; j++)
-                {
-                    CharacterBehaviour character = characters[j];
-                    if (t.transform.position == character.transform.position) samePosAsChar = true;
-                }
-
-                if (samePosAsChar) continue;
-
-                foundTile = true;
-                cb.move((int)randomX, (int)randomY);
-                characters.Add(cb);
-            }
-        }
-
-        for (int i = 0; i < 5; i++)
-        {
-            EnemyBehaviourBerserk eb = (Instantiate(Resources.Load("Prefabs/Enemy 1")) as GameObject).GetComponent<EnemyBehaviourBerserk>();
-            eb.setRandomCharInfo();
-
-            eb.rushUnit(characters[0].posX, characters[0].posY);
-
-            bool foundTile = false;
-            //Make sure that we don't spawn enemies on the same location as characters or collideable tiles
-            while (!foundTile)
-            {
-                float randomX = Random.Range(5f, 15f);
-                float randomY = Random.Range(5f, 15f);
-
-                Tile t = map.getTile((int)randomX, (int)randomY);
-                if (t.isCollideable()) continue;
-
-                bool samePosAsChar = false;
-                for (int j = 0; j < characters.Count; j++)
-                {
-                    CharacterBehaviour character = characters[j];
-                    if (t.transform.position == character.transform.position) samePosAsChar = true;
-                }
-
-                if (samePosAsChar) continue;
-
-                bool samePosAsEnemy = false;
-                for (int j = 0; j < enemies.Count; j++)
-                {
-                    EnemyBehaviour enemy = enemies[j];
-                    if (t.transform.position == enemy.transform.position) samePosAsEnemy = true;
-                }
-
-                if (samePosAsEnemy) continue;
-
-                foundTile = true;
-                eb.move((int)randomX, (int)randomY);
-                enemies.Add(eb);
-            }
-        }
-        */
         // Initilize enemy and player turns
         currentPlayer = 0;
         currentEnemy = 0;
         
         // Set initial enemy/player colision values on the map
-        resetCollision();
+        //resetCollision();
 
         // Set our player's first character to go first
-        characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Selected);
-        moveCamera(characters[currentPlayer].transform.position);
+        //characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Selected);
+        //moveCamera(characters[currentPlayer].transform.position);
 
         // Set the state of the level to be the player's turn
-        state = LevelState.PlayerTurn;
+        state = LevelState.EnemyTurn;
 
         // Initialize combat UI
-        
+
+        //charUIInstance = Instantiate(charUI) as GameObject;
         //UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
         //script.setContent(characters[currentPlayer].GetComponent<SpriteRenderer>().sprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, characters[currentPlayer].MAX_SPECIAL, characters[currentPlayer].currentSpecial, characters[currentPlayer].name);
-    
     }
 
     public void Start()
     {
-        charUIInstance = Instantiate(charUI) as GameObject;
-        UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
-        script.setContent(characters[currentPlayer].GetComponent<SpriteRenderer>().sprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, characters[currentPlayer].MAX_SPECIAL, characters[currentPlayer].currentSpecial, characters[currentPlayer].name);
+        //charUIInstance = Instantiate(charUI) as GameObject;
+        //UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
+        //script.setContent(characters[currentPlayer].GetComponent<SpriteRenderer>().sprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, characters[currentPlayer].MAX_SPECIAL, characters[currentPlayer].currentSpecial, characters[currentPlayer].name);
 
     }
 
@@ -326,7 +238,8 @@ public class LevelScript : MonoBehaviour
             case LevelState.Move: serviceMoveState(); break;
         }
 
-        if (cameraMoving) {
+        if (cameraMoving) 
+        {
             cameraIncrementMove();
         }
 
@@ -535,7 +448,7 @@ public class LevelScript : MonoBehaviour
                 // Create Combat UI
                 charUIInstance = Instantiate(charUI) as GameObject;
                 UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
-                script.setContent(characters[currentPlayer].GetComponent<SpriteRenderer>().sprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, characters[currentPlayer].MAX_SPECIAL, characters[currentPlayer].currentSpecial, characters[currentPlayer].name);
+                script.setContent(characters[currentPlayer].charSprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, characters[currentPlayer].MAX_SPECIAL, characters[currentPlayer].currentSpecial, characters[currentPlayer].name);
 
                 // Set player turn
                 state = LevelState.PlayerTurn;
@@ -550,7 +463,6 @@ public class LevelScript : MonoBehaviour
 
             }
 
-            
         }
     }
 
