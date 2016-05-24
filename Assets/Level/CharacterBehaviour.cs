@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class CharacterBehaviour : MonoBehaviour 
 {
-    public bool movedThisTurn;
-
     public enum CharacterState
     {
         Move,
@@ -56,6 +54,7 @@ public class CharacterBehaviour : MonoBehaviour
     private Tile[] movementRange;
     Color movementHighlight = new Color(0, 0, 1f, .3f);
     public int MOVEMENT_RANGE = 4;
+    public int movementLeft;
     
     // Pathing stuff
     private List<Path> possiblePaths;
@@ -96,7 +95,7 @@ public class CharacterBehaviour : MonoBehaviour
         possiblePaths = new List<Path>();
         currentEffects = new List<OverTimeEffect>();
 
-        state = CharacterState.Idle;
+        setState(CharacterState.Idle);
         currentPath = null;
 
         anim = GetComponent<Animator>();
@@ -105,7 +104,7 @@ public class CharacterBehaviour : MonoBehaviour
         newPos.y += yOffset;
         transform.position = newPos;
 
-        movedThisTurn = false;
+        //movedThisTurn = false;
     }
 
     void Start()
@@ -254,7 +253,7 @@ public class CharacterBehaviour : MonoBehaviour
     {
         
         // Clear highlights
-        if (state == CharacterState.Move && movementRange.Length > 0 && !movedThisTurn)
+        if (state == CharacterState.Move && movementRange.Length > 0 && movementLeft > 0)
         {
             map.clearHighlights(movementRange);
         }
@@ -270,27 +269,31 @@ public class CharacterBehaviour : MonoBehaviour
         }
 
         
-        if (movedThisTurn && cs == CharacterState.Move) return;
+        if (movementLeft == 0 && cs == CharacterState.Move) return;
 
         state = cs;
 
 
         if (state == CharacterState.Move)
         {
-            movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
+            movementRange = map.getMovementRangeTiles(posX, posY, movementLeft);
             map.highlightTiles(movementRange, movementHighlight);
         }
         else if (state == CharacterState.Attack)
         {
             attackRange = map.getMovementRangeTiles(posX, posY, ATTACK_RANGE); // No attack around walls this way
             map.highlightTiles(attackRange, attackHighlight);
-        } else if (state == CharacterState.Special)
+        } 
+        else if (state == CharacterState.Special)
         {
             GameObject specialUi = Instantiate(Resources.Load("Prefabs/SpecialAttackUI")) as GameObject;
             Text uiText = specialUi.GetComponentInChildren<Text>();
             uiText.text = charInfo.getSpecial().nm;
         }
-
+        else if(state == CharacterState.Idle)
+        {
+            movementLeft = MOVEMENT_RANGE;
+        }
 
     }
 
@@ -346,7 +349,7 @@ public class CharacterBehaviour : MonoBehaviour
 
         if(animAttackState && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !anim.IsInTransition(0))
         {
-            state = CharacterState.Idle;
+            setState(CharacterState.Idle);
             anim.runtimeAnimatorController = moveControl;
             anim.SetInteger("Direction", (int)moveDirection);
             animAttackState = false;
@@ -363,6 +366,8 @@ public class CharacterBehaviour : MonoBehaviour
                 {
                     //Tile tileOn = map.getTile(posX, posY);
                     //tileOn.setCollideable(false);
+                    movementLeft -= Mathf.Abs((posX - map.selectedTile.x));
+                    movementLeft -= Mathf.Abs((posY - map.selectedTile.y));
 
                     map.clearHighlights(movementRange);
                     //move(map.selectedTile.x, map.selectedTile.y);
@@ -371,7 +376,7 @@ public class CharacterBehaviour : MonoBehaviour
                     currentPath = buildPathToTile(map.selectedTile.x, map.selectedTile.y, movementRange); 
                     setStartAndEnd();
 
-                    state = CharacterState.Moving;
+                    setState(CharacterState.Moving);
                 }
             }
         }
@@ -403,8 +408,8 @@ public class CharacterBehaviour : MonoBehaviour
             else
             {                
                 //Debug.Log(posX + " " + posY);
-                state = CharacterState.Selected;
-                movedThisTurn = true;
+                setState(CharacterState.Selected);
+                //movedThisTurn = true;
                 map.selectedTile = null;
                 map.clearHighlights(movementRange);
                 //movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
@@ -432,7 +437,7 @@ public class CharacterBehaviour : MonoBehaviour
                     // This does not prevent us from attacking an empty tile
                     tileToAttack = map.selectedTile;
                     map.clearHighlights(attackRange);
-                    state = CharacterState.Attacking;
+                    setState(CharacterState.Attacking);
 
                     anim.runtimeAnimatorController = attackControl;
                     animAttackState = true;
@@ -477,7 +482,7 @@ public class CharacterBehaviour : MonoBehaviour
 
         tileToAttack.attackTile(attack + ATTACK_DAMAGE);
         tileToAttack = null;
-        state = CharacterState.AnimateWait; // Idle after animation is over..
+        setState(CharacterState.AnimateWait); // Idle after animation is over..
     }
 
     public void damage(int damageDealt)

@@ -200,8 +200,10 @@ public class LevelScript : MonoBehaviour
                 }
                 else if (lastClicked == UIBehavior.ButtonClicked.Move)
                 {
-                    if (!characters[currentPlayer].movedThisTurn) { 
+                    if (characters[currentPlayer].movementLeft > 0) 
+                    { 
                         map.clearAllHighlights();
+                        resetCollision();
                         characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Move);
                     }
                 }
@@ -454,7 +456,7 @@ public class LevelScript : MonoBehaviour
                 state = LevelState.PlayerTurn;
                 characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Selected);
                 //moveCamera(characters[currentPlayer].transform.position);
-                characters[currentPlayer].movedThisTurn = false;
+                //characters[currentPlayer].movedThisTurn = false;
 
                 cameraStartPosition = Camera.main.transform.position;
                 cameraEndPosition = characters[currentPlayer].transform.position;
