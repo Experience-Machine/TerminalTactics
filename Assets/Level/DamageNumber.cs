@@ -44,7 +44,7 @@ public class DamageNumber : MonoBehaviour {
         
         if (number.color.a <= 0)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
 	}
 

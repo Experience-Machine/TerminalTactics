@@ -18,7 +18,8 @@ public class MainMenu : MonoBehaviour {
 
         if (GameObject.Find("GlobalGameManager(Clone)") == null)
         {
-            Instantiate(Resources.Load("Prefabs/GlobalGameManager"));
+            GameObject gameManager = Instantiate(Resources.Load("Prefabs/GlobalGameManager")) as GameObject;
+            gameManager.transform.position = new Vector2(-100, 0);
         }
 
         mStartButton.onClick.AddListener(
