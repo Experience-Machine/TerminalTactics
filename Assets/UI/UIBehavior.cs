@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class UIBehavior : MonoBehaviour {
 
+    public static bool attackButtonsGrey = false;
+    public static bool moveButtonGrey = false;
+
     private float maxHealth;
     private float curHealth;
 
@@ -70,8 +73,24 @@ public class UIBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-	
+	   
 	}
+
+    public void greyOutAttackButtons()
+    {
+        attackButton.enabled = false;
+        specialButton.enabled = false;
+        attackButton.image.color = Color.gray;
+        specialButton.image.color = Color.gray;
+        attackButtonsGrey = true;
+    }
+
+    public void greyOutMoveButton()
+    {
+        moveButton.enabled = false;
+        moveButton.image.color = Color.gray;
+        moveButtonGrey = true;
+    }
 
     public void setContent(Sprite s, float maxHealth, float curHealth, float maxSPC, float curSPC, string characterName)
     {

@@ -182,7 +182,17 @@ public class LevelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (characters[currentPlayer].attackedThisTurn() && charUIInstance != null && UIBehavior.attackButtonsGrey == false)
+        {
+            UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
+            script.greyOutAttackButtons();
+        }
 
+        if (characters[currentPlayer].movementLeft == 0 && charUIInstance != null && UIBehavior.moveButtonGrey == false)
+        {
+            UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
+            script.greyOutMoveButton();
+        }
         //Cheat code: Remove enemy to progress to next level 
         /*if (Input.GetKeyDown("space"))
             enemies.RemoveRange(0, 1);
@@ -197,6 +207,7 @@ public class LevelScript : MonoBehaviour
         {
             SceneManager.LoadScene("GameMainMenu");
         }
+
         // Check if the user has clicked a button on the Combat Menu
         if (lastClicked != UIBehavior.lastClicked)
         {
@@ -221,6 +232,7 @@ public class LevelScript : MonoBehaviour
                 {
                     map.clearAllHighlights();
                     characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Attack);
+
                 }
                 else if(lastClicked == UIBehavior.ButtonClicked.Wait)
                 {

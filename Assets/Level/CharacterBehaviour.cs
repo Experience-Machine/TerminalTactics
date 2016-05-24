@@ -302,8 +302,13 @@ public class CharacterBehaviour : MonoBehaviour
 
     }
 
-	// Update is called once per frame
-	void Update () 
+    public bool attackedThisTurn()
+    {
+        return hasAttacked;
+    }
+
+    // Update is called once per frame
+    void Update () 
     {
         if (currentSpecial > MAX_SPECIAL)
         {
