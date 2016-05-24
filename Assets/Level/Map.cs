@@ -341,7 +341,7 @@ public class Map : MonoBehaviour
     public Tile[] getRangeTiles(int x, int y, int range)
     {
         List<Tile> t = new List<Tile>();
-        getRangeTileHelper(x, y, range, t);
+        getRangeTileHelper2(x, y, range, t);
         Tile[] tiles = new Tile[t.Count];
         tiles = t.ToArray();
         return tiles;
@@ -380,6 +380,50 @@ public class Map : MonoBehaviour
             t.Add(workingTile);
         }
         getRangeTileHelper(x, y + 1, range - 1, t);
+    }
+
+    private void getRangeTileHelper2(int x, int y, int range, List<Tile> t)
+    {
+        if (range == 0)
+            return;
+        Tile workingTile = getTile(x, y);
+
+        workingTile = getTile(x - 1, y);
+        if (workingTile != null && (!workingTile.isCollideable() || workingTile.enemyOnTile != null || workingTile.hasUnit))
+        {
+            if (!t.Contains(workingTile))
+            {
+                t.Add(workingTile);
+            }
+            getRangeTileHelper2(x - 1, y, range - 1, t);
+        }
+        workingTile = getTile(x, y - 1);
+        if (workingTile != null && (!workingTile.isCollideable() || workingTile.enemyOnTile != null || workingTile.hasUnit))
+        {
+            if (!t.Contains(workingTile))
+            {
+                t.Add(workingTile);
+            }
+            getRangeTileHelper2(x, y - 1, range - 1, t);
+        }
+        workingTile = getTile(x + 1, y);
+        if (workingTile != null && (!workingTile.isCollideable() || workingTile.enemyOnTile != null || workingTile.hasUnit))
+        {
+            if (!t.Contains(workingTile))
+            {
+                t.Add(workingTile);
+            }
+            getRangeTileHelper2(x + 1, y, range - 1, t);
+        }
+        workingTile = getTile(x, y + 1);
+        if (workingTile != null && (!workingTile.isCollideable() || workingTile.enemyOnTile != null || workingTile.hasUnit))
+        {
+            if (!t.Contains(workingTile))
+            {
+                t.Add(workingTile);
+            }
+            getRangeTileHelper2(x, y + 1, range - 1, t);
+        }
     }
 
     // Removes every Tile under this map

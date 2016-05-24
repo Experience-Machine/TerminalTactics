@@ -252,6 +252,8 @@ public class LevelScript : MonoBehaviour
     {
         //map.clearAllHighlights();
 
+        map.selectedTile = null;
+
         for (int i = 0; i < map.getMapSizeX(); i++)
         {
             for(int j = 0; j < map.getMapSizeY(); j++)

@@ -208,7 +208,9 @@ public class CharacterBehaviour : MonoBehaviour
                 if (ote.numTurns == 0) currentEffects.Remove(ote);
                 break;
             case "defense":
-                
+                GameObject buffObj = Object.Instantiate(Resources.Load("Prefabs/DefenseBuff")) as GameObject;
+                buffObj.transform.position = transform.position;
+
                 defense = ote.getEffectResult(defense, "DEF", position);
                 if (ote.numTurns == 0) currentEffects.Remove(ote);
                 
@@ -281,7 +283,7 @@ public class CharacterBehaviour : MonoBehaviour
         }
         else if (state == CharacterState.Attack)
         {
-            attackRange = map.getMovementRangeTiles(posX, posY, ATTACK_RANGE); // No attack around walls this way
+            attackRange = map.getRangeTiles(posX, posY, ATTACK_RANGE); // Updated to not attack around walls
             map.highlightTiles(attackRange, attackHighlight);
         } 
         else if (state == CharacterState.Special)
