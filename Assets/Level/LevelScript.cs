@@ -154,17 +154,29 @@ public class LevelScript : MonoBehaviour
                     characters.Add(cb);
                     characterNumber++;
                 }
-
-                else if (pixelColor.Equals(Color.red))
+                else if (pixelColor.Equals(Color.magenta))
                 {
                     EnemyBehaviourBerserk eb = (Instantiate(Resources.Load("Prefabs/Enemy 1")) as GameObject).GetComponent<EnemyBehaviourBerserk>();
-                    eb.setRandomCharInfo();
+                    eb.setEnemyCharInfo(1);
+
+                    Debug.Log("hererere");
 
                     eb.rushUnit(characters[0].posX, characters[0].posY);
                     eb.move(x, y);
                     enemies.Add(eb);
                 }
+                else if (pixelColor.Equals(Color.red))
+                {
+                    EnemyBehaviourBerserk eb = (Instantiate(Resources.Load("Prefabs/Enemy 1")) as GameObject).GetComponent<EnemyBehaviourBerserk>();
+                    eb.setEnemyCharInfo(0);
+
+                    eb.rushUnit(characters[0].posX, characters[0].posY);
+                    eb.move(x, y);
+                    enemies.Add(eb);
+                }
+
                 
+
             }
         }
     }

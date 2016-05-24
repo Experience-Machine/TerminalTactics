@@ -110,14 +110,14 @@ public class EnemyBehaviour : MonoBehaviour
         anim.runtimeAnimatorController = Resources.Load(walkAnimPath) as RuntimeAnimatorController;
     }
 
-    public void setRandomCharInfo()
+    public void setEnemyCharInfo(int enemyType)
     {
         List<characterCard> enemyCharacters = manager.cardManager.getEnemyCharacterCards();
         List<attackCard> enemyAttacks = manager.cardManager.getEnemyAttackCards();
         List<specialCard> enemySpecial = manager.cardManager.getEnemySpecialCards();
         List<passiveCard> enemyPassives = manager.cardManager.getEnemyPassiveCards();
 
-        characterInfo info = new characterInfo(enemyCharacters[Random.Range(0, enemyCharacters.Count)],
+        characterInfo info = new characterInfo(enemyCharacters[enemyType],
                                                enemyAttacks[Random.Range(0, enemyAttacks.Count)],
                                                enemySpecial[Random.Range(0, enemySpecial.Count)],
                                                enemyPassives[Random.Range(0, enemyPassives.Count)]);
