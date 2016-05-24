@@ -182,6 +182,11 @@ public class LevelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown("escape"))
+        {
+            GameObject exitUI = Instantiate(Resources.Load("Prefabs/ExitUI") as GameObject) as GameObject;
+        }
+
         if (characters[currentPlayer].attackedThisTurn() && charUIInstance != null && UIBehavior.attackButtonsGrey == false)
         {
             UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
