@@ -55,6 +55,7 @@ public class CharacterBehaviour : MonoBehaviour
     Color movementHighlight = new Color(0, 0, 1f, .3f);
     public int MOVEMENT_RANGE = 4;
     public int movementLeft;
+    public int oldPosX, oldPosY;
     
     // Pathing stuff
     private List<Path> possiblePaths;
@@ -72,6 +73,7 @@ public class CharacterBehaviour : MonoBehaviour
     Color attackHighlight = new Color(1f, 0, 0, .3f);
     private int ATTACK_RANGE = 1;
     private int ATTACK_DAMAGE = 1;
+    private bool hasAttacked; // I made this private, aren't you proud?
 
     AudioSource specialAudio;
     AudioSource logoffAudio;
@@ -104,7 +106,7 @@ public class CharacterBehaviour : MonoBehaviour
         newPos.y += yOffset;
         transform.position = newPos;
 
-        //movedThisTurn = false;
+        hasAttacked = false;
     }
 
     void Start()
@@ -270,9 +272,9 @@ public class CharacterBehaviour : MonoBehaviour
             GameObject.Destroy(GameObject.Find("SpecialAttackUI(Clone)"));
         }
 
-        
-        if (movementLeft == 0 && cs == CharacterState.Move) return;
 
+        if (movementLeft == 0 && cs == CharacterState.Move) return;
+        else if (hasAttacked && cs == CharacterState.Attack) return;
         state = cs;
 
 
@@ -295,6 +297,7 @@ public class CharacterBehaviour : MonoBehaviour
         else if(state == CharacterState.Idle)
         {
             movementLeft = MOVEMENT_RANGE;
+            hasAttacked = false;
         }
 
     }
@@ -351,10 +354,16 @@ public class CharacterBehaviour : MonoBehaviour
 
         if(animAttackState && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !anim.IsInTransition(0))
         {
-            setState(CharacterState.Idle);
+            //setState(CharacterState.Idle);
+            hasAttacked = true;
             anim.runtimeAnimatorController = moveControl;
             anim.SetInteger("Direction", (int)moveDirection);
             animAttackState = false;
+        }
+
+        if(hasAttacked && movementLeft == 0)
+        {
+            setState(CharacterState.Idle);
         }
 	}
 
@@ -368,13 +377,14 @@ public class CharacterBehaviour : MonoBehaviour
                 {
                     //Tile tileOn = map.getTile(posX, posY);
                     //tileOn.setCollideable(false);
-                    movementLeft -= Mathf.Abs((posX - map.selectedTile.x));
-                    movementLeft -= Mathf.Abs((posY - map.selectedTile.y));
 
                     map.clearHighlights(movementRange);
                     //move(map.selectedTile.x, map.selectedTile.y);
                     //movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
                     //map.highlightTiles(movementRange, movementHighlight);
+                    oldPosX = posX;
+                    oldPosY = posY;
+
                     currentPath = buildPathToTile(map.selectedTile.x, map.selectedTile.y, movementRange); 
                     setStartAndEnd();
 
@@ -412,6 +422,8 @@ public class CharacterBehaviour : MonoBehaviour
                 //Debug.Log(posX + " " + posY);
                 setState(CharacterState.Selected);
                 //movedThisTurn = true;
+                movementLeft -= Mathf.Abs((oldPosX - map.selectedTile.x));
+                movementLeft -= Mathf.Abs((oldPosY - map.selectedTile.y));
                 map.selectedTile = null;
                 map.clearHighlights(movementRange);
                 //movementRange = map.getMovementRangeTiles(posX, posY, MOVEMENT_RANGE);
@@ -480,11 +492,10 @@ public class CharacterBehaviour : MonoBehaviour
         // Do any attack animations here
         map.clearHighlights(attackRange);
 
-        
-
         tileToAttack.attackTile(attack + ATTACK_DAMAGE);
         tileToAttack = null;
         setState(CharacterState.AnimateWait); // Idle after animation is over..
+        //hasAttacked = true;
     }
 
     public void damage(int damageDealt)
@@ -527,7 +538,6 @@ public class CharacterBehaviour : MonoBehaviour
             specialAudio.PlayOneShot(specialAudio.clip, 0.75f);
         }
         
-
     }
 
     float lerpTime = 0;
