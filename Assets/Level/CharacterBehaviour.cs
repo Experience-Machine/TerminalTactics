@@ -274,6 +274,7 @@ public class CharacterBehaviour : MonoBehaviour
 
         if (movementLeft == 0 && cs == CharacterState.Move) return;
         else if (hasAttacked && cs == CharacterState.Attack) return;
+        else if (hasAttacked && cs == CharacterState.Special) return;
 
         state = cs;
 
