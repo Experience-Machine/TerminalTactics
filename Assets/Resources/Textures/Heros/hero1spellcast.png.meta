@@ -1,0 +1,485 @@
+fileFormatVersion: 2
+guid: f8a9bf9f902a70947a2f97faf1067e95
+timeCreated: 1464207042
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: hero1spellcast_0
+    21300002: hero1spellcast_1
+    21300004: hero1spellcast_2
+    21300006: hero1spellcast_3
+    21300008: hero1spellcast_4
+    21300010: hero1spellcast_5
+    21300012: hero1spellcast_6
+    21300014: hero1spellcast_7
+    21300016: hero1spellcast_8
+    21300018: hero1spellcast_9
+    21300020: hero1spellcast_10
+    21300022: hero1spellcast_11
+    21300024: hero1spellcast_12
+    21300026: hero1spellcast_13
+    21300028: hero1spellcast_14
+    21300030: hero1spellcast_15
+    21300032: hero1spellcast_16
+    21300034: hero1spellcast_17
+    21300036: hero1spellcast_18
+    21300038: hero1spellcast_19
+    21300040: hero1spellcast_20
+    21300042: hero1spellcast_21
+    21300044: hero1spellcast_22
+    21300046: hero1spellcast_23
+    21300048: hero1spellcast_24
+    21300050: hero1spellcast_25
+    21300052: hero1spellcast_26
+    21300054: hero1spellcast_27
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: hero1spellcast_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 194
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hero1spellcast_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 194
+        width: 28
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hero1spellcast_2
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 194
+        width: 28
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hero1spellcast_3
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 194
+        width: 36
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: 23.5}
+        - {x: -11, y: 23.5}
+        - {x: -18, y: 20.5}
+        - {x: -18, y: -23.5}
+        - {x: 15, y: -23.5}
+        - {x: 18, y: -19.5}
+        - {x: 18, y: 13.5}
+        - {x: 16, y: 19.5}
+    - name: hero1spellcast_4
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 194
+        width: 50
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 23.5}
+        - {x: -25, y: 16.5}
+        - {x: -25, y: -3.5}
+        - {x: -23, y: -5.5}
+        - {x: -16, y: -23.5}
+        - {x: 22, y: -23.5}
+        - {x: 25, y: -17.5}
+        - {x: 25, y: 23.5}
+    - name: hero1spellcast_5
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 194
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22, y: 23.5}
+        - {x: -24, y: 22.5}
+        - {x: -24, y: -7.5}
+        - {x: -16, y: -23.5}
+        - {x: 14, y: -23.5}
+        - {x: 16, y: -22.5}
+        - {x: 24, y: -6.5}
+        - {x: 24, y: 23.5}
+    - name: hero1spellcast_6
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 194
+        width: 36
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: 23.5}
+        - {x: -13, y: 23.5}
+        - {x: -18, y: 12.5}
+        - {x: -18, y: -20.5}
+        - {x: -15, y: -23.5}
+        - {x: 16, y: -23.5}
+        - {x: 18, y: -19.5}
+        - {x: 18, y: 17.5}
+        - {x: 17, y: 20.5}
+    - name: hero1spellcast_7
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 130
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hero1spellcast_8
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 130
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hero1spellcast_9
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 130
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hero1spellcast_10
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 130
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hero1spellcast_11
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 130
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.5, y: -23.5}
+        - {x: 10.5, y: -23.5}
+        - {x: 16.5, y: -16.5}
+        - {x: 16.5, y: 11.5}
+        - {x: 6.5, y: 23.5}
+        - {x: -12.5, y: 23.5}
+        - {x: -16.5, y: 22.5}
+    - name: hero1spellcast_12
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 130
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 23.5}
+        - {x: -16.5, y: 18.5}
+        - {x: -16.5, y: -4.5}
+        - {x: -14.5, y: -22.5}
+        - {x: -11.5, y: -23.5}
+        - {x: 13.5, y: -23.5}
+        - {x: 16.5, y: -9.5}
+        - {x: 16.5, y: 21.5}
+        - {x: 9.5, y: 23.5}
+    - name: hero1spellcast_13
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 130
+        width: 28
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hero1spellcast_14
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 66
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hero1spellcast_15
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 66
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hero1spellcast_16
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 66
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hero1spellcast_17
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 66
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 24}
+        - {x: -18, y: 11}
+        - {x: -18, y: -14}
+        - {x: -14, y: -24}
+        - {x: 18, y: -24}
+        - {x: 18, y: 24}
+    - name: hero1spellcast_18
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 66
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 24}
+        - {x: -25, y: 17}
+        - {x: -25, y: -20}
+        - {x: -18, y: -24}
+        - {x: 25, y: -24}
+        - {x: 25, y: 24}
+    - name: hero1spellcast_19
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 66
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: 24}
+        - {x: -24, y: 20}
+        - {x: -24, y: -8}
+        - {x: -18, y: -24}
+        - {x: 17, y: -24}
+        - {x: 24, y: -5}
+        - {x: 24, y: 23}
+        - {x: 22, y: 24}
+    - name: hero1spellcast_20
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 66
+        width: 34
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 24}
+        - {x: -17, y: -24}
+        - {x: 17, y: -24}
+        - {x: 17, y: 24}
+    - name: hero1spellcast_21
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 2
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hero1spellcast_22
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 2
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hero1spellcast_23
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 2
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hero1spellcast_24
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 2
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hero1spellcast_25
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 2
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12.5, y: 23.5}
+        - {x: -9.5, y: 23.5}
+        - {x: -16.5, y: 10.5}
+        - {x: -16.5, y: -15.5}
+        - {x: -12.5, y: -23.5}
+        - {x: 12.5, y: -23.5}
+        - {x: 13.5, y: -21.5}
+        - {x: 16.5, y: -13.5}
+        - {x: 16.5, y: 22.5}
+    - name: hero1spellcast_26
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 2
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16.5, y: 19.5}
+        - {x: 10.5, y: 23.5}
+        - {x: -8.5, y: 23.5}
+        - {x: -16.5, y: 15.5}
+        - {x: -16.5, y: -0.5}
+        - {x: -8.5, y: -23.5}
+        - {x: 12.5, y: -23.5}
+        - {x: 13.5, y: -21.5}
+        - {x: 13.5, y: -18.5}
+        - {x: 16.5, y: -7.5}
+    - name: hero1spellcast_27
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 2
+        width: 28
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

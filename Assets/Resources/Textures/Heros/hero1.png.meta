@@ -1,45 +1,45 @@
 fileFormatVersion: 2
-guid: dc94f375e85919c4ab37f1da33902996
-timeCreated: 1464207537
+guid: fc300c97da92a62488f027679f9649d2
+timeCreated: 1464207031
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: walk_white_0
-    21300002: walk_white_1
-    21300004: walk_white_2
-    21300006: walk_white_3
-    21300008: walk_white_4
-    21300010: walk_white_5
-    21300012: walk_white_6
-    21300014: walk_white_7
-    21300016: walk_white_8
-    21300018: walk_white_9
-    21300020: walk_white_10
-    21300022: walk_white_11
-    21300024: walk_white_12
-    21300026: walk_white_13
-    21300028: walk_white_14
-    21300030: walk_white_15
-    21300032: walk_white_16
-    21300034: walk_white_17
-    21300036: walk_white_18
-    21300038: walk_white_19
-    21300040: walk_white_20
-    21300042: walk_white_21
-    21300044: walk_white_22
-    21300046: walk_white_23
-    21300048: walk_white_24
-    21300050: walk_white_25
-    21300052: walk_white_26
-    21300054: walk_white_27
-    21300056: walk_white_28
-    21300058: walk_white_29
-    21300060: walk_white_30
-    21300062: walk_white_31
-    21300064: walk_white_32
-    21300066: walk_white_33
-    21300068: walk_white_34
-    21300070: walk_white_35
+    21300000: hero1_0
+    21300002: hero1_1
+    21300004: hero1_2
+    21300006: hero1_3
+    21300008: hero1_4
+    21300010: hero1_5
+    21300012: hero1_6
+    21300014: hero1_7
+    21300016: hero1_8
+    21300018: hero1_9
+    21300020: hero1_10
+    21300022: hero1_11
+    21300024: hero1_12
+    21300026: hero1_13
+    21300028: hero1_14
+    21300030: hero1_15
+    21300032: hero1_16
+    21300034: hero1_17
+    21300036: hero1_18
+    21300038: hero1_19
+    21300040: hero1_20
+    21300042: hero1_21
+    21300044: hero1_22
+    21300046: hero1_23
+    21300048: hero1_24
+    21300050: hero1_25
+    21300052: hero1_26
+    21300054: hero1_27
+    21300056: hero1_28
+    21300058: hero1_29
+    21300060: hero1_30
+    21300062: hero1_31
+    21300064: hero1_32
+    21300066: hero1_33
+    21300068: hero1_34
+    21300070: hero1_35
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -86,7 +86,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: walk_white_0
+    - name: hero1_0
       rect:
         serializedVersion: 2
         x: 17
@@ -94,10 +94,10 @@ TextureImporter:
         width: 30
         height: 47
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_1
+    - name: hero1_1
       rect:
         serializedVersion: 2
         x: 81
@@ -105,10 +105,10 @@ TextureImporter:
         width: 30
         height: 47
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_2
+    - name: hero1_2
       rect:
         serializedVersion: 2
         x: 145
@@ -116,10 +116,10 @@ TextureImporter:
         width: 30
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_3
+    - name: hero1_3
       rect:
         serializedVersion: 2
         x: 209
@@ -127,10 +127,10 @@ TextureImporter:
         width: 29
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_4
+    - name: hero1_4
       rect:
         serializedVersion: 2
         x: 273
@@ -138,10 +138,10 @@ TextureImporter:
         width: 30
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_5
+    - name: hero1_5
       rect:
         serializedVersion: 2
         x: 337
@@ -149,10 +149,10 @@ TextureImporter:
         width: 30
         height: 47
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_6
+    - name: hero1_6
       rect:
         serializedVersion: 2
         x: 401
@@ -160,10 +160,10 @@ TextureImporter:
         width: 30
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_7
+    - name: hero1_7
       rect:
         serializedVersion: 2
         x: 466
@@ -171,10 +171,10 @@ TextureImporter:
         width: 29
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_8
+    - name: hero1_8
       rect:
         serializedVersion: 2
         x: 529
@@ -182,10 +182,10 @@ TextureImporter:
         width: 30
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_9
+    - name: hero1_9
       rect:
         serializedVersion: 2
         x: 21
@@ -193,10 +193,10 @@ TextureImporter:
         width: 23
         height: 47
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_10
+    - name: hero1_10
       rect:
         serializedVersion: 2
         x: 83
@@ -204,10 +204,10 @@ TextureImporter:
         width: 25
         height: 46
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_11
+    - name: hero1_11
       rect:
         serializedVersion: 2
         x: 149
@@ -215,10 +215,10 @@ TextureImporter:
         width: 23
         height: 46
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_12
+    - name: hero1_12
       rect:
         serializedVersion: 2
         x: 213
@@ -226,10 +226,10 @@ TextureImporter:
         width: 24
         height: 46
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_13
+    - name: hero1_13
       rect:
         serializedVersion: 2
         x: 277
@@ -237,10 +237,10 @@ TextureImporter:
         width: 25
         height: 47
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_14
+    - name: hero1_14
       rect:
         serializedVersion: 2
         x: 340
@@ -248,10 +248,10 @@ TextureImporter:
         width: 28
         height: 46
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_15
+    - name: hero1_15
       rect:
         serializedVersion: 2
         x: 405
@@ -259,10 +259,10 @@ TextureImporter:
         width: 25
         height: 47
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_16
+    - name: hero1_16
       rect:
         serializedVersion: 2
         x: 469
@@ -270,10 +270,10 @@ TextureImporter:
         width: 24
         height: 47
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_17
+    - name: hero1_17
       rect:
         serializedVersion: 2
         x: 533
@@ -281,10 +281,10 @@ TextureImporter:
         width: 23
         height: 47
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_18
+    - name: hero1_18
       rect:
         serializedVersion: 2
         x: 17
@@ -292,10 +292,10 @@ TextureImporter:
         width: 30
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_19
+    - name: hero1_19
       rect:
         serializedVersion: 2
         x: 81
@@ -303,10 +303,10 @@ TextureImporter:
         width: 30
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_20
+    - name: hero1_20
       rect:
         serializedVersion: 2
         x: 145
@@ -314,10 +314,10 @@ TextureImporter:
         width: 30
         height: 49
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_21
+    - name: hero1_21
       rect:
         serializedVersion: 2
         x: 210
@@ -325,10 +325,10 @@ TextureImporter:
         width: 29
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_22
+    - name: hero1_22
       rect:
         serializedVersion: 2
         x: 273
@@ -336,10 +336,10 @@ TextureImporter:
         width: 30
         height: 49
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_23
+    - name: hero1_23
       rect:
         serializedVersion: 2
         x: 337
@@ -347,10 +347,10 @@ TextureImporter:
         width: 30
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_24
+    - name: hero1_24
       rect:
         serializedVersion: 2
         x: 401
@@ -358,10 +358,10 @@ TextureImporter:
         width: 30
         height: 49
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_25
+    - name: hero1_25
       rect:
         serializedVersion: 2
         x: 465
@@ -369,10 +369,10 @@ TextureImporter:
         width: 29
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_26
+    - name: hero1_26
       rect:
         serializedVersion: 2
         x: 529
@@ -380,10 +380,10 @@ TextureImporter:
         width: 30
         height: 49
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_27
+    - name: hero1_27
       rect:
         serializedVersion: 2
         x: 20
@@ -391,10 +391,10 @@ TextureImporter:
         width: 23
         height: 47
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_28
+    - name: hero1_28
       rect:
         serializedVersion: 2
         x: 84
@@ -402,10 +402,10 @@ TextureImporter:
         width: 25
         height: 46
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_29
+    - name: hero1_29
       rect:
         serializedVersion: 2
         x: 148
@@ -413,10 +413,10 @@ TextureImporter:
         width: 23
         height: 46
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_30
+    - name: hero1_30
       rect:
         serializedVersion: 2
         x: 211
@@ -424,10 +424,10 @@ TextureImporter:
         width: 24
         height: 46
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_31
+    - name: hero1_31
       rect:
         serializedVersion: 2
         x: 274
@@ -435,10 +435,10 @@ TextureImporter:
         width: 25
         height: 47
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_32
+    - name: hero1_32
       rect:
         serializedVersion: 2
         x: 336
@@ -446,10 +446,10 @@ TextureImporter:
         width: 28
         height: 46
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_33
+    - name: hero1_33
       rect:
         serializedVersion: 2
         x: 402
@@ -457,10 +457,10 @@ TextureImporter:
         width: 25
         height: 47
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_34
+    - name: hero1_34
       rect:
         serializedVersion: 2
         x: 467
@@ -468,10 +468,10 @@ TextureImporter:
         width: 24
         height: 47
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: walk_white_35
+    - name: hero1_35
       rect:
         serializedVersion: 2
         x: 532
@@ -479,7 +479,7 @@ TextureImporter:
         width: 23
         height: 47
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     outline: []
