@@ -11,7 +11,7 @@ public class OverTimeSpecialAOE : specialCard
 
     Tile[] aoeRangeTiles;
 
-    public OverTimeSpecialAOE(string name, string description, int cost, OverTimeEffect ote, int aoeSize, int aoeRange) : base(name, description, cost)
+    public OverTimeSpecialAOE(string name, string description, string lowerDescript, int cost, OverTimeEffect ote, int aoeSize, int aoeRange) : base(name, description,lowerDescript, cost)
     {
         this.aoeSize = aoeSize;
         this.aoeRange = aoeRange;

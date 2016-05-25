@@ -7,7 +7,7 @@ public class AttackAll : specialCard {
     bool hurt;
     bool heal;
 
-	public AttackAll (string name, string description, int cost, int damage, bool hurt, bool heal) : base(name, description, cost)
+	public AttackAll (string name, string description, string lowerDescript, int cost, int damage, bool hurt, bool heal) : base(name, description, lowerDescript, cost)
     {
         this.damage = damage;
         this.hurt = hurt;

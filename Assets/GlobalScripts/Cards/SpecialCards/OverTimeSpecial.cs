@@ -8,7 +8,7 @@ public class OverTimeSpecial : specialCard {
 
     Tile[] attackRangeTiles;
 
-    public OverTimeSpecial(string name, string description, int cost, int attackRange, OverTimeEffect ote) : base(name, description, cost)
+    public OverTimeSpecial(string name, string description, string lowerDescript, int cost, int attackRange, OverTimeEffect ote) : base(name, description, lowerDescript, cost)
     {
         this.effect = ote;
         this.attackRange = attackRange;

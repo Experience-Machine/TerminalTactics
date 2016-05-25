@@ -7,7 +7,7 @@ public class SelfBuff : specialCard
 
     string statToChange;
     int statVal;
-    public SelfBuff(string name, string description, int cost, string statToChange, int statVal) : base(name, description, cost)
+    public SelfBuff(string name, string description, string lowerDescript, int cost, string statToChange, int statVal) : base(name, description, lowerDescript, cost)
     {
         this.statToChange = statToChange;
         this.statVal = statVal;

@@ -12,7 +12,7 @@ public class TargetedAOEAttack : specialCard
 
     bool hurtOrHeal;
 
-    public TargetedAOEAttack(string name, string description, int cost, int aoeSize, int aoeRange, int aoeDamage, bool hurtOrHeal) : base(name, description, cost)
+    public TargetedAOEAttack(string name, string description, string lowerDescript, int cost, int aoeSize, int aoeRange, int aoeDamage, bool hurtOrHeal) : base(name, description, lowerDescript, cost)
     {
         this.aoeSize = aoeSize;
         this.aoeRange = aoeRange;
