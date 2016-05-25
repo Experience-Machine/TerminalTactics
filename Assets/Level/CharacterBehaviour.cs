@@ -72,7 +72,8 @@ public class CharacterBehaviour : MonoBehaviour
     private Tile tileToAttack;
     Color attackHighlight = new Color(1f, 0, 0, .3f);
     private int ATTACK_RANGE = 1;
-    private int ATTACK_DAMAGE = 1;
+    private int ATTACK_DAMAGE = 1; // attack of the character
+    private int ATTACK_DAMAGE_CARD = 1; // attack of the card
     private bool hasAttacked; // I made this private, aren't you proud?
 
     AudioSource specialAudio;
@@ -120,7 +121,8 @@ public class CharacterBehaviour : MonoBehaviour
         MAX_HEALTH = cInf.getCharacter().maxHP;
         currentHealth = MAX_HEALTH;
         MOVEMENT_RANGE = cInf.getCharacter().MOV;
-        ATTACK_DAMAGE = cInf.getAttack().getDamage();
+        ATTACK_DAMAGE = cInf.getCharacter().ATK; // add character attack
+        ATTACK_DAMAGE_CARD = cInf.getAttack().getDamage();
         ATTACK_RANGE = cInf.getAttack().getRange();
         name = cInf.getCharacter().getName();
         defense = cInf.getCharacter().DEF;
@@ -505,8 +507,8 @@ public class CharacterBehaviour : MonoBehaviour
     {
         // Do any attack animations here
         map.clearHighlights(attackRange);
-
-        tileToAttack.attackTile(attack + ATTACK_DAMAGE);
+        tileToAttack.setCard(ATTACK_DAMAGE_CARD);
+        tileToAttack.attackTile(ATTACK_DAMAGE);
         tileToAttack = null;
         setState(CharacterState.AnimateWait); // Idle after animation is over..
         //hasAttacked = true;

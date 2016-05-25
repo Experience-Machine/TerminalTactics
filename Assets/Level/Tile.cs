@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
+using System;
 
 public class Tile : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class Tile : MonoBehaviour
     public Color currentColor;
     public Color defaultColor;
     private static Color highlightColor = new Color(.3f,.3f,.3f,.15f);
+
+    int cardDamage;
+    int hold;
+    System.Random modify = new System.Random();
+    
 
     //private static GameObject tileSelector;
     //private GameObject selectRef;
@@ -103,19 +109,31 @@ public class Tile : MonoBehaviour
         }
     }
 
+    public void setCard(int damage) // get the damage of the card
+    {
+        cardDamage = damage;
+    }
+
     public void attackTile(int damageDealt)
     {
         AudioSource attackAudio = GameObject.Find("AttackAudio").GetComponent<AudioSource>();
 
         GameObject damageNumber = Instantiate(Resources.Load("Prefabs/DamageText")) as GameObject;
-        DamageNumber damageUi = damageNumber.GetComponent<DamageNumber>();
+        DamageNumber damageUi = damageNumber.GetComponent<DamageNumber>(); 
         
         int actualDamage = -1;
         if (charOnTile != null)
         {
             hasUnit = false;
 
-            actualDamage = damageDealt / charOnTile.GetComponent<CharacterBehaviour>().defense;
+            // damage calculator (your attack / enemy defense) * card damage
+            actualDamage = (damageDealt / charOnTile.GetComponent<CharacterBehaviour>().defense) * cardDamage;
+
+            // modifier of 50% power to 100%
+            hold = modify.Next(actualDamage / 2, actualDamage + 1);
+            
+            actualDamage = hold;
+
             if (actualDamage == 0) actualDamage = 1; //Don't want 0 damage
             charOnTile.damage(actualDamage);
 
@@ -130,7 +148,14 @@ public class Tile : MonoBehaviour
         }
         else if(enemyOnTile != null)
         {
-            actualDamage = damageDealt / enemyOnTile.defense;
+            // damage calculator (your attack / enemy defense) * card damage
+            actualDamage = (damageDealt / enemyOnTile.defense) * cardDamage;
+
+            // modifier of 50% power to 100%
+            hold = modify.Next(actualDamage / 2, actualDamage + 1);
+
+            actualDamage = hold;
+
             if (actualDamage == 0) actualDamage = 1; //Don't want 0 damage
             enemyOnTile.damage(actualDamage);
             attackAudio.PlayOneShot(attackAudio.clip, 0.75f);
