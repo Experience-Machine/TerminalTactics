@@ -292,7 +292,9 @@ public class CharacterBehaviour : MonoBehaviour
         {
             GameObject specialUi = Instantiate(Resources.Load("Prefabs/SpecialAttackUI")) as GameObject;
             Text uiText = specialUi.GetComponentInChildren<Text>();
+            Text specialDescription = GameObject.Find("SpecialAttackUI(Clone)/SpecialAttackDesc/SpecialAttackText").GetComponent<Text>();
             uiText.text = charInfo.getSpecial().nm;
+            specialDescription.text = charInfo.getSpecial().lowerDescript;
         }
         else if(state == CharacterState.Idle)
         {
