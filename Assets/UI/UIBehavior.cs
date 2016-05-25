@@ -114,6 +114,17 @@ public class UIBehavior : MonoBehaviour {
         Text charName = textComp.GetComponent<Text>();
         charName.text = characterName;
 
+        Text curHealthText = GameObject.Find("CharacterUI(Clone)/Character Info/Image/Panel (2)/Panel/Current").GetComponent<Text>();
+        curHealthText.text = curHealth.ToString();
+
+        Text maxHealthText = GameObject.Find("CharacterUI(Clone)/Character Info/Image/Panel (2)/Panel/Max").GetComponent<Text>();
+        maxHealthText.text = maxHealth.ToString();
+
+        Text curSpecialText = GameObject.Find("CharacterUI(Clone)/Character Info/Image/Panel (3)/Panel/Current").GetComponent<Text>();
+        curSpecialText.text = curSPC.ToString();
+
+        Text maxSpecialText = GameObject.Find("CharacterUI(Clone)/Character Info/Image/Panel (3)/Panel/Max").GetComponent<Text>();
+        maxSpecialText.text = maxSPC.ToString();
 
         //Governs Healthbar behavior
         GameObject healthBar = GameObject.Find("CharacterUI(Clone)/Character Info/Image/Panel (2)/HealthBar/Panel");
