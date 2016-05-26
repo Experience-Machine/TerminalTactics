@@ -77,7 +77,6 @@ public class Camerabehaviour : MonoBehaviour {
     {
         float change = Input.GetAxis("Mouse ScrollWheel");
 
-        Debug.Log(change);
         if (change > 0f || Input.GetKeyDown(KeyCode.Minus) || Input.GetKeyDown(KeyCode.KeypadPlus)) 
         {
             if (Camera.main.orthographicSize + 0.5f <= cameraMaxSize)

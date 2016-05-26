@@ -53,7 +53,7 @@ public class CharacterBehaviour : MonoBehaviour
     // Movement stuff
     private Tile[] movementRange;
     Color movementHighlight = new Color(0, 0, 1f, .3f);
-    public int MOVEMENT_RANGE = 4;
+    public int MOVEMENT_RANGE = 3;
     public int movementLeft;
     public int oldPosX, oldPosY;
     
