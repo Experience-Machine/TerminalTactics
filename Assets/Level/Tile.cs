@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using System;
 
+[System.Serializable]
 public class Tile : MonoBehaviour
 {
 

@@ -72,8 +72,8 @@ public class CharacterBehaviour : MonoBehaviour
     private Tile tileToAttack;
     Color attackHighlight = new Color(1f, 0, 0, .3f);
     private int ATTACK_RANGE = 1;
-    private int ATTACK_DAMAGE = 1; // attack of the character
-    private int ATTACK_DAMAGE_CARD = 1; // attack of the card
+    public int ATTACK_DAMAGE = 1; // attack of the character
+    public int ATTACK_DAMAGE_CARD = 1; // attack of the card
     private bool hasAttacked; // I made this private, aren't you proud?
 
     AudioSource specialAudio;

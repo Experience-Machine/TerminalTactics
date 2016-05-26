@@ -61,8 +61,9 @@ public class TargetedAOEAttack : specialCard
                 {
 
                     if (hurtOrHeal == true) 
-                    { 
-                        t.attackTile(aoeDamage);
+                    {
+                        t.setCard(character.ATTACK_DAMAGE_CARD);
+                        t.attackTile(character.ATTACK_DAMAGE);
                         noTilesAttacked = false;
                     } 
                 }
