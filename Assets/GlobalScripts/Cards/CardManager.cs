@@ -20,7 +20,7 @@ public class CardManager
     // attack defense special movement hp
     private static characterCard whitehat = new characterCard("White hat", "Support", 450, 240, 400, 3, 330, "white"); 
     private static characterCard bruteForce = new characterCard("Brute force", "Attacker", 1000, 132, 90, 3, 262, "blue"); 
-    private static characterCard firewall = new characterCard("Firewall", "Tank", 251, 260, 200, 3, 420, "black"); 
+    private static characterCard firewall = new characterCard("Firewall", "Tank", 300, 260, 200, 3, 420, "black"); 
 
     private static SelfBuff selfModifying = new SelfBuff("Self-modifying", "Little to no existential risk", "Heal for 100 health", 50, "health", 100);
     //private static specialCard nullPointer = new specialCard("Null pointer", "Stop an enemy from attacking for two turns", 3);
@@ -48,8 +48,15 @@ public class CardManager
     List<Card> enemyCards;
 
     // attack defense special movement hp
-    private static characterCard worm = new characterCard("Worm", "Average", 295, 251, 200, 4, 250, "worm"); 
-    private static characterCard horse = new characterCard("Trojan Horse", "Tank", 328, 240, 284, 3, 334, "trojan"); 
+
+    // old worm and horse stats
+    //private static characterCard worm = new characterCard("Worm", "Average", 295, 251, 200, 4, 250, "worm"); 
+    //private static characterCard horse = new characterCard("Trojan Horse", "Tank", 328, 240, 284, 3, 334, "trojan"); 
+
+    //private static characterCard worm = new characterCard("Worm", "Average", 800, 100, 200, 4, 150, "worm"); // hard hitter 
+    //private static characterCard worm = new characterCard("Worm", "Average", 280, 260, 200, 4, 250, "worm"); // somewhat tanky
+    private static characterCard horse = new characterCard("Trojan Horse", "Tank", 2000, 260, 200, 1, 500, "trojan"); // boss stats
+    private static characterCard worm = new characterCard("Worm", "Average", 2000, 260, 200, 1, 500, "worm");
 
     private static attackCard infect = new attackCard("Infect", "...", 1, 1);
     private static attackCard backdoor = new attackCard("Backdoor", "...", 2, 2);
