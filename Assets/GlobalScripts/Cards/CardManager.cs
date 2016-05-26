@@ -41,9 +41,9 @@ public class CardManager
     private static OverTimeSpecialAOE adminRights = new OverTimeSpecialAOE("Admin rights", "Completely safe.", "Gives +100 attack to teammates in an area for 3 turns", 200, atkOTEBuff, 2, 3);
 
 
-    private static passiveCard cooling = new passiveCard("Cooling", "Good cooling improves performance. Defense +1", "defense", 1);
-    private static passiveCard priority = new passiveCard("Priority", "Increased priority for faster throughput. Attack +1", "attack", 1);
-    private static passiveCard overClocking = new passiveCard("Overclocking", "Crank that CPU over 9000!  Attack +2", "attack", 2);
+    private static passiveCard cooling = new passiveCard("Cooling", "Good cooling improves performance. Defense +50", "defense", 50);
+    private static passiveCard priority = new passiveCard("Priority", "Increased priority for faster throughput. Attack +50", "attack", 50);
+    private static passiveCard overClocking = new passiveCard("Overclocking", "Crank that CPU over 9000!  Attack +100", "attack", 100);
 
     List<Card> enemyCards;
 
