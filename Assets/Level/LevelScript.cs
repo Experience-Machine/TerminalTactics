@@ -154,7 +154,7 @@ public class LevelScript : MonoBehaviour
                     characters.Add(cb);
                     characterNumber++;
                 }
-                else if (pixelColor.Equals(Color.magenta))
+                else if (pixelColor.Equals(Color.magenta)) // Horse
                 {
                     EnemyBehaviourBerserk eb = (Instantiate(Resources.Load("Prefabs/Enemy 1")) as GameObject).GetComponent<EnemyBehaviourBerserk>();
                     eb.setEnemyCharInfo(1);
@@ -163,10 +163,37 @@ public class LevelScript : MonoBehaviour
                     eb.move(x, y);
                     enemies.Add(eb);
                 }
-                else if (pixelColor.Equals(Color.red))
+                else if (pixelColor.Equals(Color.red)) // Worm
                 {
                     EnemyBehaviourBerserk eb = (Instantiate(Resources.Load("Prefabs/Enemy 1")) as GameObject).GetComponent<EnemyBehaviourBerserk>();
                     eb.setEnemyCharInfo(0);
+
+                    eb.rushUnit(characters[0].posX, characters[0].posY);
+                    eb.move(x, y);
+                    enemies.Add(eb);
+                }
+                else if (pixelColor.Equals(Color.cyan)) // Bug
+                {
+                    EnemyBehaviourBerserk eb = (Instantiate(Resources.Load("Prefabs/Enemy 1")) as GameObject).GetComponent<EnemyBehaviourBerserk>();
+                    eb.setEnemyCharInfo(2);
+
+                    eb.rushUnit(characters[0].posX, characters[0].posY);
+                    eb.move(x, y);
+                    enemies.Add(eb);
+                }
+                else if (pixelColor.Equals(new Color(1, 1, 0))) // BloatWare
+                {
+                    EnemyBehaviourBerserk eb = (Instantiate(Resources.Load("Prefabs/Enemy 1")) as GameObject).GetComponent<EnemyBehaviourBerserk>();
+                    eb.setEnemyCharInfo(3);
+
+                    eb.rushUnit(characters[0].posX, characters[0].posY);
+                    eb.move(x, y);
+                    enemies.Add(eb);
+                }
+                else if (pixelColor.Equals(Color.white)) // RansomWare
+                {
+                    EnemyBehaviourBerserk eb = (Instantiate(Resources.Load("Prefabs/Enemy 1")) as GameObject).GetComponent<EnemyBehaviourBerserk>();
+                    eb.setEnemyCharInfo(4);
 
                     eb.rushUnit(characters[0].posX, characters[0].posY);
                     eb.move(x, y);

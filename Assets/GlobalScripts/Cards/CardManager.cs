@@ -50,13 +50,13 @@ public class CardManager
     // attack defense special movement hp
 
     // old worm and horse stats
-    //private static characterCard worm = new characterCard("Worm", "Average", 295, 251, 200, 4, 250, "worm"); 
-    //private static characterCard horse = new characterCard("Trojan Horse", "Tank", 328, 240, 284, 3, 334, "trojan"); 
+    private static characterCard worm = new characterCard("Worm", "Average", 295, 251, 200, 4, 250, "worm"); 
+    private static characterCard horse = new characterCard("Trojan Horse", "Tank", 328, 240, 284, 3, 334, "trojan"); 
 
-    //private static characterCard worm = new characterCard("Worm", "Average", 800, 100, 200, 4, 150, "worm"); // hard hitter 
-    //private static characterCard worm = new characterCard("Worm", "Average", 280, 260, 200, 4, 250, "worm"); // somewhat tanky
-    private static characterCard horse = new characterCard("Trojan Horse", "Tank", 2000, 260, 200, 1, 500, "trojan"); // boss stats
-    private static characterCard worm = new characterCard("Worm", "Average", 2000, 260, 200, 1, 500, "worm");
+    private static characterCard bug = new characterCard("Bug", "Average", 800, 100, 200, 4, 150, "bug"); // hard hitter 
+    private static characterCard bloatWare = new characterCard("Bloatware", "Average", 280, 260, 200, 4, 250, "bloatWare"); // somewhat tanky
+    private static characterCard ransomWare = new characterCard("Ransomware", "Tank", 2000, 260, 200, 1, 500, "ransomWare"); // boss stats
+    //private static characterCard worm = new characterCard("Worm", "Average", 2000, 260, 200, 1, 500, "worm");
 
     private static attackCard infect = new attackCard("Infect", "...", 1, 1);
     private static attackCard backdoor = new attackCard("Backdoor", "...", 2, 2);
@@ -99,6 +99,9 @@ public class CardManager
 
         enemyCards.Add(worm);
         enemyCards.Add(horse);
+        enemyCards.Add(bug);
+        enemyCards.Add(bloatWare);
+        enemyCards.Add(ransomWare);
         enemyCards.Add(infect);
         enemyCards.Add(backdoor);
         enemyCards.Add(forprofit);
