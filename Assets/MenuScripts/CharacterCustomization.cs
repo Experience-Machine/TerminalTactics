@@ -87,7 +87,7 @@ public class CharacterCustomization : MonoBehaviour
             uiComponent.setCard(specialCard);
             uiComponent.setName(specialCard.getName());
             uiComponent.setDescription(specialCard.getDescription());
-            uiComponent.setBody(specialCard.getDescription());
+            uiComponent.setBody(specialCard.lowerDescript);
             uiComponent.setCharacter(characterInfo);
             target = new Vector3(startPositionX + (i * cardWidth) + (i * 5), startPositionY - (cardHeight * 2) - 10, 0);
             transform = (RectTransform)special.transform;

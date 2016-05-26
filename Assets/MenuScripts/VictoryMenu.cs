@@ -102,22 +102,25 @@ public class VictoryMenu : MonoBehaviour {
         {
             attackCard = unownedAttacks[0];
             cardChosen = attackCard;
+            card.setBody();
         }
         if (type == 1)
         {
             passiveCard = unownedPassives[0];
             cardChosen = passiveCard;
+            card.setBody();
         }
         if (type == 2)
         {
             specialCard = unownedSpecials[0];
+            card.setBody(specialCard.lowerDescript);
             cardChosen = specialCard;
+            
         }
 
         card.setCard(cardChosen);
         card.setName(cardChosen.getName());
-        card.setDescription(cardChosen.getDescription());
-        card.setBody();
+        card.setDescription(cardChosen.getDescription());      
     }
 
     // Update is called once per frame
