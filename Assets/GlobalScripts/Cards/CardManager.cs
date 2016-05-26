@@ -54,7 +54,7 @@ public class CardManager
     private static characterCard horse = new characterCard("Trojan Horse", "Tank", 328, 240, 284, 3, 334, "trojan"); 
 
     private static characterCard bug = new characterCard("Bug", "Average", 800, 100, 200, 4, 150, "bug"); // hard hitter 
-    private static characterCard bloatWare = new characterCard("Bloatware", "Average", 280, 260, 200, 4, 250, "bloatWare"); // somewhat tanky
+    private static characterCard bloatWare = new characterCard("Bloatware", "Average", 280, 260, 200, 4, 200, "bloatWare"); // somewhat tanky
     private static characterCard ransomWare = new characterCard("Ransomware", "Tank", 2000, 260, 200, 1, 500, "ransomWare"); // boss stats
     //private static characterCard worm = new characterCard("Worm", "Average", 2000, 260, 200, 1, 500, "worm");
 
