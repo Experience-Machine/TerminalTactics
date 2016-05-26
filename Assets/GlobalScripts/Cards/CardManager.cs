@@ -13,13 +13,14 @@ public class CardManager
     public List<Card> unownedCards;
 
     //Player cards
-    private static attackCard thread = new attackCard("Thread", "Even more dangerous than a needle", 3, 2);
-    private static attackCard ctrlaltdel = new attackCard("Ctrl+Alt+Del", "The classic command always has its uses", 4, 1);
-    private static attackCard process = new attackCard("Process", "Like a thread... but bigger", 4, 2);
+    private static attackCard thread = new attackCard("Thread", "Even more dangerous than a needle", 60, 2);
+    private static attackCard ctrlaltdel = new attackCard("Ctrl+Alt+Del", "The classic command always has its uses", 90, 1);
+    private static attackCard process = new attackCard("Process", "Like a thread... but bigger", 100, 2);
 
-    private static characterCard whitehat = new characterCard("White hat", "Support", 100, 2, 8, 3, 9, "white");
-    private static characterCard bruteForce = new characterCard("Brute force", "Attacker", 100, 2, 1, 3, 5, "blue");
-    private static characterCard firewall = new characterCard("Firewall", "Tank", 100, 99, 20, 20, 120, "black");
+    // attack defense special movement hp
+    private static characterCard whitehat = new characterCard("White hat", "Support", 450, 240, 400, 3, 330, "white"); 
+    private static characterCard bruteForce = new characterCard("Brute force", "Attacker", 1000, 132, 90, 3, 262, "blue"); 
+    private static characterCard firewall = new characterCard("Firewall", "Tank", 251, 260, 200, 3, 420, "black"); 
 
     private static SelfBuff selfModifying = new SelfBuff("Self-modifying", "Little to no existential risk", "Heal for 5 health", 3, "health", 5);
     //private static specialCard nullPointer = new specialCard("Null pointer", "Stop an enemy from attacking for two turns", 3);
@@ -46,8 +47,9 @@ public class CardManager
 
     List<Card> enemyCards;
 
-    private static characterCard worm = new characterCard("Worm", "Average", 2, 10, 4, 4, 3, "worm");
-    private static characterCard horse = new characterCard("Trojan Horse", "Tank", 2, 10, 3, 3, 6, "trojan");
+    // attack defense special movement hp
+    private static characterCard worm = new characterCard("Worm", "Average", 295, 251, 200, 4, 250, "worm"); 
+    private static characterCard horse = new characterCard("Trojan Horse", "Tank", 328, 240, 284, 3, 334, "trojan"); 
 
     private static attackCard infect = new attackCard("Infect", "...", 1, 1);
     private static attackCard backdoor = new attackCard("Backdoor", "...", 2, 2);

@@ -122,15 +122,15 @@ public class Tile : MonoBehaviour
         DamageNumber damageUi = damageNumber.GetComponent<DamageNumber>(); 
         
         int actualDamage = -1;
-        if (charOnTile != null)
+        if (charOnTile != null) // enemy attacking character
         {
             hasUnit = false;
 
             // damage calculator (your attack / enemy defense) * card damage
-            actualDamage = (damageDealt / charOnTile.GetComponent<CharacterBehaviour>().defense) * cardDamage;
+            actualDamage = (/*(210 / 250) * */(damageDealt / charOnTile.GetComponent<CharacterBehaviour>().defense)) * 82;
 
             // modifier of 50% power to 100%
-            hold = modify.Next(actualDamage / 2, actualDamage + 1);
+            hold = modify.Next((actualDamage / 2) + (actualDamage / 4), actualDamage + 1);
             
             actualDamage = hold;
 
@@ -149,10 +149,10 @@ public class Tile : MonoBehaviour
         else if(enemyOnTile != null)
         {
             // damage calculator (your attack / enemy defense) * card damage
-            actualDamage = (damageDealt / enemyOnTile.defense) * cardDamage;
+            actualDamage = (/*(210 / 250) * */(damageDealt / enemyOnTile.defense)) * (cardDamage + 2);
 
             // modifier of 50% power to 100%
-            hold = modify.Next(actualDamage / 2, actualDamage + 1);
+            hold = modify.Next((actualDamage / 2) + (actualDamage / 4), actualDamage + 1);
 
             actualDamage = hold;
 
