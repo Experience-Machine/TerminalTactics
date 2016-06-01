@@ -156,7 +156,8 @@ public class CharacterBehaviour : MonoBehaviour
         else if (passive.statToChange.Equals("movement"))
             MOVEMENT_RANGE += passive.statValue;
         else
-            Debug.Log("Invalid passive card type");
+            //Debug.Log("Invalid passive card type");
+            ;
         
     }
 

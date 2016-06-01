@@ -60,6 +60,6 @@ public class GlobalGameManager : MonoBehaviour
     //
 	public void PrintCurrentLevel()
 	{
-		Debug.Log("Current Level is: " + mCurrentLevel);
+		//Debug.Log("Current Level is: " + mCurrentLevel);
 	}
 }
