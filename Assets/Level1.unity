@@ -448,7 +448,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 418227302}
   - 212: {fileID: 418227304}
-  - 61: {fileID: 418227303}
   m_Layer: 0
   m_Name: Top Border
   m_TagString: Untagged
@@ -468,20 +467,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 487689333}
   m_RootOrder: 3
---- !u!61 &418227303
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 418227301}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 9, y: 2}
 --- !u!212 &418227304
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -521,7 +506,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 430152243}
   - 212: {fileID: 430152245}
-  - 61: {fileID: 430152244}
   m_Layer: 0
   m_Name: Right Border
   m_TagString: Untagged
@@ -541,20 +525,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 487689333}
   m_RootOrder: 0
---- !u!61 &430152244
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 430152242}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 2, y: 9}
 --- !u!212 &430152245
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -717,7 +687,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 833977471}
   - 212: {fileID: 833977473}
-  - 61: {fileID: 833977472}
   m_Layer: 0
   m_Name: Left Border
   m_TagString: Untagged
@@ -737,20 +706,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 487689333}
   m_RootOrder: 1
---- !u!61 &833977472
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 833977470}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 2, y: 9}
 --- !u!212 &833977473
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -832,7 +787,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1022224116}
   - 212: {fileID: 1022224118}
-  - 61: {fileID: 1022224117}
   m_Layer: 0
   m_Name: Bottom Border
   m_TagString: Untagged
@@ -852,20 +806,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 487689333}
   m_RootOrder: 2
---- !u!61 &1022224117
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1022224115}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 9, y: 2}
 --- !u!212 &1022224118
 SpriteRenderer:
   m_ObjectHideFlags: 0

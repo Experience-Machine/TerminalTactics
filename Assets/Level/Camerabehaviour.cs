@@ -9,16 +9,17 @@ public class Camerabehaviour : MonoBehaviour {
     private Vector3 mRightDirection = Vector3.right;
 
     private float cameraMaxSize = 7f;
-    private float cameraMinSize = 2f;
+    private float cameraMinSize = 3f;
+    private float zoomRatio = 0.0f;
 
-    float xPos;
-    float yPos;
+    private float xPos;
+    private float yPos;
 
-    float xBoundLeft = 10.0f;
-    float xBoundRight = 20.0f;
+    private float xBoundLeft = 9.2f;
+    private float xBoundRight = 24.0f;
 
-    float yBoundTop = 12.5f;
-    float yBoundBottom = 6.0f;
+    private float yBoundTop = 18.3f;
+    private float yBoundBottom = 5.0f; 
 
     // Use this for initialization
     void Start () {
@@ -27,10 +28,11 @@ public class Camerabehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-    
+
         // get the camera coordinates
-        xPos = Camera.main.gameObject.transform.position.x;
-        yPos = Camera.main.gameObject.transform.position.y;
+        xPos = Camera.main.gameObject.transform.position.x + zoomRatio;
+        yPos = Camera.main.gameObject.transform.position.y + zoomRatio;
+        //Debug.Log(Camera.main.orthographicSize);
 
         // mouse pan
         panRight();
@@ -163,16 +165,23 @@ public class Camerabehaviour : MonoBehaviour {
 
     bool zoom()
     {
+        // default size is 5
         float change = Input.GetAxis("Mouse ScrollWheel");
 
         if (change < 0f || Input.GetKeyDown(KeyCode.Minus) || Input.GetKeyDown(KeyCode.KeypadPlus)) 
         {
             if (Camera.main.orthographicSize + 0.5f <= cameraMaxSize)
+            {
                 Camera.main.orthographicSize += 0.5f;
+                zoomRatio -= .75f;
+            }
         } else if (change > 0f || Input.GetKeyDown(KeyCode.Equals) || Input.GetKeyDown(KeyCode.KeypadMinus)) //Actually the plus key (non shift)
         {
-            if (Camera.main.orthographicSize - 0.5f >= cameraMinSize) 
+            if (Camera.main.orthographicSize - 0.5f >= cameraMinSize)
+            {
                 Camera.main.orthographicSize -= 0.5f;
+                zoomRatio += .75f;
+            }
         }
 
         return false;
