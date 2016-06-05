@@ -64,6 +64,9 @@ public class CharacterBehaviour : MonoBehaviour
     private Vector3 endPosition;
     private float currentLerpTime = 0;
 
+    private float characterFlashLerp = 0;
+    private Color baseColor;
+
     // Current tile position
     public int posX, posY;
 
@@ -102,6 +105,9 @@ public class CharacterBehaviour : MonoBehaviour
         currentPath = null;
 
         anim = GetComponent<Animator>();
+
+        SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
+        baseColor = renderer.color;
 
         Vector2 newPos = transform.position;
         newPos.y += yOffset;
@@ -304,6 +310,8 @@ public class CharacterBehaviour : MonoBehaviour
         {
             movementLeft = MOVEMENT_RANGE;
             hasAttacked = false;
+            SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
+            renderer.color = new Color(1f, 1f, 1f, 1f);
         }
 
     }
@@ -342,6 +350,16 @@ public class CharacterBehaviour : MonoBehaviour
             case CharacterState.Special: serviceSpecialState(); break;
             case CharacterState.Moving: serviceMovingState(); break;
         }
+
+        //Give the currently selected character a flashing effect
+        if (state != CharacterState.Idle)
+        {
+            characterFlashLerp += Time.deltaTime;
+            SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
+            float colorValue = Mathf.PingPong (characterFlashLerp, 0.75f);
+            renderer.color = new Color(colorValue, colorValue, renderer.color.b, renderer.color.a);
+        }
+
 
         if (lastDirection != moveDirection)
         {
