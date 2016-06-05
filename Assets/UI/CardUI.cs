@@ -101,6 +101,12 @@ public class CardUI : MonoBehaviour
     public void setDescription(string description)
     {
         cardDescription.text = description;
+
+        if (card is specialCard)
+        {
+            specialCard cCard = (specialCard)card;
+            cardDescription.text = "Cost: " + cCard.cost + " special";
+        }
     }
     
     // Set body with empty paramaters sets the body to

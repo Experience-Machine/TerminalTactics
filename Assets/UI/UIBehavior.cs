@@ -56,9 +56,11 @@ public class UIBehavior : MonoBehaviour {
         specialButton.onClick.AddListener(
             () =>
             {
-                Debug.Log("Specialing Now");
-                //Method call to change to special state
                 lastClicked = ButtonClicked.Special;
+                //Method call to change to special state
+                
+
+                
             });
 
         waitButton.onClick.AddListener(
