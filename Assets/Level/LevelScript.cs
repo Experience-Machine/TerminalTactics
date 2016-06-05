@@ -226,9 +226,18 @@ public class LevelScript : MonoBehaviour
             script.greyOutMoveButton();
         }
         //Cheat code: Remove enemy to progress to next level 
-        /*if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space"))
             enemies.RemoveRange(0, 1);
-        */
+        
+
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            if (enemies[i].getState() == EnemyBehaviour.EnemyState.Dead)
+            {
+                enemies.Remove(enemies[i]);
+            }
+        }
+
         if (enemies.Count <= 0)
         {
             manager.level++;

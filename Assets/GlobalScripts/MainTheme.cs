@@ -8,6 +8,7 @@ public class MainTheme : MonoBehaviour {
     public static MainTheme theme;
     public string sceneName;
     
+    
 
     // Use this for initialization
 
@@ -27,14 +28,15 @@ public class MainTheme : MonoBehaviour {
 	void Update () {
         Scene scene = SceneManager.GetActiveScene();
         //Debug.Log(scene.name);
-
+        
         if (scene.name == "Level1" || scene.name == "Level2")
         {
             //audio.volume = 0.2F;
             GetComponent<AudioSource>().volume = 0.0f;
+            GetComponent<AudioSource>().time = 0;
         } else
         {
-            GetComponent<AudioSource>().volume = 1.0f;
+            GetComponent<AudioSource>().volume = 0.5f;
         }
 
     }
