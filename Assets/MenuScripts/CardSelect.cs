@@ -99,6 +99,13 @@ public class CardSelect : MonoBehaviour {
                 uiComponent.setDescription(specialCards[i].getDescription());
                 uiComponent.setBody(specialCards[i].lowerDescript);
 
+                //Debug.Log("Character special: " + uiComponent.charInfo.charCard.SPC + "    Cost: " + specialCards[i].cost);
+                if (manager.selectedCharacterInfo.charCard.SPC < specialCards[i].cost)
+                {
+                    Debug.Log("Got here");
+                    uiComponent.setInactive();
+                }
+
                 Vector3 target = new Vector3((cardsInRow * cardWidth) + (cardsInRow * 5) - cardOffset, yOffset, 0);
                 RectTransform transform = (RectTransform)specialCard.transform;
                 transform.anchoredPosition = target;

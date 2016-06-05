@@ -10,7 +10,7 @@ public class CardUI : MonoBehaviour
     Text cardBody;
     Image charImage;
     Card card;
-    characterInfo charInfo; //If we need it
+    public characterInfo charInfo; //If we need it
     GlobalGameManager.CardType type;
     Button button;
 
@@ -74,6 +74,13 @@ public class CardUI : MonoBehaviour
     {
 	
 	}
+
+    public void setInactive()
+    {
+        //SpriteRenderer renderer = this.GetComponent<SpriteRenderer>();
+        //renderer.color = new Color(0.5f, 0.5f, 0.5f, 1.0f);
+        button.onClick.RemoveAllListeners();
+    }
     public void setCard(Card c)
     {
         card = c;
