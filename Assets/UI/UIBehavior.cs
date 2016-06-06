@@ -18,6 +18,9 @@ public class UIBehavior : MonoBehaviour {
     public Button specialButton;
     public Button waitButton;
 
+
+    GameObject charInfoPanel;
+
     public enum ButtonClicked
     {
         None,
@@ -34,7 +37,7 @@ public class UIBehavior : MonoBehaviour {
         attackButton = GameObject.Find("CharacterUI(Clone)/Actions/Image/AttackButton").GetComponent<Button>();
         specialButton = GameObject.Find("CharacterUI(Clone)/Actions/Image/SpecialButton").GetComponent<Button>();
         waitButton = GameObject.Find("CharacterUI(Clone)/Actions/Image/WaitButton").GetComponent<Button>();
-
+        charInfoPanel = GameObject.Find("CharacterUI(Clone)/Character Info");
         lastClicked = ButtonClicked.None;
 
         moveButton.onClick.AddListener(
@@ -98,6 +101,24 @@ public class UIBehavior : MonoBehaviour {
         moveButton.enabled = false;
         moveButton.image.color = Color.gray;
         moveButtonGrey = true;
+    }
+
+    public void hideCharDisplay()
+    {
+        if(charInfoPanel != null)
+        {
+            charInfoPanel.SetActive(false);
+            Debug.Log("Set CharPanel inactive!");
+        }
+    }
+
+    public void showCharDisplay()
+    {
+        if (charInfoPanel != null)
+        {
+            charInfoPanel.SetActive(true);
+            Debug.Log("Set CharPanel active!");
+        }
     }
 
     public void setContent(Sprite s, float maxHealth, float curHealth, float maxSPC, float curSPC, string characterName)

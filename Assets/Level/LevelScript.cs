@@ -227,6 +227,64 @@ public class LevelScript : MonoBehaviour
             UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
             script.greyOutMoveButton();
         }
+
+        #region Hide/Show character and enemy stats on click
+        // If our character is in 'selected' mode, UI is up, and a tile has been selected
+        if (characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Selected && charUIInstance != null)
+        {
+            if (map.selectedTile != null)
+            {
+                // If the selected tile contains an enemy..
+                if (map.selectedTile.enemyOnTile != null)
+                {
+                    UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
+                    script.hideCharDisplay();
+
+                    EnemyBehaviour enemySelected = map.selectedTile.enemyOnTile;
+                    Debug.Log(enemySelected.name);
+
+                    if (enemyUIInstance != null)
+                    {
+                        EnemyUIBehavior eScript = enemyUIInstance.GetComponent<EnemyUIBehavior>();
+                        eScript.setContent(enemySelected.GetComponent<SpriteRenderer>().sprite, enemySelected.MAX_HEALTH, enemySelected.currentHealth, enemySelected.name);
+                    }
+                    else
+                    {
+                        enemyUIInstance = Instantiate(enemyUI) as GameObject;
+                        EnemyUIBehavior eScript = enemyUIInstance.GetComponent<EnemyUIBehavior>();
+                        eScript.setContent(enemySelected.GetComponent<SpriteRenderer>().sprite, enemySelected.MAX_HEALTH, enemySelected.currentHealth, enemySelected.name);
+                    }
+                }
+                else if (map.selectedTile.charOnTile != null) // If it contains a character
+                {
+                    if (enemyUIInstance != null)
+                    {
+                        Destroy(enemyUIInstance);
+                        enemyUIInstance = null;
+                    }
+
+                    CharacterBehaviour charSelected = map.selectedTile.charOnTile;
+                    UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
+                    script.showCharDisplay();
+                    script.setContent(charSelected.charSprite, charSelected.MAX_HEALTH, charSelected.currentHealth, charSelected.MAX_SPECIAL, charSelected.currentSpecial, charSelected.name);
+                }
+                else // Otherwise, if it's empty..
+                {
+                    if (enemyUIInstance != null)
+                    {
+                        Destroy(enemyUIInstance);
+                        enemyUIInstance = null;
+                    }
+
+                    UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
+                    script.hideCharDisplay();
+                }
+                map.selectedTile = null;
+            }
+        }
+
+# endregion
+
         //Cheat code: Remove enemy to progress to next level 
         if (Input.GetKeyDown("space"))
             enemies.RemoveRange(0, 1);
@@ -258,6 +316,23 @@ public class LevelScript : MonoBehaviour
             lastClicked = UIBehavior.lastClicked;
             if(state == LevelState.PlayerTurn)
             {
+                if (lastClicked != UIBehavior.ButtonClicked.None)
+                {
+                    if (enemyUIInstance != null)
+                    {
+                        Destroy(enemyUIInstance);
+                        enemyUIInstance = null;
+                    }
+
+                    // If we're in a mode other than selected, let's set out display to our active character..
+                    UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
+                    script.showCharDisplay();
+                    script.setContent(characters[currentPlayer].charSprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, characters[currentPlayer].MAX_SPECIAL, characters[currentPlayer].currentSpecial, characters[currentPlayer].name);
+                }
+                
+
+                Debug.Log("State change");
+
                 if (lastClicked == UIBehavior.ButtonClicked.None)
                 {
                     map.clearAllHighlights();
@@ -269,14 +344,27 @@ public class LevelScript : MonoBehaviour
                     { 
                         map.clearAllHighlights();
                         resetCollision();
-                        characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Move);
+                        if (characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Move)
+                        {
+                            characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Selected);
+                        }
+                        else
+                        {
+                            characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Move);
+                        }
                     }
                 }
                 else if (lastClicked == UIBehavior.ButtonClicked.Attack)
                 {
                     map.clearAllHighlights();
-                    characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Attack);
-
+                    if (characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Attack)
+                    {
+                        characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Selected);
+                    }
+                    else
+                    {
+                        characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Attack);
+                    }
                 }
                 else if(lastClicked == UIBehavior.ButtonClicked.Wait)
                 {
@@ -289,15 +377,27 @@ public class LevelScript : MonoBehaviour
                     map.clearAllHighlights();
                     map.selectedTile = null;
                     if (characters[currentPlayer].hasEnoughSpecial())
-                        characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Special);             
+                    {
+                        if (characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Special)
+                        {
+                            characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Selected);
+                        }
+                        else
+                        {
+                            characters[currentPlayer].setState(CharacterBehaviour.CharacterState.Special);
+                        }
+                    }
                 }
             }
+            UIBehavior.lastClicked = UIBehavior.ButtonClicked.None;
+            lastClicked = UIBehavior.ButtonClicked.None;
         }
+            /*
         else
         {
             UIBehavior.lastClicked = UIBehavior.ButtonClicked.None;
             lastClicked = UIBehavior.ButtonClicked.None;
-        }
+        }*/
 
         // Handle the Game State
         switch (state)
@@ -429,7 +529,16 @@ public class LevelScript : MonoBehaviour
                 charUIInstance = null;
 
                 // Create Enemy UI
+                /*
+                if(enemyUIInstance != null)
+                {
+                    Destroy(enemyUIInstance);
+                    enemyUIInstance = null;
+                }
                 enemyUIInstance = Instantiate(enemyUI) as GameObject;
+                 */
+                if(enemyUIInstance == null)
+                    enemyUIInstance = Instantiate(enemyUI) as GameObject;
                 EnemyUIBehavior script = enemyUIInstance.GetComponent<EnemyUIBehavior>();
                 script.setContent(enemies[currentEnemy].GetComponent<SpriteRenderer>().sprite, enemies[currentEnemy].MAX_HEALTH, enemies[currentEnemy].currentHealth, enemies[currentEnemy].name);
 
