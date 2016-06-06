@@ -214,6 +214,19 @@ public class LevelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Move || characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Attack || characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Special)
+        {
+            UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
+            script.hideCharDisplay();
+        }
+
+        if (characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Selected && enemyUIInstance == null)
+        {
+            UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
+            script.showCharDisplay();
+            script.setContent(characters[currentPlayer].charSprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, characters[currentPlayer].MAX_SPECIAL, characters[currentPlayer].currentSpecial, characters[currentPlayer].name);
+        }
+
         if (Input.GetKeyDown("escape"))
         {
             GameObject exitUI = Instantiate(Resources.Load("Prefabs/ExitUI") as GameObject) as GameObject;
