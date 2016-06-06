@@ -24,7 +24,7 @@ public class GlobalGameManager : MonoBehaviour
 	private string mCurrentLevel = "MenuLevel";
     public characterInfo[] characterInfos;
 
-    public int NUMBER_OF_LEVELS = 2;
+    public int NUMBER_OF_LEVELS = 3;
     public int level = 1;
 
     void Awake()

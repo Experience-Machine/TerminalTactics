@@ -161,7 +161,7 @@ public class LevelScript : MonoBehaviour
                     EnemyBehaviourBerserk eb = (Instantiate(Resources.Load("Prefabs/Enemy 1")) as GameObject).GetComponent<EnemyBehaviourBerserk>();
                     eb.setEnemyCharInfo(1);
 
-                    eb.rushUnit(characters[0].posX, characters[0].posY);
+                    //eb.rushUnit(characters[0].posX, characters[0].posY);
                     eb.move(x, y);
                     enemies.Add(eb);
                 }
@@ -170,7 +170,7 @@ public class LevelScript : MonoBehaviour
                     EnemyBehaviourBerserk eb = (Instantiate(Resources.Load("Prefabs/Enemy 1")) as GameObject).GetComponent<EnemyBehaviourBerserk>();
                     eb.setEnemyCharInfo(0);
 
-                    eb.rushUnit(characters[0].posX, characters[0].posY);
+                    //eb.rushUnit(characters[0].posX, characters[0].posY);
                     eb.move(x, y);
                     enemies.Add(eb);
                 }
@@ -179,7 +179,7 @@ public class LevelScript : MonoBehaviour
                     EnemyBehaviourBerserk eb = (Instantiate(Resources.Load("Prefabs/Enemy 1")) as GameObject).GetComponent<EnemyBehaviourBerserk>();
                     eb.setEnemyCharInfo(2);
 
-                    eb.rushUnit(characters[0].posX, characters[0].posY);
+                    //eb.rushUnit(characters[0].posX, characters[0].posY);
                     eb.move(x, y);
                     enemies.Add(eb);
                 }
@@ -188,7 +188,7 @@ public class LevelScript : MonoBehaviour
                     EnemyBehaviourBerserk eb = (Instantiate(Resources.Load("Prefabs/Enemy 1")) as GameObject).GetComponent<EnemyBehaviourBerserk>();
                     eb.setEnemyCharInfo(3);
 
-                    eb.rushUnit(characters[0].posX, characters[0].posY);
+                    //eb.rushUnit(characters[0].posX, characters[0].posY);
                     eb.move(x, y);
                     enemies.Add(eb);
                 }
@@ -197,14 +197,17 @@ public class LevelScript : MonoBehaviour
                     EnemyBehaviourBerserk eb = (Instantiate(Resources.Load("Prefabs/Enemy 1")) as GameObject).GetComponent<EnemyBehaviourBerserk>();
                     eb.setEnemyCharInfo(4);
 
-                    eb.rushUnit(characters[0].posX, characters[0].posY);
+                    //eb.rushUnit(characters[0].posX, characters[0].posY);
                     eb.move(x, y);
                     enemies.Add(eb);
                 }
-
-                
-
             }
+        }
+
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            EnemyBehaviourBerserk eb = enemies[i].GetComponent<EnemyBehaviourBerserk>();
+            eb.rushUnit(characters[0].posX, characters[0].posY);
         }
     }
 
@@ -310,6 +313,8 @@ public class LevelScript : MonoBehaviour
             SceneManager.LoadScene("GameMainMenu");
         }
 
+        #region Check UI for button click
+
         // Check if the user has clicked a button on the Combat Menu
         if (lastClicked != UIBehavior.lastClicked)
         {
@@ -392,12 +397,14 @@ public class LevelScript : MonoBehaviour
             UIBehavior.lastClicked = UIBehavior.ButtonClicked.None;
             lastClicked = UIBehavior.ButtonClicked.None;
         }
-            /*
-        else
-        {
-            UIBehavior.lastClicked = UIBehavior.ButtonClicked.None;
-            lastClicked = UIBehavior.ButtonClicked.None;
-        }*/
+        /*
+    else
+    {
+        UIBehavior.lastClicked = UIBehavior.ButtonClicked.None;
+        lastClicked = UIBehavior.ButtonClicked.None;
+    }*/
+
+        #endregion
 
         // Handle the Game State
         switch (state)
