@@ -31,7 +31,6 @@ public class LevelScript : MonoBehaviour
     // Actual GameObjects for char and enemy (temp)
     private GameObject characterObject;
     private GameObject enemyObject;
-    
 
     // Reusable tile-range
     private Tile[] tileRange;
@@ -51,6 +50,9 @@ public class LevelScript : MonoBehaviour
     float cameraMoveTime = 0;
     bool cameraMoving = false;
 
+    bool transitioningOut = false;
+    float transitionTime = 1.5f;
+    
     bool setColor;
     GlobalGameManager manager;
 
@@ -238,13 +240,14 @@ public class LevelScript : MonoBehaviour
             }
         }
 
-        if (enemies.Count <= 0)
+        if (enemies.Count <= 0 && !transitioningOut)
         {
             manager.level++;
-            SceneManager.LoadScene("VictoryScene");
+            transitioningOut = true;
+            StartCoroutine(WaitAndVictory(transitionTime));
         }
 
-        if (characters.Count <= 0)
+        if (characters.Count <= 0 && !transitioningOut)
         {
             SceneManager.LoadScene("GameMainMenu");
         }
@@ -362,8 +365,6 @@ public class LevelScript : MonoBehaviour
     }
     void servicePlayerTurn()
     {
-
-
         // Wait until the selected player's turn is over
         if (characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Idle)
         {
@@ -395,11 +396,12 @@ public class LevelScript : MonoBehaviour
                 }
             }
 
-            if (enemies.Count <= 0)
+            if (enemies.Count <= 0 && !transitioningOut)
             {
                 manager.level++;
-                SceneManager.LoadScene("VictoryScene");
-            } 
+                transitioningOut = true;
+                StartCoroutine(WaitAndVictory(transitionTime));
+            }
 
             if (characters.Count <= 0)
             {
@@ -483,10 +485,11 @@ public class LevelScript : MonoBehaviour
                 }
             }
 
-            if (enemies.Count <= 0)
+            if (enemies.Count <= 0 && !transitioningOut)
             {
                 manager.level++;
-                SceneManager.LoadScene("VictoryScene");
+                transitioningOut = true;
+                StartCoroutine(WaitAndVictory(transitionTime));
             }
 
             if (characters.Count <= 0)
@@ -560,5 +563,11 @@ public class LevelScript : MonoBehaviour
         Vector3 position = Vector3.MoveTowards(cameraStartPosition, cameraEndPosition, 20.0f * cameraMoveTime);
         Camera.main.transform.position = new Vector3(position.x, position.y, Camera.main.transform.position.z);
         //Debug.Log("i am here");
+    }
+
+    IEnumerator WaitAndVictory(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        SceneManager.LoadScene("VictoryScene");
     }
 }
