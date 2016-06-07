@@ -383,7 +383,7 @@ public class CharacterBehaviour : MonoBehaviour
 
         if(animAttackState && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !anim.IsInTransition(0))
         {
-            //setState(CharacterState.Idle);
+            setState(CharacterState.Selected);
             hasAttacked = true;
             anim.runtimeAnimatorController = moveControl;
             anim.SetInteger("Direction", (int)moveDirection);

@@ -251,7 +251,7 @@ public class LevelScript : MonoBehaviour
 
         #region Hide/Show character and enemy stats on click
         // If our character is in 'selected' mode, UI is up, and a tile has been selected
-        if ((characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Selected || characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.AnimateWait) && charUIInstance != null)
+        if ((characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Selected) && charUIInstance != null)
         {
             if (map.selectedTile != null)
             {
@@ -304,14 +304,6 @@ public class LevelScript : MonoBehaviour
                 map.selectedTile = null;
             }
         }
-            /*
-        else if (characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Move || characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Attack || characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Special && charUIInstance != null)
-        {
-            Debug.Log("Hide due to M/A/S!");
-            UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
-            script.hideCharDisplay();
-        }
-        */
 # endregion
 
         //Cheat code: Remove enemy to progress to next level 
@@ -349,13 +341,13 @@ public class LevelScript : MonoBehaviour
             {
                 if (lastClicked != UIBehavior.ButtonClicked.None)
                 {
-                    if (enemyUIInstance != null)
+                    if (enemyUIInstance != null && state != LevelState.EnemyTurn)
                     {
                         Destroy(enemyUIInstance);
                         enemyUIInstance = null;
                     }
 
-                    // If we're in a mode other than selected, let's set out display to our active character..
+                    // If we're in a mode other than selected, let's set our display to our active character..
                     UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
                     script.hideCharDisplay();
                     //script.setContent(characters[currentPlayer].charSprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, characters[currentPlayer].MAX_SPECIAL, characters[currentPlayer].currentSpecial, characters[currentPlayer].name);
@@ -435,13 +427,20 @@ public class LevelScript : MonoBehaviour
         // If we change states..
         if (state == LevelState.PlayerTurn && lastCharState != characters[currentPlayer].getState())
         {
-            Debug.Log("New state!");
+            Debug.Log("New state! " + characters[currentPlayer].getState());
             // If we change out of the animate state..
             if (characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Selected)
             {
+                if (enemyUIInstance != null)
+                {
+                    Destroy(enemyUIInstance);
+                    enemyUIInstance = null;
+                }
+
                 // Show the UI again
                 UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
                 script.showCharDisplay();
+                script.setContent(characters[currentPlayer].charSprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, characters[currentPlayer].MAX_SPECIAL, characters[currentPlayer].currentSpecial, characters[currentPlayer].name);
             }
             lastCharState = characters[currentPlayer].getState();
         }
