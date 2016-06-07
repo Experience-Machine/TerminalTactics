@@ -16,18 +16,21 @@ public class CardManager
     private static attackCard thread = new attackCard("Thread", "Even more dangerous than a needle", 60, 2);
     private static attackCard ctrlaltdel = new attackCard("Ctrl+Alt+Del", "The classic command always has its uses", 90, 1);
     private static attackCard process = new attackCard("Process", "Like a thread... but bigger", 100, 2);
+    private static attackCard daemon = new attackCard("Daemon", "Not to be confused with a demon", 150, 1);
+    private static attackCard cookie = new attackCard("Cookie", "Stores a secret message inside", 80, 3);
 
     // attack defense special movement hp
     private static characterCard whitehat = new characterCard("White hat", "Support", 450, 240, 400, 3, 330, "white"); 
     private static characterCard bruteForce = new characterCard("Brute force", "Attacker", 1000, 132, 90, 3, 262, "blue"); 
-    private static characterCard firewall = new characterCard("Firewall", "Tank", 300, 260, 200, 3, 420, "black"); 
+    private static characterCard firewall = new characterCard("Firewall", "Tank", 300, 260, 200, 3, 420, "black");
 
+    #region Special cards
     private static SelfBuff selfModifying = new SelfBuff("Self-modifying", "Little to no existential risk", "Heal for 100 health.", 50, "health", 100);
     //private static specialCard nullPointer = new specialCard("Null pointer", "Stop an enemy from attacking for two turns", 3);
     private static AttackAll blueScreen = new AttackAll("Blue screen", "OF DEATH", "Everyone takes 50 damage.", 200, 50, true, false);
 
     private static TargetedAOEAttack testAOE = new TargetedAOEAttack("Logic bomb", "Death by information", "Damage in an area around the target.", 90, 2, 3, 50, true);
-    private static TargetedAOEAttack testAOEHeal = new TargetedAOEAttack("Refactor", "Life is messy, but code doesn't have to be", "Heal in an area around the target.", 60, 2, 3, 50, false);
+    private static TargetedAOEAttack testAOEHeal = new TargetedAOEAttack("Refactor", "Life is messy, but code doesn't have to be", "Heal in an area around the target.", 60, 2, 3, 200, false);
 
     private static OverTimeEffect testOTE = new OverTimeEffect(3, -35, "health", false, false, true);
     private static OverTimeEffect testOTE2 = new OverTimeEffect(3, -25, "health", false, false, true);
@@ -39,11 +42,16 @@ public class CardManager
 
     private static OverTimeEffect atkOTEBuff = new OverTimeEffect(3, 100, "attack", true, true, false);
     private static OverTimeSpecialAOE adminRights = new OverTimeSpecialAOE("Admin rights", "Completely safe.", "Gives +100 attack to teammates in an area for 3 turns.", 200, atkOTEBuff, 2, 3);
-
+    #endregion
 
     private static passiveCard cooling = new passiveCard("Cooling", "Good cooling improves performance. Defense +50", "defense", 50);
     private static passiveCard priority = new passiveCard("Priority", "Increased priority for faster throughput. Attack +50", "attack", 50);
     private static passiveCard overClocking = new passiveCard("Overclocking", "Crank that CPU over 9000!  Attack +100", "attack", 100);
+    
+    // NEW Passive cards
+    private static passiveCard ssh = new passiveCard("SSH", "A secure connection prevents tampering. Defense +100", "defense", 100);
+    private static passiveCard ram = new passiveCard("RAM", "Download more RAM at a new, low cost! Special +100", "special", 100);
+    private static passiveCard dim = new passiveCard("Dim Screen", "Prevent Computer Vision; dim your screen. Health +100", "health", 100);
 
     List<Card> enemyCards;
 
@@ -96,6 +104,11 @@ public class CardManager
         allCards.Add(testOverTimeAOE);
         allCards.Add(process);
         allCards.Add(overClocking);
+        allCards.Add(ssh);
+        allCards.Add(ram);
+        allCards.Add(dim);
+        allCards.Add(cookie);
+        allCards.Add(daemon);
 
         enemyCards.Add(worm);
         enemyCards.Add(horse);
@@ -124,8 +137,6 @@ public class CardManager
         ownedCards.Add(priority);
         ownedCards.Add(readOnly);
         ownedCards.Add(adminRights);
-
-
         
         ownedCards.Add(testAOEHeal);
         ownedCards.Add(testOverTime);
@@ -134,6 +145,14 @@ public class CardManager
         unownedCards.Add(testAOE);
         unownedCards.Add(process);
         unownedCards.Add(overClocking);
+
+        /* */
+        unownedCards.Add(ssh);
+        unownedCards.Add(dim);
+        unownedCards.Add(ram);
+
+        unownedCards.Add(daemon);
+        unownedCards.Add(cookie);
     }
 
     public List<characterCard> getOwnedCharacterCards()

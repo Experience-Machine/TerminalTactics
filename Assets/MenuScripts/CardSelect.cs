@@ -119,9 +119,27 @@ public class CardSelect : MonoBehaviour {
         } else if (manager.cardTypeSelected == GlobalGameManager.CardType.Passive)
         {
             List<passiveCard> passiveCards = manager.cardManager.getOwnedPassiveCards();
-            int cardOffset = ((passiveCards.Count * (cardWidth + 5) / 2)) - 75;
+            //int cardOffset = ((passiveCards.Count * (cardWidth + 5) / 2)) - 75;
+            int cardOffset = ((5 * (cardWidth + 5) / 2)) - 75;
+            int yOffset = cardHeight;
+
+            if (passiveCards.Count < 5)
+                cardOffset = (passiveCards.Count * (cardWidth + 5) / 2) - 75;
+
+            int cardsInRow = 0;
+
             for (int i = 0; i < passiveCards.Count; i++)
             {
+                if (i % 5 == 0 && i != 0)
+                {
+                    cardsInRow = 0;
+                    yOffset -= cardHeight + 5;
+                    int difference = passiveCards.Count - i;
+
+                    if (difference < 5)
+                        cardOffset = ((difference * (cardWidth + 5) / 2)) - 75;
+                }
+
                 GameObject passiveCard = Instantiate(Resources.Load("Prefabs/Card")) as GameObject;
                 passiveCard.transform.SetParent(myCanvas.transform, false);
                 CardUI uiComponent = passiveCard.GetComponent<CardUI>();
@@ -129,9 +147,17 @@ public class CardSelect : MonoBehaviour {
                 uiComponent.setName(passiveCards[i].getName());
                 uiComponent.setDescription(passiveCards[i].getDescription());
                 uiComponent.setBody();
+                /*
                 Vector3 target = new Vector3((i * cardWidth) + (i * 5) + cardOffset, 0, 0);
                 RectTransform transform = (RectTransform)passiveCard.transform;
                 transform.anchoredPosition = target;
+                 * */
+
+                Vector3 target = new Vector3((cardsInRow * cardWidth) + (cardsInRow * 5) - cardOffset, yOffset, 0);
+                RectTransform transform = (RectTransform)passiveCard.transform;
+                transform.anchoredPosition = target;
+
+                cardsInRow++;
             }
         }
 
