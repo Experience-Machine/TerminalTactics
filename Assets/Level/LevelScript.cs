@@ -214,13 +214,14 @@ public class LevelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(characters[currentPlayer].getState());
         if (characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Move || characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Attack || characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Special)
         {
             UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
             script.hideCharDisplay();
         }
 
-        if (characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Selected && enemyUIInstance == null)
+        if ((characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Selected || characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.AnimateWait) && enemyUIInstance == null)
         {
             UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
             script.showCharDisplay();
