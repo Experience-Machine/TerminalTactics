@@ -215,23 +215,6 @@ public class LevelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(characters[currentPlayer].getState());
-        /*
-        if (characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Move || characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Attack || characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Special)
-        {
-            UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
-            script.hideCharDisplay();
-        }
-        */
-        /*
-        if ((characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.Selected || characters[currentPlayer].getState() == CharacterBehaviour.CharacterState.AnimateWait) && enemyUIInstance == null)
-        {
-            UIBehavior script = charUIInstance.GetComponent<UIBehavior>();
-            script.showCharDisplay();
-            script.setContent(characters[currentPlayer].charSprite, characters[currentPlayer].MAX_HEALTH, characters[currentPlayer].currentHealth, characters[currentPlayer].MAX_SPECIAL, characters[currentPlayer].currentSpecial, characters[currentPlayer].name);
-        }
-        */
-
         if (Input.GetKeyDown("escape"))
         {
             GameObject exitUI = Instantiate(Resources.Load("Prefabs/ExitUI") as GameObject) as GameObject;
@@ -280,6 +263,7 @@ public class LevelScript : MonoBehaviour
                 {
                     if (enemyUIInstance != null)
                     {
+                        Debug.Log("Delete2");
                         Destroy(enemyUIInstance);
                         enemyUIInstance = null;
                     }
@@ -293,6 +277,7 @@ public class LevelScript : MonoBehaviour
                 {
                     if (enemyUIInstance != null)
                     {
+                        Debug.Log("Delete3");
                         Destroy(enemyUIInstance);
                         enemyUIInstance = null;
                     }
@@ -339,10 +324,11 @@ public class LevelScript : MonoBehaviour
             lastClicked = UIBehavior.lastClicked;
             if(state == LevelState.PlayerTurn)
             {
-                if (lastClicked != UIBehavior.ButtonClicked.None)
+                if (lastClicked != UIBehavior.ButtonClicked.None && lastClicked != UIBehavior.ButtonClicked.Wait)
                 {
                     if (enemyUIInstance != null && state != LevelState.EnemyTurn)
                     {
+                        Debug.Log("Delete1, state = " + state);
                         Destroy(enemyUIInstance);
                         enemyUIInstance = null;
                     }
@@ -354,7 +340,7 @@ public class LevelScript : MonoBehaviour
                 }
                 
 
-                Debug.Log("State change");
+                //Debug.Log("State change");
 
                 if (lastClicked == UIBehavior.ButtonClicked.None)
                 {

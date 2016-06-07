@@ -29,7 +29,7 @@ public class MainTheme : MonoBehaviour {
         Scene scene = SceneManager.GetActiveScene();
         //Debug.Log(scene.name);
         
-        if (scene.name == "Level1" || scene.name == "Level2")
+        if (scene.name.Substring(0,5) == "Level")
         {
             //audio.volume = 0.2F;
             GetComponent<AudioSource>().volume = 0.0f;
